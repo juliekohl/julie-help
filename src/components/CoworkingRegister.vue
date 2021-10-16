@@ -14,14 +14,44 @@
       <button
           class="form__btn"
           type="button"
-          v-on:click="submit"
-      >Submit
+          v-on:click="handleCreate"
+      >Create
       </button>
   </form>
 
   <ul>
-    <li v-for="i in all" :key="i">{{ i.name }}</li>
+    <li v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
   </ul>
+
+  <div v-if="cwk.id">
+    <h2>Coworking Info</h2>
+    <span>Name: {{cwk.name}}</span>
+    <h2>Edit coworking</h2>
+    <form
+        class="form"
+    >
+      <label for="name-edit">{{cwk.name ? cwk.name : 'Coworking Name'}}</label>
+      <input
+          type="text"
+          id="name-edit"
+          name="name-edit"
+          placeholder="Coworking name edit"
+          v-model="coworking.name"
+      />
+      <button
+          class="form__btn"
+          type="button"
+          v-on:click="handleEdit"
+      >Edit
+      </button>
+      <button
+          class="form__btn"
+          type="button"
+          v-on:click="handleDelete"
+      >Delete
+      </button>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -30,41 +60,41 @@ import axios from 'axios';
 
 export default {
   name: 'RegisterCoworking',
-  data () {
-    return {
-      coworking: {
-        name: ''
-      },
-    }
-  },
-  methods: {
-    submit() {
-      axios.post("http://localhost:3000/coworking", this.coworking);
-      location.reload();
-    }
-  },
   setup() {
-    /**
-     * Retrieve All
-     */
     const all = ref({});
+    const cwk = ref({id: null, name: ''});
+    const coworking = ref({name: ''});
 
     fetch('http://localhost:3000/coworkings')
         .then(response => response.json())
         .then(data => all.value = data);
 
-    /**
-     * Create
-     */
-    // const postData = () => {
-    //   axios.post("http://localhost:3000/coworking", this.coworking.name)
-    // }
-    // postData();
-    // console.log('postData', postData());
+    const handleListItem = (e) => {
+      cwk.value.id = e.target.getAttribute('data-id');
+      cwk.value.name = e.target.innerHTML;
+      coworking.value.name = e.target.innerHTML;
+    }
 
     return {
       all,
+      coworking,
+      cwk,
+      handleListItem
     }
+  },
+  methods: {
+    handleCreate() {
+      axios.post("http://localhost:3000/coworking", this.coworking);
+      location.reload();
+    },
+    handleEdit() {
+      axios.post(`http://localhost:3000/coworking/${this.cwk.id}`, this.coworking);
+      location.reload();
+    },
+    handleDelete() {
+      axios.delete(`http://localhost:3000/coworking/${this.cwk.id}`);
+      location.reload();
+    },
   }
 }
 </script>
