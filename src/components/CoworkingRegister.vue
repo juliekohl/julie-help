@@ -113,4 +113,10 @@ export default {
 .form__btn {
   margin: 10px;
 }
+ul {
+  list-style-type: none;
+}
+h2 {
+  text-align: center;
+}
 </style>

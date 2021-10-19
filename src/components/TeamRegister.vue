@@ -1,5 +1,5 @@
 <template>
-  <h1 class="heading">Register Coworker</h1>
+  <h1 class="heading">Register Team</h1>
   <form
       class="form"
   >
@@ -11,21 +11,13 @@
         placeholder="User name"
         v-model="usr.name"
     />
-    <label for="email">User Email</label>
+    <label for="cwk">Team Coworking</label>
     <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="User email"
-        v-model="usr.email"
-    />
-    <label for="password">User Password</label>
-    <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="User Password"
-        v-model="usr.password"
+        type="text"
+        id="cwk"
+        name="ckw"
+        placeholder="Coworking name"
+        v-model="usr.coworking"
     />
     <button
         class="form__btn"
@@ -42,8 +34,7 @@
   <div v-if="usr.id">
     <h2>User Info</h2>
     <span>Name: {{usr.name}}</span>
-    <span>Email: {{usr.email}}</span>
-    <span>Password: {{usr.password}}</span>
+    <span>Coworking: {{usr.name}}</span>
 
     <h2>Edit user</h2>
     <form
@@ -57,21 +48,13 @@
           placeholder="user name edit"
           v-model="usr.name"
       />
-      <label for="email-edit">{{usr.email ? usr.email : 'User Email'}}</label>
+      <label for="cwk-edit">{{usr.name ? usr.name : 'User Email'}}</label>
       <input
-          type="email"
-          id="email-edit"
-          name="email-edit"
-          placeholder="email name edit"
-          v-model="usr.email"
-      />
-      <label for="Password-edit">{{usr.password ? usr.password : 'User Password'}}</label>
-      <input
-          type="password"
-          id="Password-edit"
-          name="Password-edit"
-          placeholder="user password edit"
-          v-model="usr.password"
+          type="text"
+          id="cwk-edit"
+          name="cwk-edit"
+          placeholder="coworking name edit"
+          v-model="usr.coworking"
       />
       <button
           class="form__btn"
@@ -94,13 +77,13 @@ import {ref} from 'vue';
 import axios from 'axios';
 
 export default {
-  name: 'RegisterCoworking',
+  name: 'RegisterTeam',
   setup() {
     const all = ref({});
-    const usr = ref({id: null, name: '', email: '', password: ''});
+    const usr = ref({id: null, name: '', coworking: ''});
     const user = ref({name: ''});
 
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:3000/teams')
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -119,15 +102,15 @@ export default {
   },
   methods: {
     handleCreate() {
-      axios.post("http://localhost:3000/user", this.user);
+      axios.post("http://localhost:3000/team", this.user);
       location.reload();
     },
     handleEdit() {
-      axios.post(`http://localhost:3000/user/${this.usr.id}`, this.user);
+      axios.post(`http://localhost:3000/team/${this.usr.id}`, this.user);
       location.reload();
     },
     handleDelete() {
-      axios.delete(`http://localhost:3000/user/${this.usr.id}`);
+      axios.delete(`http://localhost:3000/team/${this.usr.id}`);
       location.reload();
     },
   }
