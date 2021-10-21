@@ -3,21 +3,29 @@
   <form
       class="form"
   >
-    <label for="name">User Name</label>
+    <label for="name">Name</label>
     <input
         type="text"
         id="name"
         name="name"
         placeholder="User name"
-        v-model="usr.name"
+        v-model="teamUser.name"
     />
-    <label for="cwk">Team Coworking</label>
+    <label for="email">Email</label>
     <input
-        type="text"
-        id="cwk"
-        name="ckw"
-        placeholder="Coworking name"
-        v-model="usr.coworking"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="User email"
+        v-model="teamUser.email"
+    />
+    <label for="password">Password</label>
+    <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="User Password"
+        v-model="teamUser.password"
     />
     <button
         class="form__btn"
@@ -31,30 +39,39 @@
     <li v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
   </ul>
 
-  <div v-if="usr.id">
+  <div v-if="teamUser.id">
     <h2>User Info</h2>
-    <span>Name: {{usr.name}}</span>
-    <span>Coworking: {{usr.name}}</span>
+    <span>Name: {{teamUser.name}}</span>
+    <span>Email: {{teamUser.email}}</span>
+    <span>Password: {{teamUser.password}}</span>
 
     <h2>Edit user</h2>
     <form
         class="form"
     >
-      <label for="name-edit">{{usr.name ? usr.name : 'User Name'}}</label>
+      <label for="name-edit">{{teamUser.name ? teamUser.name : 'User Name'}}</label>
       <input
           type="text"
           id="name-edit"
           name="name-edit"
           placeholder="user name edit"
-          v-model="usr.name"
+          v-model="teamUser.name"
       />
-      <label for="cwk-edit">{{usr.name ? usr.name : 'User Email'}}</label>
+      <label for="email-edit">{{teamUser.email ? teamUser.email : 'User Email'}}</label>
       <input
-          type="text"
-          id="cwk-edit"
-          name="cwk-edit"
-          placeholder="coworking name edit"
-          v-model="usr.coworking"
+          type="email"
+          id="email-edit"
+          name="email-edit"
+          placeholder="email name edit"
+          v-model="teamUser.email"
+      />
+      <label for="Password-edit">{{teamUser.password ? teamUser.password : 'User Password'}}</label>
+      <input
+          type="password"
+          id="Password-edit"
+          name="Password-edit"
+          placeholder="user password edit"
+          v-model="teamUser.password"
       />
       <button
           class="form__btn"
@@ -80,37 +97,39 @@ export default {
   name: 'RegisterTeam',
   setup() {
     const all = ref({});
-    const usr = ref({id: null, name: '', coworking: ''});
-    const user = ref({name: ''});
+    const teamUser = ref({id: null, coworking_id: 1, name: '', email: '', password: ''});
+    const userId = ref({name: ''});
 
     fetch('http://localhost:3000/teams')
         .then(response => response.json())
         .then(data => all.value = data);
 
     const handleListItem = (e) => {
-      usr.value.id = e.target.getAttribute('data-id');
-      usr.value.name = e.target.innerHTML;
-      user.value.name = e.target.innerHTML;
+      teamUser.value.id = e.target.getAttribute('data-id');
+      teamUser.value.name = e.target.innerHTML;
+      teamUser.value.email = e.target.innerHTML;
+      teamUser.value.password = e.target.innerHTML;
+      userId.value.name = e.target.innerHTML;
     }
 
     return {
       all,
-      user,
-      usr,
+      userId,
+      teamUser,
       handleListItem
     }
   },
   methods: {
     handleCreate() {
-      axios.post("http://localhost:3000/team", this.user);
+      axios.post("http://localhost:3000/team", this.userId);
       location.reload();
     },
     handleEdit() {
-      axios.post(`http://localhost:3000/team/${this.usr.id}`, this.user);
+      axios.post(`http://localhost:3000/team/${this.teamUser.id}`, this.userId);
       location.reload();
     },
     handleDelete() {
-      axios.delete(`http://localhost:3000/team/${this.usr.id}`);
+      axios.delete(`http://localhost:3000/team/${this.teamUser.id}`);
       location.reload();
     },
   }

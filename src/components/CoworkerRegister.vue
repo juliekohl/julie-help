@@ -3,29 +3,29 @@
   <form
       class="form"
   >
-    <label for="name">User Name</label>
+    <label for="name">Name</label>
     <input
         type="text"
         id="name"
         name="name"
         placeholder="User name"
-        v-model="usr.name"
+        v-model="coworker.name"
     />
-    <label for="email">User Email</label>
+    <label for="email">Email</label>
     <input
         type="email"
         id="email"
         name="email"
         placeholder="User email"
-        v-model="usr.email"
+        v-model="coworker.email"
     />
-    <label for="password">User Password</label>
+    <label for="password">Password</label>
     <input
         type="password"
         id="password"
         name="password"
         placeholder="User Password"
-        v-model="usr.password"
+        v-model="coworker.password"
     />
     <button
         class="form__btn"
@@ -39,39 +39,39 @@
     <li v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
   </ul>
 
-  <div v-if="usr.id">
+  <div v-if="coworker.id">
     <h2>User Info</h2>
-    <span>Name: {{usr.name}}</span>
-    <span>Email: {{usr.email}}</span>
-    <span>Password: {{usr.password}}</span>
+    <span>Name: {{coworker.name}}</span>
+    <span>Email: {{coworker.email}}</span>
+    <span>Password: {{coworker.password}}</span>
 
     <h2>Edit user</h2>
     <form
         class="form"
     >
-      <label for="name-edit">{{usr.name ? usr.name : 'User Name'}}</label>
+      <label for="name-edit">{{coworker.name ? coworker.name : 'User Name'}}</label>
       <input
           type="text"
           id="name-edit"
           name="name-edit"
           placeholder="user name edit"
-          v-model="usr.name"
+          v-model="coworker.name"
       />
-      <label for="email-edit">{{usr.email ? usr.email : 'User Email'}}</label>
+      <label for="email-edit">{{coworker.email ? coworker.email : 'User Email'}}</label>
       <input
           type="email"
           id="email-edit"
           name="email-edit"
           placeholder="email name edit"
-          v-model="usr.email"
+          v-model="coworker.email"
       />
-      <label for="Password-edit">{{usr.password ? usr.password : 'User Password'}}</label>
+      <label for="Password-edit">{{coworker.password ? coworker.password : 'User Password'}}</label>
       <input
           type="password"
           id="Password-edit"
           name="Password-edit"
           placeholder="user password edit"
-          v-model="usr.password"
+          v-model="coworker.password"
       />
       <button
           class="form__btn"
@@ -97,7 +97,7 @@ export default {
   name: 'RegisterCoworking',
   setup() {
     const all = ref({});
-    const usr = ref({id: null, name: '', email: '', password: ''});
+    const coworker = ref({id: null, name: '', email: '', password: ''});
     const user = ref({name: ''});
 
     fetch('http://localhost:3000/users')
@@ -105,15 +105,17 @@ export default {
         .then(data => all.value = data);
 
     const handleListItem = (e) => {
-      usr.value.id = e.target.getAttribute('data-id');
-      usr.value.name = e.target.innerHTML;
+      coworker.value.id = e.target.getAttribute('data-id');
+      coworker.value.name = e.target.innerHTML;
+      coworker.value.email = e.target.innerHTML;
+      coworker.value.password = e.target.innerHTML;
       user.value.name = e.target.innerHTML;
     }
 
     return {
       all,
       user,
-      usr,
+      coworker,
       handleListItem
     }
   },
@@ -123,11 +125,11 @@ export default {
       location.reload();
     },
     handleEdit() {
-      axios.post(`http://localhost:3000/user/${this.usr.id}`, this.user);
+      axios.post(`http://localhost:3000/user/${this.coworker.id}`, this.user);
       location.reload();
     },
     handleDelete() {
-      axios.delete(`http://localhost:3000/user/${this.usr.id}`);
+      axios.delete(`http://localhost:3000/user/${this.coworker.id}`);
       location.reload();
     },
   }

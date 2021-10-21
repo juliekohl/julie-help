@@ -1,18 +1,20 @@
 <template>
   <CoworkingRegister />
   <TeamRegister />
+  <CoworkerRegister />
 </template>
 
 <script>
 import CoworkingRegister from './components/CoworkingRegister.vue';
-import UsersRegister from "@/components/CoworkerRegister";
 import TeamRegister from "@/components/TeamRegister";
+import CoworkerRegister from "@/components/CoworkerRegister";
 
 export default {
   name: 'App',
   components: {
     CoworkingRegister,
     TeamRegister,
+    CoworkerRegister,
   }
 }
 </script>
