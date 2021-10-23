@@ -89,7 +89,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {ref} from 'vue';
 import axios from 'axios';
 
@@ -100,7 +100,7 @@ export default {
     const coworker = ref({id: null, name: '', email: '', password: ''});
     const user = ref({name: ''});
 
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:3000/coworkers')
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -121,15 +121,15 @@ export default {
   },
   methods: {
     handleCreate() {
-      axios.post("http://localhost:3000/user", this.user);
+      axios.post("http://localhost:3000/coworker", this.user);
       location.reload();
     },
     handleEdit() {
-      axios.post(`http://localhost:3000/user/${this.coworker.id}`, this.user);
+      axios.post(`http://localhost:3000/coworker/${this.coworker.id}`, this.user);
       location.reload();
     },
     handleDelete() {
-      axios.delete(`http://localhost:3000/user/${this.coworker.id}`);
+      axios.delete(`http://localhost:3000/coworker/${this.coworker.id}`);
       location.reload();
     },
   }
