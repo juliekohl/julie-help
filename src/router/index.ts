@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Login from "/src/components/Login.vue";
-import CoworkerRegister from "./components/CoworkerRegister.vue";
-import CoworkingRegister from "./components/CoworkingRegister.vue";
-import TeamRegister from "./components/TeamRegister.vue";
+import CoworkerRegister from "../components/CoworkerRegister.vue";
+import CoworkingRegister from "../components/CoworkingRegister.vue";
+import TeamRegister from "../components/TeamRegister.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -35,9 +35,9 @@ const routes = [
     // }
 ]
 
-const router = createRouter({
+const index = createRouter({
     history,
     routes
 })
 
-export default router;
+export default index;
