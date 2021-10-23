@@ -1,21 +1,19 @@
 <template>
-  <CoworkingRegister />
-  <TeamRegister />
-  <CoworkerRegister />
+  <nav class="nav">
+    <router-link to="/login">Login</router-link>
+    <router-link to="/coworking">Coworking</router-link>
+    <router-link to="/coworker">Coworker</router-link>
+    <router-link to="/team">Team</router-link>
+  </nav>
+  <router-view></router-view>
 </template>
 
 <script>
-import CoworkingRegister from './components/CoworkingRegister.vue';
-import TeamRegister from "@/components/TeamRegister";
-import CoworkerRegister from "@/components/CoworkerRegister";
+import router from "./router.js";
 
 export default {
   name: 'App',
-  components: {
-    CoworkingRegister,
-    TeamRegister,
-    CoworkerRegister,
-  }
+  router: router
 }
 </script>
 
