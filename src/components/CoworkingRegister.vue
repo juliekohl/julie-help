@@ -69,7 +69,7 @@ export default {
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e) => {
+    const handleListItem = (e: any) => {
       cwk.value.id = e.target.getAttribute('data-id');
       cwk.value.name = e.target.innerHTML;
       coworking.value.name = e.target.innerHTML;
@@ -83,16 +83,16 @@ export default {
     }
   },
   methods: {
-    handleCreate() {
-      axios.post("http://localhost:3000/coworking", this.coworking);
+    handleCreate(_this: any) {
+      axios.post("http://localhost:3000/coworking", _this.coworking);
       location.reload();
     },
-    handleEdit() {
-      axios.post(`http://localhost:3000/coworking/${this.cwk.id}`, this.coworking);
+    handleEdit(_this: any) {
+      axios.post(`http://localhost:3000/coworking/${_this.cwk.id}`, _this.coworking);
       location.reload();
     },
-    handleDelete() {
-      axios.delete(`http://localhost:3000/coworking/${this.cwk.id}`);
+    handleDelete(_this: any) {
+      axios.delete(`http://localhost:3000/coworking/${_this.cwk.id}`);
       location.reload();
     },
   }

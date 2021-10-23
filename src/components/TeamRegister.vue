@@ -104,7 +104,7 @@ export default {
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e) => {
+    const handleListItem = (e: any) => {
       teamUser.value.id = e.target.getAttribute('data-id');
       teamUser.value.name = e.target.innerHTML;
       teamUser.value.email = e.target.innerHTML;
@@ -120,16 +120,16 @@ export default {
     }
   },
   methods: {
-    handleCreate() {
-      axios.post("http://localhost:3000/team", this.userId);
+    handleCreate(_this: any) {
+      axios.post("http://localhost:3000/team", _this.userId);
       location.reload();
     },
-    handleEdit() {
-      axios.post(`http://localhost:3000/team/${this.teamUser.id}`, this.userId);
+    handleEdit(_this: any) {
+      axios.post(`http://localhost:3000/team/${_this.teamUser.id}`, _this.userId);
       location.reload();
     },
-    handleDelete() {
-      axios.delete(`http://localhost:3000/team/${this.teamUser.id}`);
+    handleDelete(_this: any) {
+      axios.delete(`http://localhost:3000/team/${_this.teamUser.id}`);
       location.reload();
     },
   }
