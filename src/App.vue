@@ -8,8 +8,8 @@
   <router-view></router-view>
 </template>
 
-<script>
-import router from "./router.js";
+<script lang="ts">
+import router from "./router";
 
 export default {
   name: 'App',

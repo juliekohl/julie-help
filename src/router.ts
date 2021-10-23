@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Login from "/src/components/Login";
-import CoworkerRegister from "@/components/CoworkerRegister";
-import CoworkingRegister from "@/components/CoworkingRegister";
-import TeamRegister from "@/components/TeamRegister";
+import Login from "/src/components/Login.vue";
+import CoworkerRegister from "./components/CoworkerRegister.vue";
+import CoworkingRegister from "./components/CoworkingRegister.vue";
+import TeamRegister from "./components/TeamRegister.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
