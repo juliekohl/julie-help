@@ -41,7 +41,7 @@
 <!--  </div>-->
 </template>
 
-<script>
+<script lang="ts">
 // import { ValidationObserver, ValidationProvider } from 'vee-validate';
 
 export default {
