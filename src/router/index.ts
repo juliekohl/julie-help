@@ -1,38 +1,50 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Login from "/src/components/Login.vue";
-import CoworkerRegister from "../components/CoworkerRegister.vue";
-import CoworkingRegister from "../components/CoworkingRegister.vue";
-import TeamRegister from "../components/TeamRegister.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
 const routes = [
     {
+        path: '/',
+        name: 'Dashboard',
+        component: () => {
+            console.log('Dashboard');
+        }
+    },
+    {
         path: '/login',
         name: 'Login',
-        component: Login
+        component: () => {
+            console.log('Login');
+        }
     },
     {
-        path: '/coworking',
-        name: 'CoworkingRegister',
-        component: CoworkingRegister
+        path: '/teams',
+        name: 'Teams',
+        component: () => {
+            console.log('Teams');
+        }
     },
     {
-        path: '/team',
-        name: 'TeamRegister',
-        component: TeamRegister
+        path: '/teams/:id',
+        name: 'TeamView',
+        component: () => {
+            console.log('TeamView');
+        }
     },
     {
-        path: '/coworker',
-        name: 'CoworkerRegister',
-        component: CoworkerRegister
-    }
-    // {
-    //     path: '/coworker',
-    //     name: 'CoworkerRegister',
-    //     component: () =>
-    //         import('../components/CoworkerRegister')
-    // }
+        path: '/teams/:id/edit',
+        name: 'TeamEdit',
+        component: () => {
+            console.log('TeamEdit');
+        }
+    },
+    {
+        path: '/teams/create',
+        name: 'TeamCreate',
+        component: () => {
+            console.log('TeamCreate');
+        }
+    },
 ]
 
 const index = createRouter({
