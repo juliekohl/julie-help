@@ -1,4 +1,10 @@
 import { createWebHistory, createRouter } from 'vue-router';
+import Dashboard from "@/pages/Dashboard.vue";
+import Login from "@/pages/Login.vue";
+import Teams from "@/pages/Teams.vue";
+import TeamsView from "@/pages/TeamsView.vue";
+import TeamsEdit from "@/pages/TeamsEdit.vue";
+import TeamsCreate from "@/pages/TeamsCreate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -6,44 +12,32 @@ const routes = [
     {
         path: '/',
         name: 'Dashboard',
-        component: () => {
-            console.log('Dashboard');
-        }
+        component: Dashboard
     },
     {
         path: '/login',
         name: 'Login',
-        component: () => {
-            console.log('Login');
-        }
+        component: Login
     },
     {
         path: '/teams',
         name: 'Teams',
-        component: () => {
-            console.log('Teams');
-        }
+        component: Teams
     },
     {
         path: '/teams/:id',
-        name: 'TeamView',
-        component: () => {
-            console.log('TeamView');
-        }
+        name: 'TeamsView',
+        component: TeamsView
     },
     {
         path: '/teams/:id/edit',
-        name: 'TeamEdit',
-        component: () => {
-            console.log('TeamEdit');
-        }
+        name: 'TeamsEdit',
+        component: TeamsEdit
     },
     {
         path: '/teams/create',
-        name: 'TeamCreate',
-        component: () => {
-            console.log('TeamCreate');
-        }
+        name: 'TeamsCreate',
+        component: TeamsCreate
     },
 ]
 
