@@ -104,7 +104,7 @@ export default {
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e) => {
+    const handleListItem = (e: any) => {
       coworker.value.id = e.target.getAttribute('data-id');
       coworker.value.name = e.target.innerHTML;
       coworker.value.email = e.target.innerHTML;
@@ -120,16 +120,16 @@ export default {
     }
   },
   methods: {
-    handleCreate() {
-      axios.post("http://localhost:3000/coworker", this.user);
+    handleCreate(_this: any) {
+      axios.post("http://localhost:3000/coworker", _this.user);
       location.reload();
     },
-    handleEdit() {
-      axios.post(`http://localhost:3000/coworker/${this.coworker.id}`, this.user);
+    handleEdit(_this: any) {
+      axios.post(`http://localhost:3000/coworker/${_this.coworker.id}`, _this.user);
       location.reload();
     },
-    handleDelete() {
-      axios.delete(`http://localhost:3000/coworker/${this.coworker.id}`);
+    handleDelete(_this: any) {
+      axios.delete(`http://localhost:3000/coworker/${_this.coworker.id}`);
       location.reload();
     },
   }

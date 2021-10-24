@@ -107,7 +107,6 @@ export default {
   background: #131419;
   border: none;
   border-radius: 40px;
-  color: #fff;
   font-size: 18px;
   color: #03a9f4;
   outline: none;
@@ -136,7 +135,6 @@ export default {
   background: #131419;
   border: none;
   border-radius: 40px;
-  color: #fff;
   font-size: 18px;
   color: #03a9f4;
   outline: none;
