@@ -55,10 +55,10 @@
 </template>
 
 <script lang="ts">
-import {ref} from 'vue';
+import {defineComponent, ref} from 'vue';
 import axios from 'axios';
 
-export default {
+export default defineComponent({
   name: 'RegisterCoworking',
   setup() {
     const all = ref({});
@@ -83,20 +83,20 @@ export default {
     }
   },
   methods: {
-    handleCreate(_this: any) {
-      axios.post("http://localhost:3000/coworking", _this.coworking);
+    handleCreate(): void {
+      axios.post("http://localhost:3000/coworking", this.coworking);
       location.reload();
     },
-    handleEdit(_this: any) {
-      axios.post(`http://localhost:3000/coworking/${_this.cwk.id}`, _this.coworking);
+    handleEdit(): void {
+      axios.post(`http://localhost:3000/coworking/${this.cwk.id}`, this.coworking);
       location.reload();
     },
-    handleDelete(_this: any) {
-      axios.delete(`http://localhost:3000/coworking/${_this.cwk.id}`);
+    handleDelete(): void {
+      axios.delete(`http://localhost:3000/coworking/${this.cwk.id}`);
       location.reload();
     },
   }
-}
+})
 </script>
 
 <style scoped>
