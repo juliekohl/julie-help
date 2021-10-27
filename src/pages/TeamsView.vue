@@ -12,11 +12,10 @@ import {useRouter} from "vue-router";
 
 export default {
   name: 'TeamsView',
-
   setup() {
     const router = useRouter();
     const teamUser = ref({id: null, name: '', email: ''});
-    const teamUserId = Number(router.currentRoute.value.params.id);
+    const teamUserId: number = Number(router.currentRoute.value.params.id);
 
     fetch(`http://localhost:3000/teams/${teamUserId}`)
         .then(response => response.json())

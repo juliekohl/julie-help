@@ -46,13 +46,10 @@ import {useRouter} from "vue-router";
 
 export default defineComponent( {
   name: 'TeamsEdit',
-
   setup() {
     const router = useRouter();
-    const teamUserId = Number(router.currentRoute.value.params.id);
-    console.log(teamUserId);
+    const teamUserId: number = Number(router.currentRoute.value.params.id);
     const teamUser = ref({id: teamUserId, name: '', password: ''});
-    console.log(teamUser);
 
     fetch(`http://localhost:3000/teams/${teamUserId}`)
         .then(response => response.json())
@@ -65,11 +62,11 @@ export default defineComponent( {
   },
 
   methods: {
-    handleEdit():void {
+    handleEdit(): void {
       axios.post(`http://localhost:3000/teams/${this.teamUserId}`, this.teamUser);
       location.reload();
     },
-    handleDelete():void {
+    handleDelete(): void {
       axios.delete(`http://localhost:3000/teams/${this.teamUserId}`);
       location.reload();
     },
@@ -98,5 +95,4 @@ span {
 .form__btn {
   margin: 10px;
 }
-
 </style>
