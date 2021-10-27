@@ -18,7 +18,7 @@ export default {
         .then(response => response.json())
         .then(data => {all.value = data});
 
-    const handleListItem = (e: Event): void => {
+    const handleListItem = (e: any): void => {
       teamUser.value.id = e.target.getAttribute('data-id');
       teamUser.value.name = e.target.innerHTML;
     }
