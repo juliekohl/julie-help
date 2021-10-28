@@ -1,10 +1,14 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/pages/Dashboard.vue";
 import Login from "@/pages/Login.vue";
-import Teams from "@/pages/Teams.vue";
-import TeamsView from "@/pages/TeamsView.vue";
-import TeamsEdit from "@/pages/TeamsEdit.vue";
-import TeamsCreate from "@/pages/TeamsCreate.vue";
+import Teams from "@/pages/Teams/Teams.vue";
+import TeamsView from "@/pages/Teams/TeamsView.vue";
+import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
+import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
+import Coworkers from "@/pages/Coworkers/Coworkers.vue";
+import CoworkersView from "@/pages/Coworkers/CoworkersView.vue";
+import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
+import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -38,6 +42,26 @@ const routes = [
         path: '/teams/create',
         name: 'TeamsCreate',
         component: TeamsCreate
+    },
+    {
+        path: '/coworkers',
+        name: 'Coworkers',
+        component: Coworkers
+    },
+    {
+        path: '/coworkers/:id',
+        name: 'CoworkersView',
+        component: CoworkersView
+    },
+    {
+        path: '/coworkers/:id/edit',
+        name: 'CoworkersEdit',
+        component: CoworkersEdit
+    },
+    {
+        path: '/coworkers/create',
+        name: 'CoworkersCreate',
+        component: CoworkersCreate
     },
 ]
 
