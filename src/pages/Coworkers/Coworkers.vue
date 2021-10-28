@@ -33,6 +33,7 @@ export default defineComponent( {
   setup() {
     const all = ref({});
     const coworker = ref({id: null, name: ''});
+    const coworkersId = coworker.value.id;
 
     fetch('http://localhost:3000/coworkers?coworker_id=5')
         .then(response => response.json())
@@ -41,13 +42,12 @@ export default defineComponent( {
     const handleListItem = (e: any) => {
       coworker.value.id = e.target.getAttribute('data-id');
       coworker.value.name = e.target.innerHTML;
-      const coworkersId = coworker.value.id;
-      console.log(coworkersId);
     }
 
     return {
       all,
       coworker,
+      coworkersId,
       handleListItem
     }
   },

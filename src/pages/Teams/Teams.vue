@@ -34,7 +34,7 @@ export default defineComponent( {
     const all = ref({});
     const teamUser = ref({id: null, name: ''});
     const teamUserId = teamUser.value.id;
-    
+
     fetch('http://localhost:3000/teams?team_id=10')
         .then(response => response.json())
         .then(data => {all.value = data});
