@@ -18,7 +18,7 @@
       v-on:click="handleCreate"
   >
     <router-link
-        :to="{ name: 'CoworkersCreate', params: { id: teamUserId }}"
+        :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
     >Create</router-link>
   </button>
 </template>
