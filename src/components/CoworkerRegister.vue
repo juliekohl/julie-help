@@ -1,8 +1,6 @@
 <template>
   <h1 class="heading">Register Coworker</h1>
-  <form
-      class="form"
-  >
+  <form class="form">
     <label for="name">Name</label>
     <input
         type="text"
@@ -121,15 +119,15 @@ export default {
   },
   methods: {
     handleCreate(_this: any) {
-      axios.post("http://localhost:3000/coworker", _this.user);
+      axios.post("http://localhost:3000/coworkers", _this.user);
       location.reload();
     },
     handleEdit(_this: any) {
-      axios.post(`http://localhost:3000/coworker/${_this.coworker.id}`, _this.user);
+      axios.post(`http://localhost:3000/coworkers/${_this.coworker.id}`, _this.user);
       location.reload();
     },
     handleDelete(_this: any) {
-      axios.delete(`http://localhost:3000/coworker/${_this.coworker.id}`);
+      axios.delete(`http://localhost:3000/coworkers/${_this.coworker.id}`);
       location.reload();
     },
   }
