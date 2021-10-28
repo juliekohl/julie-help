@@ -1,9 +1,55 @@
 <template>
-  <h1>Coworkers View</h1>
+  <h1>Coworkers Info</h1>
+  <div class="info">
+    <span>Name: {{coworkerUser.name}}</span>
+    <span>Email: {{coworkerUser.email}}</span>
+    <button
+        class="form__btn"
+        type="button"
+        v-on:click="handleEdit"
+    >
+      <router-link
+          :to="{ name: 'CoworkersEdit', params: { id: coworkerUserId }}"
+      >Edit</router-link>
+    </button>
+  </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'CoworkersView'
-}
+import {defineComponent, ref} from "vue";
+import {useRouter} from "vue-router";
+import axios from "axios";
+
+export default defineComponent( {
+  name: 'CoworkersView',
+  setup() {
+    const router = useRouter();
+    const coworkerUser = ref({id: null, name: '', email: ''});
+    const coworkerUserId: number = Number(router.currentRoute.value.params.id);
+
+    fetch(`http://localhost:3000/coworkers/${coworkerUserId}`)
+        .then(response => response.json())
+        .then(data => {coworkerUser.value = data});
+
+    return {
+      coworkerUser,
+      coworkerUserId
+    }
+  },
+  methods: {
+    handleEdit(): void {
+      axios.post(`http://localhost:3000/coworkers/${this.coworkerUserId}`, this.coworkerUser);
+      location.reload();
+    }
+  },
+})
 </script>
+
+<style scoped>
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+</style>
