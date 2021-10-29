@@ -3,7 +3,7 @@
   <div v-if="teamUserId">
     <h2>Team Info</h2>
     <span>Name: {{teamUser.name}}</span>
-    <span>Password: {{teamUser.password}}</span>
+    <span>Email: {{teamUser.email}}</span>
 
     <h2>Edit team</h2>
     <form class="form">
@@ -15,7 +15,7 @@
           placeholder="user name edit"
           v-model="teamUser.name"
       />
-      <label for="Password-edit">{{teamUser.password ? teamUser.password : 'Team Password'}}</label>
+      <label for="Password-edit">Team Password</label>
       <input
           type="password"
           id="Password-edit"
@@ -49,7 +49,7 @@ export default defineComponent( {
   setup() {
     const router = useRouter();
     const teamUserId: number = Number(router.currentRoute.value.params.id);
-    const teamUser = ref({id: teamUserId, name: '', password: ''});
+    const teamUser = ref({id: teamUserId, name: '', password: '', email: ''});
 
     fetch(`http://localhost:3000/teams/${teamUserId}`)
         .then(response => response.json())
