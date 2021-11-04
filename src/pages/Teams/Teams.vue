@@ -35,7 +35,7 @@ export default defineComponent( {
     const teamUser = ref({id: null, name: ''});
     const teamUserId = teamUser.value.id;
 
-    fetch('http://localhost:3000/teams?team_id=10')
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=10`)
         .then(response => response.json())
         .then(data => {all.value = data});
 
@@ -53,7 +53,7 @@ export default defineComponent( {
   },
   methods: {
     handleCreate(): void {
-      axios.post("http://localhost:3000/teams");
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams`);
       location.reload();
     }
   },

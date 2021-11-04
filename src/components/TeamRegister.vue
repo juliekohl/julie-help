@@ -100,7 +100,7 @@ export default {
     const teamUser = ref({id: null, coworking_id: 1, name: '', email: '', password: ''});
     const userId = ref({name: ''});
 
-    fetch('http://localhost:3000/teams')
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams`)
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -121,15 +121,15 @@ export default {
   },
   methods: {
     handleCreate(_this: any) {
-      axios.post("http://localhost:3000/team", _this.userId);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/team`, _this.userId);
       location.reload();
     },
     handleEdit(_this: any) {
-      axios.post(`http://localhost:3000/team/${_this.teamUser.id}`, _this.userId);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/team/${_this.teamUser.id}`, _this.userId);
       location.reload();
     },
     handleDelete(_this: any) {
-      axios.delete(`http://localhost:3000/team/${_this.teamUser.id}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/team/${_this.teamUser.id}`);
       location.reload();
     },
   }

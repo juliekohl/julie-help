@@ -27,7 +27,7 @@ export default defineComponent( {
     const teamUser = ref({id: null, name: '', email: ''});
     const teamUserId: number = Number(router.currentRoute.value.params.id);
 
-    fetch(`http://localhost:3000/teams/${teamUserId}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams/${teamUserId}`)
         .then(response => response.json())
         .then(data => {teamUser.value = data});
 
@@ -38,7 +38,7 @@ export default defineComponent( {
   },
   methods: {
     handleEdit(): void {
-      axios.post(`http://localhost:3000/teams/${this.teamUserId}`, this.teamUser);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.teamUserId}`, this.teamUser);
       location.reload();
     }
   },

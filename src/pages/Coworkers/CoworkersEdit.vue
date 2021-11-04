@@ -51,7 +51,7 @@ export default defineComponent( {
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
     const coworkerUser = ref({id: coworkerUserId, name: '', password: '', email: ''});
 
-    fetch(`http://localhost:3000/coworkers/${coworkerUserId}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworkerUserId}`)
         .then(response => response.json())
         .then(data => {coworkerUser.value = data});
 
@@ -62,11 +62,11 @@ export default defineComponent( {
   },
   methods: {
     handleEdit(): void {
-      axios.post(`http://localhost:3000/coworkers/${this.coworkerUserId}`, this.coworkerUser);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`, this.coworkerUser);
       location.reload();
     },
     handleDelete(): void {
-      axios.delete(`http://localhost:3000/coworkers/${this.coworkerUserId}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`);
       location.reload();
     },
   }

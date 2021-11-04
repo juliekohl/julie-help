@@ -65,7 +65,7 @@ export default defineComponent({
     const cwk = ref({id: null, name: ''});
     const coworking = ref({name: ''});
 
-    fetch('http://localhost:3000/coworkings')
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkings`)
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -84,15 +84,15 @@ export default defineComponent({
   },
   methods: {
     handleCreate(): void {
-      axios.post("http://localhost:3000/coworking", this.coworking);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworking`, this.coworking);
       location.reload();
     },
     handleEdit(): void {
-      axios.post(`http://localhost:3000/coworking/${this.cwk.id}`, this.coworking);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.cwk.id}`, this.coworking);
       location.reload();
     },
     handleDelete(): void {
-      axios.delete(`http://localhost:3000/coworking/${this.cwk.id}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.cwk.id}`);
       location.reload();
     },
   }
