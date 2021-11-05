@@ -35,11 +35,11 @@ export default defineComponent( {
     const coworker = ref({id: null, name: ''});
     const coworkersId = coworker.value.id;
 
-    fetch('http://localhost:3000/coworkers?coworker_id=5')
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=5`)
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e: any) => {
+    const handleListItem = (e: any): void => {
       coworker.value.id = e.target.getAttribute('data-id');
       coworker.value.name = e.target.innerHTML;
     }
@@ -53,7 +53,7 @@ export default defineComponent( {
   },
   methods: {
     handleCreate(): void {
-      axios.post("http://localhost:3000/coworkers");
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`);
       location.reload();
     }
   },

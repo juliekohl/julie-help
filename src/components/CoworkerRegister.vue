@@ -98,7 +98,7 @@ export default {
     const coworker = ref({id: null, name: '', email: '', password: ''});
     const user = ref({name: ''});
 
-    fetch('http://localhost:3000/coworkers')
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers`)
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -119,15 +119,15 @@ export default {
   },
   methods: {
     handleCreate(_this: any) {
-      axios.post("http://localhost:3000/coworkers", _this.user);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, _this.user);
       location.reload();
     },
     handleEdit(_this: any) {
-      axios.post(`http://localhost:3000/coworkers/${_this.coworker.id}`, _this.user);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${_this.coworker.id}`, _this.user);
       location.reload();
     },
     handleDelete(_this: any) {
-      axios.delete(`http://localhost:3000/coworkers/${_this.coworker.id}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${_this.coworker.id}`);
       location.reload();
     },
   }

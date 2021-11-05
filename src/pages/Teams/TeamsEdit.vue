@@ -51,7 +51,7 @@ export default defineComponent( {
     const teamUserId: number = Number(router.currentRoute.value.params.id);
     const teamUser = ref({id: teamUserId, name: '', password: '', email: ''});
 
-    fetch(`http://localhost:3000/teams/${teamUserId}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams/${teamUserId}`)
         .then(response => response.json())
         .then(data => {teamUser.value = data});
 
@@ -63,11 +63,11 @@ export default defineComponent( {
 
   methods: {
     handleEdit(): void {
-      axios.post(`http://localhost:3000/teams/${this.teamUserId}`, this.teamUser);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.teamUserId}`, this.teamUser);
       location.reload();
     },
     handleDelete(): void {
-      axios.delete(`http://localhost:3000/teams/${this.teamUserId}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.teamUserId}`);
       location.reload();
     },
   }

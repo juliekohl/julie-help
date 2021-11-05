@@ -57,7 +57,7 @@ export default defineComponent( {
   },
   methods: {
     handleCreate(): void {
-      axios.post("http://localhost:3000/coworkers", this.userId);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, this.userId);
       location.reload();
     }
   }
