@@ -28,7 +28,7 @@ export default defineComponent( {
     const coworkerUser = ref({id: null, name: '', email: '', coworkingId: null});
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
 
-    fetch(`http://localhost:3000/coworkers/${coworkerUserId}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworkerUserId}`)
         .then(response => response.json())
         .then(data => {coworkerUser.value = data});
 
@@ -39,7 +39,7 @@ export default defineComponent( {
   },
   methods: {
     handleEdit(): void {
-      axios.post(`http://localhost:3000/coworkers/${this.coworkerUserId}`, this.coworkerUser);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`, this.coworkerUser);
       location.reload();
     }
   },

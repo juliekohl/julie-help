@@ -123,11 +123,11 @@ export default {
       location.reload();
     },
     handleEdit(_this: any) {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/${_this.coworker.id}`, _this.user);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${_this.coworker.id}`, _this.user);
       location.reload();
     },
     handleDelete(_this: any) {
-      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/${_this.coworker.id}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${_this.coworker.id}`);
       location.reload();
     },
   }

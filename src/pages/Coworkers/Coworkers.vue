@@ -35,9 +35,8 @@ export default defineComponent( {
     const coworker = ref({id: null, name: ''});
     const coworkersId = coworker.value.id;
     const coworking = ref({id: 5});
-    console.log('coworking', coworking);
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/${coworking.value}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworking.value}`)
         .then(response => response.json())
         .then(data => coworking.value = data);
 
