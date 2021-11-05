@@ -1,0 +1,46 @@
+:root {
+    font-size: 6.25%; // 1px = 1rem
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-primary);
+    font-size: 16rem;
+    background: var(--color-gray-blue);
+    color: var(--color-gray-100);
+    cursor: default;
+
+    &.scroll-lock {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    font-size: 32rem;
+    letter-spacing: -0.05em;
+    line-height: 1em;
+}
+
+ul,
+ol {
+    padding-left: 1em;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.divider {
+    border-bottom: 1rem solid var(--color-gray-50);
+}

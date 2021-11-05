@@ -16,3 +16,6 @@ export default {
   router: index
 }
 </script>
+<style lang="scss" src="./assets/scss/index.scss">
+
+</style>
