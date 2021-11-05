@@ -34,17 +34,12 @@ export default defineComponent( {
     const all = ref({});
     const coworker = ref({id: null, name: ''});
     const coworkersId = coworker.value.id;
-    const coworking = ref({id: 5});
-
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworking.value}`)
-        .then(response => response.json())
-        .then(data => coworking.value = data);
 
     fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=5`)
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e: any) => {
+    const handleListItem = (e: any): void => {
       coworker.value.id = e.target.getAttribute('data-id');
       coworker.value.name = e.target.innerHTML;
     }
