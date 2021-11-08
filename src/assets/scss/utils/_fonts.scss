@@ -1,0 +1,13 @@
+/**
+ * Open Sans
+ */
+
+$openSansPath: '~@/assets/fonts/OpenSans';
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$openSansPath}/OpenSans-Regular.ttf') format('truetype');
+}
+

@@ -1,0 +1,139 @@
+@use 'sass:math';
+
+/// Fluid
+///
+/// Returns a calc that translates into a fluid value between two breakpoints/limits.
+/// Commonly used for fluid typography - https://css-tricks.com/simplified-fluid-typography/
+/// Example usage: font-size: fluid('phone-small', 'tablet', 12px, 18px);
+///                line-height: fluid('phone-small', '1800px', 12px, 18px);
+/// Note that this is a linear function that will not stop growing/shrinking before or after the given breakpoints.
+///
+/// @param {String} $min-breakpoint - Where the distance starts to be calculated from.
+/// @param {String} $max-breakpoint - Where the distance ends.
+/// @param {Pixel Value} $min-value - The the minimum value that starts from the distance starting point.
+/// @param {Pixel Value} $max-value - The the maximum value that ends for the distance ending point.
+/// @return {String} - The calc() CSS operation with crazy mathz.
+
+@function fluid($min-breakpoint, $max-breakpoint, $min-value, $max-value) {
+    $min-vw: 0;
+    $max-vw: 0;
+
+    @if map-has-key($breakpoints, $min-breakpoint) {
+        $min-vw: map-get($breakpoints, $min-breakpoint);
+    } @else {
+        $min-vw: to-number($min-breakpoint);
+    }
+
+    @if map-has-key($breakpoints, $max-breakpoint) {
+        $max-vw: map-get($breakpoints, $max-breakpoint);
+    } @else {
+        $max-vw: to-number($max-breakpoint);
+    }
+
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-value);
+    $u4: unit($max-value);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        @return calc(
+            #{$min-value} + #{strip-unit($max-value - $min-value)} *
+                ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+    }
+}
+
+/// Mixin ratio accepts a width and height and generates a pseudo
+/// element that maintains the ratio of the dimensions provided.
+///
+/// @param $width
+/// @param $height
+
+@mixin ratio($width, $height) {
+    font-size: 0;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        padding-top: $height / $width * 100%;
+        width: 100%;
+    }
+}
+
+/// Rem calculation of pixel values
+///
+/// @param $values
+/// @param $base-value
+
+$rem-base: 16px;
+
+@function strip-unit($num) {
+    @return math.div($num, $num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+    @if abs($value) <= 12 {
+        @return $value * 1px;
+    }
+
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+    @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+    $max: length($values);
+    @if $max == 1 {
+        @return convert-to-rem(nth($values, 1), $base-value);
+    }
+    $remValues: ();
+    @for $i from 1 through $max {
+        $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+    }
+    @return $remValues;
+}
+
+/// Z-index
+///
+/// Generates a z-index value that maintains hierarchical presentation.
+///
+/// @param {String} $name - Accepts a value from the $z-indexs array.
+
+$z-indexes: ('skip-link', 'transition', 'modal', 'mobile', 'menu', 'content');
+
+@function z-index($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+
+        @return null;
+    }
+}
+
+/// Sequential delay
+///
+/// Adds sequential delay to the specified number of children.
+///
+/// @param number $length
+/// @param time $delayAmount
+
+@mixin sequential-delay($length, $delayAmount: 100ms, $child: '', $addedDelay: 0s) {
+    @for $x from 1 through $length {
+        &:nth-child(#{ $x }) #{ $child } {
+            transition-delay: #{($x - 1) * $delayAmount + $addedDelay};
+        }
+    }
+
+    &:nth-child(n + #{ $length + 1 }) {
+        transition-delay: #{$delayAmount * $length};
+    }
+}
+
+/// Card generates CSS rules (border, border-radius, etc) for cards.
+
+@mixin card() {
+    background: var(--color-white);
+    border: 1rem solid var(--color-gray-50);
+    border-radius: 8rem;
+}

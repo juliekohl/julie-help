@@ -1,0 +1,23 @@
+$breakpoints: (
+    '320': 320px,
+    // phone-xsmall
+    '420': 420px,
+    // phone-small
+    '600': 600px,
+    // phone-medium
+    '768': 768px,
+    // phone
+    '1024': 1024px,
+    // tablet
+    '1200': 1200px,
+    // desktop-small
+    '1440': 1440px,
+    // desktop-medium
+    '1600': 1600px,
+    // desktop-mlarge
+    '1800': 1800px,
+    // desktop-large
+    '1920': 1920px
+) !default;
+
+@import '../../../../node_modules/include-media/dist/_include-media.scss';

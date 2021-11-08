@@ -1,0 +1,71 @@
+// CSS variables
+:root {
+    // Colors
+    --color-gray-100: #1a1b27;
+    --color-gray-90: #1e1e20;
+    --color-gray-80: #4a4a4c;
+    --color-gray-70: #8d8d8d;
+    --color-gray-60: #bcbcbf;
+    --color-gray-50: #dde1e6;
+    --color-gray-40: #e9e9ea;
+    --color-gray-24: #eeeff0;
+    --color-gray-16: #f6f6f6;
+
+    --color-black: #000;
+    --color-white: #fff;
+
+    --color-primary-150: #051834;
+    --color-primary-100: #004f8a;
+    --color-primary-50: #00abe2;
+    --color-primary-40: #9adcf2;
+    --color-primary-24: #c1e9f6;
+    --color-primary-16: #d5eff8;
+    --color-primary-8: #f7fafb;
+
+    --color-secondary-100: #0018d8;
+    --color-secondary-50: #5d2ef4;
+    --color-secondary-40: #bda6f9;
+    --color-secondary-24: #d7c8fb;
+    --color-secondary-16: #e3dafc;
+    --color-secondary-8: #f0eafc;
+
+    --color-success-100: #15a140;
+    --color-success-50: #20c069;
+    --color-success-40: #a5e4c2;
+    --color-success-16: #daf3e4;
+
+    --color-warning-100: #c3cc19;
+    --color-warning-50: #f2fd23;
+    --color-warning-40: #f8fcb0;
+    --color-warning-16: #fbfcde;
+
+    --color-alert-100: #c14030;
+    --color-alert-50: #ff5844;
+    --color-alert-40: #ffbab4;
+    --color-alert-16: #fde1e0;
+
+    --color-gray-blue: #e5e9f0;
+
+    --color-primary: var(--color-primary-50);
+    --color-primary-dark: var(--color-primary-150);
+    --color-muted: rgba(6, 6, 7, 0.55);
+
+    // Fonts
+    --font-primary: var(--font-open-sans);
+    --font-open-sans: 'Open Sans', sans-serif;
+
+    // Box Shadow
+    --box-shadow-default: var(--box-shadow-v2);
+    --box-shadow-v1: 0 10rem 6rem -6rem rgba(0, 0, 0, 0.3);
+    --box-shadow-v2: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+
+    // Details
+    --width-max: 1200rem;
+
+    // Easing
+    --ease-stn: cubic-bezier(0.4, 0, 0.2, 1); // Standard easing.
+    --ease-emp: cubic-bezier(0.3, 0, 0, 1); // Emphasized easing.
+    --ease-smt: cubic-bezier(0.6, 0, 0, 1); // Super smooth easing.
+    --ease-dec: cubic-bezier(0, 0, 0.2, 1); // Decelerated easing (when entering).
+    --ease-acc: cubic-bezier(0.4, 0, 1, 1); // Accelerated easing (when exiting).
+}
