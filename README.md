@@ -1,4 +1,4 @@
-# julie-help
+# julie-help-frontend
 
 ## Project setup
 ```
