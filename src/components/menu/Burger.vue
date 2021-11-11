@@ -12,22 +12,15 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-// import { store, mutations } from '@/store.js';
 
 export default defineComponent ({
   name: 'Burger',
   data: () => ({
     isBurgerActive: false
   }),
-  // computed: {
-  //   isBurgerActive() {
-  //     return store.isNavOpen
-  //   }
-  // },
   methods: {
     toggle() {
       this.isBurgerActive = !this.isBurgerActive
-      // mutations.toggleNav()
     }
   }
 })

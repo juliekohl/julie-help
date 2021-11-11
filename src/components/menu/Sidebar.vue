@@ -18,7 +18,6 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-// import { store, mutations } from "@/store";
 
 export default defineComponent ({
   name: 'Sidebar',
@@ -29,14 +28,7 @@ export default defineComponent ({
     closeSidebarPanel() {
       this.isPanelOpen = false
     }
-    // closeSidebarPanel: mutations.toggleNav
   },
-  computed: {
-    isPanelOpen() {
-      return this.isPanelOpen
-      // return store.isNavOpen
-    }
-  }
 })
 </script>
 

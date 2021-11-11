@@ -1,59 +1,84 @@
-<template>
-  <section class="menu">
+<template class="page__menu">
+  <nav class="menu">
     <h2 class="menu__heading">Julie.help!</h2>
-    <div class="menu__options">MY COWORKING
-      <ul class="menu__ul">
-        <li class="menu__li">Coworkers</li>
-        <li class="menu__li">Teams</li>
-        <li class="menu__li">Coworking</li>
-      </ul>
-    </div>
-  </section>
+    <Burger/>
+  </nav>
+  <Sidebar>
+    <div class="sidebar__heading-nav">MY COWORKING</div>
+    <ul class="sidebar__options-nav">
+      <li class="sidebar__li"><img src="user-icon.svg"><a href="#Coworkers">Coworkers</a></li>
+      <li class="sidebar__li"><img src="user-icon.svg"><a href="#Coworkers">Teams</a></li>
+      <li class="sidebar__li"><img src="user-icon.svg"><a href="#Coworkers">Coworking</a></li>
+    </ul>
+  </Sidebar>
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
+import Burger from "@/components/menu/Burger.vue";
+import Sidebar from "@/components/menu/Sidebar.vue";
 
 export default defineComponent({
   name: 'Menu',
+  components: {
+    Sidebar,
+    Burger
+  },
+  setup() {
 
+    // computed()
+
+    return {
+      // hamburger
+    }
+  }
 })
 </script>
 <style lang="scss" scoped>
+.page__menu {
+
+}
 .menu {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 270px;
-  height: 100%;
+  min-height: 100vh;
+  padding: 0.5rem 0.8rem;
   border: 2px solid blue;
 }
 .menu__heading {
-  margin: 20px 30px 30px 0;
+  //margin: 20px 30px 30px 0;
+  padding: 25px;
   font-size: 22px;
   line-height: 27px;
   color: var(--color-secondary-40);
 }
-.menu__options {
+.sidebar__heading-nav {
   border: 2px solid darkviolet;
-  box-sizing: border-box;
-  margin: 30px;
-  width: 140px;
-  height: 155px;
+  margin: 20px;
   font-size: 14px;
   text-align: center;
   color: var(--color-gray-70);
 }
-.menu__ul {
-  border: 2px solid green;
-  box-sizing: border-box;
+.sidebar__options-nav {
+ list-style-type: none;
 }
-.menu__li {
+.sidebar__options-nav > .sidebar__li > a {
   border: 2px solid deeppink;
-  box-sizing: border-box;
+  display: block;
   margin: 20px;
   font-size: 15px;
   color: var(--color-gray-90);
   line-height: 40px;
+  text-decoration: none;
 }
+//////////////////////////////////////////////////
+//.sidebar__heading-nav {
+//  margin: 30px;
+//  width: 140px;
+//  height: 155px;
+//}
+//.sidebar__options-nav {
+//}
+//.sidebar__li > {
+//}
 </style>
