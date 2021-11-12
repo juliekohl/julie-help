@@ -5,8 +5,9 @@
 
 <script lang="ts">
 import Menu from "@/components/Menu.vue";
+
 export default {
   name: 'Dashboard',
-  components: {Menu}
+  components: { Menu }
 }
 </script>

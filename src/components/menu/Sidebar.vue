@@ -60,10 +60,10 @@ export default defineComponent ({
   top: 0;
   left: 0;
   z-index: 999;
-  width: 300px;
+  width: 280px;
   height: 100vh;
-  padding: 3rem 20px 2rem 20px;
+  padding: 12rem 20px 2rem 8px;
   overflow-y: auto;
-  background-color: var(--color-primary-100);
+  background-color: var(--color-muted);
 }
 </style>

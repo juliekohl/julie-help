@@ -4,7 +4,6 @@ import App from './App.vue';
 // import { ValidationObserver } from 'vee-validate';
 
 import index from './router/index';
-import '@/assets/scss/index.scss';
 
 createApp(App)
     .use(index)
