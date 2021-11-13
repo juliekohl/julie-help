@@ -1,6 +1,6 @@
-// describe('menu', () => {
-//     it('sanitytest',()=>{
-//         const result = true
-//         expect(result).toBe(true)
-//     })
-// })
+describe('menu', () => {
+    it('sanity test',()=>{
+        const result = true;
+        expect(result).toBe(true)
+    })
+})
