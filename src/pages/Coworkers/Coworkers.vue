@@ -1,26 +1,28 @@
 <template>
-  <h1>Coworkers</h1>
-  <ul>
-    <li
-        v-for="i in all"
-        :key="i"
-        :data-id="i.id"
-        @click="handleListItem"
+  <div class="coworkers">
+    <h1>Coworkers</h1>
+    <ul>
+      <li
+          v-for="i in all"
+          :key="i"
+          :data-id="i.id"
+          @click="handleListItem"
+      >
+        <router-link
+            :to="{ name: 'CoworkersView', params: { id: i.id }}"
+        >{{ i.name }}</router-link>
+      </li>
+    </ul>
+    <button
+        class="form__btn"
+        type="button"
+        v-on:click="handleCreate"
     >
       <router-link
-          :to="{ name: 'CoworkersView', params: { id: i.id }}"
-      >{{ i.name }}</router-link>
-    </li>
-  </ul>
-  <button
-      class="form__btn"
-      type="button"
-      v-on:click="handleCreate"
-  >
-    <router-link
-        :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
-    >Create</router-link>
-  </button>
+          :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
+      >Create</router-link>
+    </button>
+  </div>
 </template>
 
 <script lang="ts">

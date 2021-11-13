@@ -1,6 +1,6 @@
-<template class="page__menu">
+<template>
   <nav class="menu">
-    <h2 class="menu__heading">Julie.help!</h2>
+    <h1 class="menu__heading">Julie.help!</h1>
     <div class="menu__burger"
          :class="{ 'active' : isBurgerActive }"
          @click.prevent="toggle">
@@ -12,18 +12,18 @@
     </div>
   </nav>
 
-    <div class="sidebar"
+    <div class="menu__sidebar"
          :class="{'active' : isSidebarActive}"
          v-if="isBurgerActive === isSidebarActive">
-      <div class="sidebar__heading">MY COWORKING</div>
-      <ul class="sidebar__options">
-        <li class="sidebar__li">
+      <div class="menu__sidebar-heading">MY COWORKING</div>
+      <ul class="menu__sidebar-options">
+        <li class="menu__sidebar-li">
           <router-link :to="{ name: 'Coworkers'}">{{ name }} Coworkers</router-link>
         </li>
-        <li class="sidebar__li">
+        <li class="menu__sidebar-li">
           <router-link :to="{ name: 'Teams'}">{{ name }} Teams</router-link>
         </li>
-        <li class="sidebar__li">
+        <li class="menu__sidebar-li">
           <a>Coworking</a>
         </li>
       </ul>
@@ -93,9 +93,6 @@ export default defineComponent({
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
-    @include media('>=1200') {
-      display: none;
-    }
   }
   &__burger_bar {
     width: 30px;
@@ -156,10 +153,10 @@ export default defineComponent({
     transform: rotate(-45deg) translate(35px, 35px);
   }
 }
-.sidebar{
+.menu__sidebar{
   transform: translateX(-100%);
 }
-.sidebar.active {
+.menu__sidebar.active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -182,7 +179,7 @@ export default defineComponent({
     width: 260px;
   }
 
-  &__heading {
+  &-heading {
     font-size: 14px;
     color: #8d8d8d;
 
@@ -195,7 +192,7 @@ export default defineComponent({
     }
   }
 
-  &__options > &__li > a {
+  &-options > &-li > a {
     margin: 20px;
     font-size: 15px;
     color: #1e1e20;
