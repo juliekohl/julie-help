@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import Menu from "@/components/Menu.vue";
+import Menu from "@/components/menu/Menu.vue";
 
 export default {
   name: 'Dashboard',
