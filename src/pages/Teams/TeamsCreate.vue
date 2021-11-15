@@ -64,7 +64,7 @@ export default defineComponent( {
 })
 </script>
 
-<style scoped>
+<style lang="scss">
 .heading {
   text-align: center;
 }

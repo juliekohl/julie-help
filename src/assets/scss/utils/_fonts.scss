@@ -1,13 +1,4 @@
 /**
- * Open Sans
+ * Montserrat
  */
-
-$openSansPath: '~@/assets/fonts/OpenSans';
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('#{$openSansPath}/OpenSans-Regular.ttf') format('truetype');
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');

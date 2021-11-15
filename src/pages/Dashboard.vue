@@ -1,5 +1,4 @@
 <template>
-  <h1>Dashboard</h1>
   <Menu></Menu>
 </template>
 
