@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 .heading {
   text-align: center;
 }

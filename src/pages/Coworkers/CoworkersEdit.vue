@@ -73,7 +73,7 @@ export default defineComponent( {
 })
 </script>
 
-<style scoped>
+<style lang="scss">
 h1 {
   text-align: left;
 }

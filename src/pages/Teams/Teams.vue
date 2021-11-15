@@ -59,7 +59,7 @@ export default defineComponent( {
   },
 })
 </script>
-<style scoped>
+<style lang="scss">
 li {
   list-style-type: none;
 }

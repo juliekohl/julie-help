@@ -1,15 +1,11 @@
-// Base
+//// Base
 @import './base/reset';
 @import './base/grid';
 @import './base/accessibility';
 @import './base/responsive';
 
-// Utilities
+//// Utilities
 @import './utils/mixins';
 @import './utils/fonts';
 @import './utils/variables';
 @import './utils/global';
-
-body {
-  border: 10px solid red;
-}
