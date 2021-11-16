@@ -1,40 +1,53 @@
 <template>
-  <Menu></Menu>
+<!--  <Menu></Menu>-->
   <div class="coworkers">
-    <h1 class="coworkers__heading">Coworkers</h1>
-    <ul class="coworkers__ul">
-      <li
-          v-for="i in all"
-          :key="i"
-          :data-id="i.id"
-          @click="handleListItem"
-          class="coworkers__li"
+    <div class="coworkers__header">
+      <h1 class="coworkers__header-heading">Coworkers</h1>
+      <button
+          class="coworkers__header-btn"
+          v-on:click="handleCreate"
       >
         <router-link
-            :to="{ name: 'CoworkersView', params: { id: i.id }}"
-        >{{ i.name }}</router-link>
-      </li>
-    </ul>
-    <button
-        class="coworkers__btn"
-        type="button"
-        v-on:click="handleCreate"
-    >
-      <router-link
-          :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
-      >Create new coworker</router-link>
-    </button>
+            class="coworkers__header-btn--anchor"
+            :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
+        >Add new coworker</router-link>
+      </button>
+    </div>
+    <div class="coworkers__options">
+      <ul class="coworkers__options-ul">
+        <li
+            v-for="i in all"
+            :key="i"
+            :data-id="i.id"
+            @click="handleListItem"
+            class="coworkers__options-li"
+        >
+          <router-link
+              class="coworkers__options-li--anchor"
+              :to="{ name: 'CoworkersView', params: { id: i.id }}"
+          >{{ i.name }}</router-link>
+          <button
+              class="coworkers__options-li--btn"
+          >Edit
+<!--            <router-link-->
+<!--                class="coworkers__options-btn&#45;&#45;anchor"-->
+<!--                :to="{ name: 'CoworkersEdit', params: { id: coworkerUserId }}"-->
+<!--            >Edit</router-link>-->
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Menu from "@/components/menu/Menu.vue";
 import axios from "axios";
+// import Menu from "@/components/menu/Menu.vue";
 
 export default defineComponent( {
   name: 'CoworkersAll',
-  components: {Menu},
+  // components: {Menu},
 
   setup() {
     const all = ref({});
@@ -62,7 +75,119 @@ export default defineComponent( {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`);
       location.reload();
     }
-  },
+  }
 })
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.coworkers {
+  padding: 5px;
+  height: 100vh;
+
+  @include media('>=1024') {
+    padding: 10px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px 15px 20px 15px;
+    padding: 5px;
+
+    @include media('>=1024') {
+      margin: 18px 20px 60px 15px;
+    }
+
+    &-heading {
+      align-self: center;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-black);
+
+      @include media('>=1024') {
+        font-size: 25px;
+        font-weight: 500;
+      }
+    }
+
+    &-btn {
+      width: 110px;
+      height: 17px;
+      padding: 2px;
+      font-size: 7px;
+      text-align: center;
+      text-transform: uppercase;
+      background-color: var(--color-secondary-40);
+      border-radius: 3px;
+
+      @include media('>=1024') {
+        width: 220px;
+        height: 32px;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+
+      &--anchor {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &__options {
+
+    &-ul {
+      @include media('>=1024') {
+        padding: 0;
+      }
+    }
+
+    &-li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 10px;
+      padding: 10px;
+      box-shadow: var(--box-shadow-v2);
+      border-radius: 3px;
+
+      @include media('>=1024') {
+        margin: 15px;
+        padding: 30px;
+        border-radius: 8px;
+      }
+
+      &--anchor{
+        font-size: 10px;
+        text-align: center;
+        color: var(--color-secondary-45);
+
+        @include media('>=1024') {
+          font-size: 20px;
+        }
+      }
+
+      &--btn {
+        width: 50px;
+        height: 15px;
+        padding: 2px;
+        font-size: 8px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--color-black);
+        background-color: var(--color-gray-60);
+        border-radius: 3px;
+
+        @include media('>=1024') {
+          width: 100px;
+          height: 30px;
+          padding: 5px;
+          font-size: 16px;
+          font-weight: 500;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+</style>
