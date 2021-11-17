@@ -69,17 +69,13 @@ export default defineComponent({
 
 <style lang="scss">
 .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 0.5rem 0.8rem;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
-    position: initial;
-    width: 350px;
+    width: 300px;
   }
 
   &__header {
@@ -168,12 +164,6 @@ export default defineComponent({
   .menu__sidebar {
     display: none;
     transform: translateX(-100%);
-
-    @include media('>=600') {
-      position: initial;
-      width: 352px;
-      height: 100vh;
-    }
 
     &--sub-heading {
       margin: 0 20px;

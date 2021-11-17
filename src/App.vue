@@ -1,14 +1,8 @@
 <template>
-<!--  <nav class="nav">-->
-<!--    <router-link to="/login">Login</router-link>-->
-<!--    <router-link to="/coworking">Coworking</router-link>-->
-<!--    <router-link to="/coworkers">Coworkers</router-link>-->
-<!--    <router-link to="/teams">Teams</router-link>-->
-<!--  </nav>-->
   <div class="app">
-    <Menu />
-    <router-view />
-    <Footer />
+    <Menu class="app__menu" />
+    <router-view class="app__main" />
+    <Footer class="app__footer" />
   </div>
 </template>
 
@@ -24,5 +18,26 @@ export default {
 }
 </script>
 <style lang="scss">
+.app {
+  @include media('>=600') {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+    "menu main"
+    "menu footer";
+  }
 
+  &__menu {
+    grid-area: menu;
+  }
+
+  &__main {
+    grid-area: main;
+  }
+
+  &__footer {
+    grid-area: footer;
+  }
+}
 </style>
