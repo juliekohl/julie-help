@@ -19,26 +19,26 @@
   <div
     v-if="isBurgerActive === isSidebarActive"
     :class="[
-      'menu__sidebar',
-      isSidebarActive && 'menu__sidebar--active'
+      'sidebar',
+      isSidebarActive && 'sidebar__active'
     ]"
   >
-    <div class="menu__sidebar-sub-heading">My Coworking</div>
-    <ul class="menu__sidebar-options">
-      <li class="menu__sidebar-li">
-        <router-link :to="{ name: 'Coworkers'}">
+    <div class="sidebar__sub-heading">My Coworking</div>
+    <ul class="sidebar__options">
+      <li class="sidebar__li">
+        <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
           <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
           <span>Coworkers</span>
         </router-link>
       </li>
-      <li class="menu__sidebar-li">
-        <router-link :to="{ name: 'Teams'}">
+      <li class="sidebar__li">
+        <router-link :to="{ name: 'Teams'}" @click.prevent="toggle">
           <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
           <span>Teams</span>
         </router-link>
       </li>
-      <li class="menu__sidebar-li">
-        <router-link :to="{ name: 'Coworkers'}">
+      <li class="sidebar__li">
+        <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
           <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
           <span>Coworking</span>
         </router-link>
@@ -54,7 +54,7 @@ export default defineComponent({
   name: 'Menu',
   data: () => ({
     isBurgerActive: false,
-    isSidebarActive: false
+    isSidebarActive: false,
   }),
   methods: {
     toggle() {
@@ -74,8 +74,8 @@ export default defineComponent({
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  height: 100vh;
   padding: 0.5rem 0.8rem;
+  background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=420') {
@@ -172,18 +172,20 @@ export default defineComponent({
     transform: rotate(-45deg) translate(35px, 35px);
   }
 }
-.menu__sidebar{
+.sidebar{
+  background: var(--color-gray-blue);
+  box-shadow: var(--box-shadow-v2);
   transform: translateX(-100%);
 }
-.menu__sidebar--active {
+.sidebar__active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: fixed;
-  top: 95px;
+  top: 80px;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 0 1rem;
   transform: translateX(-0.7%);
   transition: all 0.5s ease-in-out;
@@ -193,11 +195,11 @@ export default defineComponent({
   }
 
   @include media('>=1024') {
-    width: 350px;
+    width: 352px;
   }
 }
 
-.menu__sidebar-sub-heading {
+.sidebar__sub-heading {
   margin: 0 20px;
   font-size: 18px;
   text-transform: uppercase;
@@ -207,10 +209,10 @@ export default defineComponent({
     margin: 65px 35px 0px 35px;
   }
 }
-.menu__sidebar-options {
+.sidebar__options {
   margin-top: 15px;
 }
-.menu__sidebar-li {
+.sidebar__li {
   margin: 8px 15px;
   line-height: 28px;
 

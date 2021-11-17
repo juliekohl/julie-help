@@ -9,6 +9,7 @@ import Coworkers from "@/pages/Coworkers/Coworkers.vue";
 import CoworkersView from "@/pages/Coworkers/CoworkersView.vue";
 import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
+import CoworkersAll from "@/components/Coworkers/CoworkersAll.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -46,7 +47,7 @@ const routes = [
     {
         path: '/coworkers',
         name: 'Coworkers',
-        component: Coworkers
+        component: CoworkersAll
     },
     {
         path: '/coworkers/:id',

@@ -40,6 +40,6 @@ describe('menu', () => {
 
         await burger.trigger('click');
 
-        expect(burger.classes()).toEqual(expect.arrayContaining(['active']));
+        expect(burger.classes()).toEqual(expect.arrayContaining(['menu__burger--active']));
     })
 })
