@@ -82,7 +82,12 @@ export default defineComponent( {
   padding: 5px;
   height: 100vh;
 
+  @include media('>=320') {
+    margin-top: 80px;
+  }
+
   @include media('>=1024') {
+    margin-top: 0;
     margin-left: 370px;
     padding: 10px;
   }
@@ -167,7 +172,7 @@ export default defineComponent( {
         padding: 2px;
         text-align: center;
         text-transform: uppercase;
-        background-color: var(--color-gray-60);
+        background-color: var(--color-gray-50);
         border-radius: 3px;
 
         @include media('>=1024') {
