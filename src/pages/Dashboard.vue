@@ -1,12 +1,9 @@
 <template>
-  <Menu></Menu>
+  <h1>Dashboard</h1>
 </template>
 
 <script lang="ts">
-import Menu from "@/components/menu/Menu.vue";
-
 export default {
   name: 'Dashboard',
-  components: { Menu }
 }
 </script>
