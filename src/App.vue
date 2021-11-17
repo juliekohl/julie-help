@@ -7,15 +7,17 @@
 <!--  </nav>-->
   <Menu />
   <router-view />
+  <Footer />
 </template>
 
 <script lang="ts">
 import index from "./router";
 import Menu from "@/components/menu/Menu.vue";
+import Footer from "@/components/footer/Footer.vue";
 
 export default {
   name: 'App',
-  components: {Menu},
+  components: {Footer, Menu},
   router: index
 }
 </script>
