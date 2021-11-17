@@ -82,13 +82,8 @@ export default defineComponent( {
   padding: 5px;
   height: 100vh;
 
-  @include media('>=320') {
-    margin-top: 80px;
-  }
-
-  @include media('>=1024') {
+  @include media('>=600') {
     margin-top: 0;
-    margin-left: 370px;
     padding: 10px;
   }
 
@@ -99,7 +94,7 @@ export default defineComponent( {
     margin: 15px 15px 20px 15px;
     padding: 5px;
 
-    @include media('>=1024') {
+    @include media('>=600') {
       margin: 18px 20px 60px 15px;
     }
 
@@ -109,7 +104,7 @@ export default defineComponent( {
       font-weight: 400;
       color: var(--color-black);
 
-      @include media('>=1024') {
+      @include media('>=600') {
         font-size: 25px;
         font-weight: 500;
       }
@@ -125,7 +120,7 @@ export default defineComponent( {
       background-color: var(--color-secondary-40);
       border-radius: 3px;
 
-      @include media('>=1024') {
+      @include media('>=600') {
         width: 220px;
         height: 32px;
         padding: 5px;
@@ -142,7 +137,7 @@ export default defineComponent( {
   &__options {
 
     &-ul {
-      @include media('>=1024') {
+      @include media('>=600') {
         padding: 0;
       }
     }
@@ -159,7 +154,7 @@ export default defineComponent( {
       box-shadow: var(--box-shadow-v2);
       border-radius: 3px;
 
-      @include media('>=1024') {
+      @include media('>=600') {
         margin: 15px;
         padding: 30px;
         font-size: 15px;
@@ -175,7 +170,7 @@ export default defineComponent( {
         background-color: var(--color-gray-50);
         border-radius: 3px;
 
-        @include media('>=1024') {
+        @include media('>=600') {
           width: 100px;
           height: 30px;
           padding: 5px;
@@ -187,7 +182,7 @@ export default defineComponent( {
           font-size: 8px;
           color: var(--color-black);
 
-          @include media('>=1024') {
+          @include media('>=600') {
             font-size: 12px;
             font-weight: 500;
           }

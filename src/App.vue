@@ -5,9 +5,11 @@
 <!--    <router-link to="/coworkers">Coworkers</router-link>-->
 <!--    <router-link to="/teams">Teams</router-link>-->
 <!--  </nav>-->
-  <Menu />
-  <router-view />
-  <Footer />
+  <div class="app">
+    <Menu />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script lang="ts">
@@ -17,7 +19,7 @@ import Footer from "@/components/footer/Footer.vue";
 
 export default {
   name: 'App',
-  components: {Footer, Menu},
+  components: { Footer, Menu },
   router: index
 }
 </script>

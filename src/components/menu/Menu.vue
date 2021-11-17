@@ -77,11 +77,7 @@ export default defineComponent({
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
-  @include media('>=420') {
-    width: 280px;
-  }
-
-  @include media('>=1024') {
+  @include media('>=600') {
     position: initial;
     width: 350px;
   }
@@ -98,10 +94,6 @@ export default defineComponent({
       color:var(--color-secondary-40);
 
       @include media('>=600') {
-        font-size: 23px;
-      }
-
-      @include media('>=1024') {
         margin: 10px 0 0 15px;
         font-size: 32px;
       }
@@ -117,7 +109,7 @@ export default defineComponent({
       cursor: pointer;
       transition: all 0.5s ease-in-out;
 
-      //@include media('>=1024') {
+      //@include media('>=600') {
       //  display: none;
       //}
     }
@@ -131,11 +123,6 @@ export default defineComponent({
       transition: all 0.5s ease-in-out;
 
       @include media('>=600') {
-        width: 40px;
-        height: 4px;
-        border-radius: 5px;
-      }
-      @include media('>=1024') {
         width: 50px;
         height: 6px;
       }
@@ -152,13 +139,9 @@ export default defineComponent({
       transition: all 0.5s ease-in-out;
 
       @include media('>=600') {
-        width: 40px;
-        height: 4px;
-        border-radius: 5px;
-      }
-      @include media('>=1024') {
         width: 50px;
         height: 6px;
+        border-radius: 5px;
       }
     }
     &--burger-bar::before {
@@ -186,11 +169,7 @@ export default defineComponent({
     display: none;
     transform: translateX(-100%);
 
-    @include media('>=420') {
-      width: 280px;
-    }
-
-    @include media('>=1024') {
+    @include media('>=600') {
       position: initial;
       width: 352px;
       height: 100vh;
@@ -202,7 +181,7 @@ export default defineComponent({
       text-transform: uppercase;
       color: var(--color-gray-70);
 
-      @include media('>=1024') {
+      @include media('>=600') {
         margin: 65px 35px 0px 35px;
       }
     }
