@@ -28,8 +28,7 @@ export default defineComponent ({
   margin: 10px 5px;
   padding: 5px;
 
-  @include media('>=1024') {
-    margin-left: 360px;
+  @include media('>=600') {
     font-size: 12px;
   }
 
@@ -44,7 +43,7 @@ export default defineComponent ({
     align-self: center;
     font-weight: 500;
 
-    @include media('>=1024') {
+    @include media('>=600') {
       font-weight: 600;
     }
 
@@ -52,7 +51,7 @@ export default defineComponent ({
       width: 5px;
       height: 5px;
 
-      @include media('>=1024') {
+      @include media('>=600') {
         width: 10px;
         height: 10px;
       }
