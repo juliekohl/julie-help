@@ -83,6 +83,7 @@ export default defineComponent( {
   height: 100vh;
 
   @include media('>=1024') {
+    margin-left: 370px;
     padding: 10px;
   }
 

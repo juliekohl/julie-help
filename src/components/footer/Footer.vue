@@ -25,10 +25,11 @@ export default defineComponent ({
   align-items: flex-end;
   align-content: flex-end;
   font-size: 7px;
-  margin: 10px 0;
+  margin: 10px 5px;
   padding: 5px;
 
   @include media('>=1024') {
+    margin-left: 360px;
     font-size: 12px;
   }
 
