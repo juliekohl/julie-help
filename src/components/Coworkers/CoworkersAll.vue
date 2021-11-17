@@ -10,7 +10,9 @@
         <router-link
             class="coworkers__header-btn--anchor"
             :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
-        >Add new coworker</router-link>
+        >
+          Add new coworker
+        </router-link>
       </button>
     </div>
     <div class="coworkers__options">
@@ -19,20 +21,20 @@
             v-for="i in all"
             :key="i"
             :data-id="i.id"
-            @click="handleListItem"
             class="coworkers__options-li"
         >
-          <router-link
-              class="coworkers__options-li--anchor"
-              :to="{ name: 'CoworkersView', params: { id: i.id }}"
-          >{{ i.name }}</router-link>
+          {{ i.name }}
           <button
+              :data-id="i.id"
+              @click="handleListItem"
               class="coworkers__options-li--btn"
-          >Edit
-<!--            <router-link-->
-<!--                class="coworkers__options-btn&#45;&#45;anchor"-->
-<!--                :to="{ name: 'CoworkersEdit', params: { id: coworkerUserId }}"-->
-<!--            >Edit</router-link>-->
+          >
+            <router-link
+                class="coworkers__options-li--btn-anchor"
+                :to="{ name: 'CoworkersView', params: { id: i.id }}"
+            >
+              Edit
+            </router-link>
           </button>
         </li>
       </ul>
@@ -148,33 +150,25 @@ export default defineComponent( {
       justify-content: space-between;
       margin: 10px;
       padding: 10px;
+      font-size: 10px;
+      text-align: center;
+      color: var(--color-secondary-45);
       box-shadow: var(--box-shadow-v2);
       border-radius: 3px;
 
       @include media('>=1024') {
         margin: 15px;
         padding: 30px;
+        font-size: 15px;
         border-radius: 8px;
-      }
-
-      &--anchor{
-        font-size: 10px;
-        text-align: center;
-        color: var(--color-secondary-45);
-
-        @include media('>=1024') {
-          font-size: 20px;
-        }
       }
 
       &--btn {
         width: 50px;
         height: 15px;
         padding: 2px;
-        font-size: 8px;
         text-align: center;
         text-transform: uppercase;
-        color: var(--color-black);
         background-color: var(--color-gray-60);
         border-radius: 3px;
 
@@ -182,9 +176,18 @@ export default defineComponent( {
           width: 100px;
           height: 30px;
           padding: 5px;
-          font-size: 16px;
-          font-weight: 500;
           border-radius: 6px;
+        }
+
+        &-anchor {
+          display: block;
+          font-size: 8px;
+          color: var(--color-black);
+
+          @include media('>=1024') {
+            font-size: 12px;
+            font-weight: 500;
+          }
         }
       }
     }
