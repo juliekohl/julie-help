@@ -1,5 +1,4 @@
 <template>
-<!--  <Menu></Menu>-->
   <div class="coworkers">
     <div class="coworkers__header">
       <h1 class="coworkers__header-heading">Coworkers</h1>
@@ -45,11 +44,9 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import axios from "axios";
-// import Menu from "@/components/menu/Menu.vue";
 
 export default defineComponent( {
   name: 'CoworkersAll',
-  // components: {Menu},
 
   setup() {
     const all = ref({});
