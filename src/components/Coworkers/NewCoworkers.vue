@@ -87,6 +87,7 @@ export default defineComponent({
   }
 })
 </script>
+
 <style lang="scss">
 .new-coworkers {
   padding: 5px;
