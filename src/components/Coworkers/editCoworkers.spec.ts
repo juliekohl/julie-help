@@ -17,14 +17,7 @@ describe('Edit Coworkers', () => {
         expect(h1editCoworkers.exists()).toBe(true);
     })
 
-    it('should have add delete coworker as button', () => {
-        const wrapper = mount(EditCoworkers);
-
-        const deleteCoworker = wrapper.find('button.delete-coworkers__header--btn');
-        expect(deleteCoworker.exists()).toBe(true);
-    })
-
-    it('should have add edit coworker as button', () => {
+    it('should have edit coworker as button', () => {
         const wrapper = mount(EditCoworkers);
 
         const editCoworker = wrapper.find('button.edit-coworkers__header--btn');
