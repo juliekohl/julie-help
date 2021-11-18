@@ -23,6 +23,7 @@
             class="coworkers__options-li"
         >
           {{ i.name }}
+          <span class="coworkers__options-li--span">{{i.email}}</span>
           <button
               :data-id="i.id"
               @click="handleListItem"
@@ -30,7 +31,7 @@
           >
             <router-link
                 class="coworkers__options-li--btn-anchor"
-                :to="{ name: 'CoworkersView', params: { id: i.id }}"
+                :to="{ name: 'CoworkersEdit', params: { id: i.id }}"
             >
               Edit
             </router-link>
@@ -50,7 +51,7 @@ export default defineComponent( {
 
   setup() {
     const all = ref({});
-    const coworker = ref({id: null, name: ''});
+    const coworker = ref({id: null, name: '', email: ''});
     const coworkersId = coworker.value.id;
 
     fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=5`)
@@ -60,6 +61,7 @@ export default defineComponent( {
     const handleListItem = (e: any): void => {
       coworker.value.id = e.target.getAttribute('data-id');
       coworker.value.name = e.target.innerHTML;
+      coworker.value.email = e.target.innerHTML;
     }
 
     return {
@@ -146,6 +148,7 @@ export default defineComponent( {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      gap: 10px;
       margin: 10px;
       padding: 10px;
       font-size: 10px;
@@ -159,6 +162,11 @@ export default defineComponent( {
         padding: 30px;
         font-size: 15px;
         border-radius: 8px;
+      }
+
+      &--span {
+        //align-self: center;
+        color: var(--color-black);
       }
 
       &--btn {

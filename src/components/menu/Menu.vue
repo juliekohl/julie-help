@@ -74,6 +74,10 @@ export default defineComponent({
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
+  @include media('>=600') {
+    height: 100vh;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
