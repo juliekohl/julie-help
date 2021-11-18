@@ -74,10 +74,6 @@ export default defineComponent({
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
-  @include media('>=600') {
-    width: 300px;
-  }
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -105,9 +101,6 @@ export default defineComponent({
       cursor: pointer;
       transition: all 0.5s ease-in-out;
 
-      //@include media('>=600') {
-      //  display: none;
-      //}
     }
 
     &--burger-bar {
@@ -123,6 +116,7 @@ export default defineComponent({
         height: 6px;
       }
     }
+
     &--burger-bar::before,
     &--burger-bar::after {
       content: '';
@@ -140,9 +134,11 @@ export default defineComponent({
         border-radius: 5px;
       }
     }
+
     &--burger-bar::before {
       transform: translateY(-16px);
     }
+
     &--burger-bar::after {
       transform: translateY(16px);
     }
@@ -153,9 +149,11 @@ export default defineComponent({
       background: transparent;
       box-shadow: none;
     }
+
     &--burger-active &--burger-bar::before {
       transform: rotate(45deg) translate(35px, -35px);
     }
+
     &--burger-active &--burger-bar::after {
       transform: rotate(-45deg) translate(35px, 35px);
     }
@@ -175,9 +173,11 @@ export default defineComponent({
         margin: 65px 35px 0px 35px;
       }
     }
+
     &--options {
       margin-top: 15px;
     }
+
     &--li {
       margin: 8px 15px;
       line-height: 28px;
@@ -195,6 +195,7 @@ export default defineComponent({
       }
     }
   }
+
   .menu__sidebar--active {
     display: flex;
     flex-direction: column;
