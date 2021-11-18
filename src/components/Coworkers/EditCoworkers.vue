@@ -1,95 +1,90 @@
 <template>
-  <div class="new-coworkers">
-    <div class="new-coworkers__header">
-      <h1 class="new-coworkers__header--heading">New Coworker</h1>
+  <div class="edit-coworkers" v-if="coworkerUserId">
+    <div class="edit-coworkers__header">
+      <h1 class="edit-coworkers__header--heading">{{coworkerUser.name}}</h1>
       <button
-          class="new-coworkers__header--btn"
-          v-on:click="handleCreate"
+          class="edit-coworkers__header--btn-delete"
+          v-on:click="handleDelete"
       >
-        Add New Coworker
+        Delete
+      </button>
+      <button
+          class="edit-coworkers__header--btn"
+          v-on:click="handleEdit"
+      >
+        Edit
       </button>
     </div>
-    <form class="new-coworkers__form">
+    <form class="edit-coworkers__form">
       <label
-          class="new-coworkers__form--label"
-          for="cwkId"
-      >
-        Coworking Id
-      </label>
-      <input
-          class="new-coworkers__form--input"
-          type="number"
-          id="cwkId"
-          name="cwkId"
-          v-model="userId.coworking_id"
-      />
-      <label
-          class="new-coworkers__form--label"
+          class="edit-coworkers__form--label"
           for="name"
       >
-        Name
+       Name
       </label>
       <input
-          class="new-coworkers__form--input"
+          class="edit-coworkers__form--input"
           type="text"
           id="name"
           name="name"
-          v-model="userId.name"
+          placeholder="user name edit"
+          v-model="coworkerUser.name"
       />
       <label
-          class="new-coworkers__form--label"
-          for="email"
-      >
-        Email
-      </label>
-      <input
-          class="new-coworkers__form--input"
-          type="email"
-          id="email"
-          name="email"
-          v-model="userId.email"
-      />
-      <label
-          class="new-coworkers__form--label"
+          class="edit-coworkers__form--label"
           for="password"
       >
         Password
       </label>
       <input
-          class="new-coworkers__form--input"
+          class="edit-coworkers__form--input"
           type="password"
           id="password"
           name="password"
-          v-model="userId.password"
+          placeholder="user password edit"
+          v-model="coworkerUser.password"
       />
     </form>
   </div>
 </template>
 
 <script lang="ts">
+
 import {defineComponent, ref} from "vue";
+import {useRouter} from "vue-router";
 import axios from "axios";
 
 export default defineComponent({
-  name: 'NewCoworkers',
+  name: 'EditCoworkers',
   setup() {
-    const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
+    const router = useRouter();
+    const coworkerUserId: number = Number(router.currentRoute.value.params.id);
+    const coworkerUser = ref({id: coworkerUserId, name: '', password: '', email: ''});
+
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworkerUserId}`)
+        .then(response => response.json())
+        .then(data => {coworkerUser.value = data});
 
     return {
-      userId
+      coworkerUserId,
+      coworkerUser
     }
   },
   methods: {
-    handleCreate(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, this.userId);
+    handleEdit(): void {
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`, this.coworkerUser);
       location.reload();
-    }
+    },
+    handleDelete(): void {
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`);
+      location.reload();
+    },
   }
 })
 </script>
 
 <style lang="scss">
-.new-coworkers {
+.edit-coworkers {
   padding: 5px;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
@@ -117,7 +112,7 @@ export default defineComponent({
     }
 
     &--btn {
-      width: 110px;
+      width: 90px;
       height: 17px;
       padding: 2px;
       font-size: 7px;
@@ -134,9 +129,27 @@ export default defineComponent({
         font-size: 14px;
         border-radius: 5px;
       }
+      &-delete {
+        width: 70px;
+        height: 17px;
+        padding: 2px;
+        font-size: 7px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--color-white);
+        background-color: var(--color-alert-50);
+        border-radius: 3px;
+
+        @include media('>=600') {
+          width: 150px;
+          height: 32px;
+          padding: 5px;
+          font-size: 14px;
+          border-radius: 5px;
+        }
+      }
     }
   }
-
   &__form {
     display: flex;
     flex-direction: column;
