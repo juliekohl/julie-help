@@ -5,11 +5,12 @@ import Teams from "@/pages/Teams/Teams.vue";
 import TeamsView from "@/pages/Teams/TeamsView.vue";
 import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
-import Coworkers from "@/pages/Coworkers/Coworkers.vue";
+// import Coworkers from "@/pages/Coworkers/Coworkers.vue";
 import CoworkersView from "@/pages/Coworkers/CoworkersView.vue";
 import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
-import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
+// import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 import CoworkersAll from "@/components/Coworkers/CoworkersAll.vue";
+import NewCoworkers from "@/components/Coworkers/NewCoworkers.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -62,7 +63,8 @@ const routes = [
     {
         path: '/coworkers/create',
         name: 'CoworkersCreate',
-        component: CoworkersCreate
+        component: NewCoworkers
+        // component: CoworkersCreate
     },
 ]
 
