@@ -10,15 +10,9 @@
       </button>
     </div>
     <form class="new-teams__form">
-      <label
-          class="new-teams__form--label"
-          for="cwkId"
-      >
-        Coworking Id
-      </label>
       <input
           class="new-teams__form--input"
-          type="number"
+          type="hidden"
           id="cwkId"
           name="cwkId"
           v-model="userId.coworking_id"
