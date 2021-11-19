@@ -17,8 +17,11 @@ export default {
   router: index
 }
 </script>
+
 <style lang="scss">
 .app {
+  height: 100vh;
+
   @include media('>=600') {
     display: grid;
     grid-template-rows: 1fr 50px;
