@@ -24,18 +24,14 @@
         >
           {{ i.name }}
           <span class="teams__options-li--span">{{i.email}}</span>
-          <button
+          <router-link
               :data-id="i.id"
               @click="handleListItem"
               class="teams__options-li--btn"
+              :to="{ name: 'TeamsEdit', params: { id: i.id }}"
           >
-            <router-link
-                class="teams__options-li--btn-anchor"
-                :to="{ name: 'TeamsEdit', params: { id: i.id }}"
-            >
-              Edit
-            </router-link>
-          </button>
+            Edit
+          </router-link>
         </li>
       </ul>
     </div>
@@ -171,11 +167,14 @@ export default defineComponent( {
       }
 
       &--btn {
+        display: block;
         width: 50px;
         height: 15px;
         padding: 2px;
+        font-size: 8px;
         text-align: center;
         text-transform: uppercase;
+        color: var(--color-black);
         background-color: var(--color-gray-50);
         border-radius: 3px;
 
@@ -183,18 +182,9 @@ export default defineComponent( {
           width: 100px;
           height: 30px;
           padding: 5px;
+          font-size: 12px;
+          font-weight: 500;
           border-radius: 6px;
-        }
-
-        &-anchor {
-          display: block;
-          font-size: 8px;
-          color: var(--color-black);
-
-          @include media('>=600') {
-            font-size: 12px;
-            font-weight: 500;
-          }
         }
       }
     }
