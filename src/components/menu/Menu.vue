@@ -39,7 +39,7 @@
         </li>
         <li class="menu__sidebar--li">
           <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
-            <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
+            <img src="@/assets/img/icons/check-square.svg" alt="check-square">
             <span>Coworking</span>
           </router-link>
         </li>
