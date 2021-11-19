@@ -89,6 +89,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
+    height: 100vh;
     padding: 10px;
   }
 

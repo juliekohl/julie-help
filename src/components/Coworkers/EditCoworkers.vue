@@ -27,7 +27,7 @@
           type="text"
           id="name"
           name="name"
-          placeholder="user name edit"
+          placeholder="name"
           v-model="coworkerUser.name"
       />
       <label
@@ -41,7 +41,7 @@
           type="password"
           id="password"
           name="password"
-          placeholder="user password edit"
+          placeholder="password"
           v-model="coworkerUser.password"
       />
     </form>
@@ -90,6 +90,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
+    height: 100vh;
     padding: 10px;
   }
 
