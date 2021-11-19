@@ -170,7 +170,7 @@ export default defineComponent( {
         display: block;
         width: 50px;
         height: 15px;
-        padding: 2px;
+        padding: 4px;
         font-size: 8px;
         text-align: center;
         text-transform: uppercase;
@@ -181,7 +181,7 @@ export default defineComponent( {
         @include media('>=600') {
           width: 100px;
           height: 30px;
-          padding: 5px;
+          padding: 10px;
           font-size: 12px;
           font-weight: 500;
           border-radius: 6px;
