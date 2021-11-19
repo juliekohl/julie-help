@@ -1,7 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/pages/Dashboard.vue";
 import Login from "@/pages/Login.vue";
-import Teams from "@/pages/Teams/Teams.vue";
+// import Teams from "@/pages/Teams/Teams.vue";
+import TeamsAll from "@/components/teams/TeamsAll.vue";
 import TeamsView from "@/pages/Teams/TeamsView.vue";
 import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
@@ -29,7 +30,8 @@ const routes = [
     {
         path: '/teams',
         name: 'Teams',
-        component: Teams
+        component: TeamsAll
+        // component: Teams
     },
     {
         path: '/teams/:id',
