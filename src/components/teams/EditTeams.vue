@@ -2,18 +2,20 @@
   <div class="edit-teams" v-if="teamUserId">
     <div class="edit-teams__header">
       <h1 class="edit-teams__header--heading">{{teamUser.name}}</h1>
-      <button
-          class="edit-teams__header--btn-delete"
-          v-on:click="handleDelete"
-      >
-        Delete
-      </button>
-      <button
-          class="edit-teams__header--btn"
-          v-on:click="handleEdit"
-      >
-        Edit
-      </button>
+      <div class="edit-teams__header--btn">
+        <button
+            class="edit-teams__header--btn-delete"
+            v-on:click="handleDelete"
+        >
+          Delete
+        </button>
+        <button
+            class="edit-teams__header--btn-edit"
+            v-on:click="handleEdit"
+        >
+          Edit
+        </button>
+      </div>
     </div>
     <form class="edit-teams__form">
       <label
@@ -113,26 +115,33 @@ export default defineComponent( {
     }
 
     &--btn {
-      width: 90px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
-      text-align: center;
-      text-transform: uppercase;
-      color: var(--color-white);
-      background-color: var(--color-secondary-40);
-      border-radius: 3px;
+      align-self: center;
 
-      @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
+      &-edit {
+        width: 90px;
+        height: 17px;
+        margin: 10px;
+        padding: 2px;
+        font-size: 7px;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--color-white);
+        background-color: var(--color-secondary-40);
+        border-radius: 3px;
+
+        @include media('>=600') {
+          width: 220px;
+          height: 32px;
+          padding: 5px;
+          font-size: 14px;
+          border-radius: 5px;
+        }
       }
+
       &-delete {
         width: 70px;
         height: 17px;
+        margin: 10px;
         padding: 2px;
         font-size: 7px;
         text-align: center;
