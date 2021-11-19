@@ -6,19 +6,18 @@
           class="new-coworkers__header--btn"
           v-on:click="handleCreate"
       >
-        Add New Coworker
+        <router-link
+            class="edit-coworkers__header--btn-anchor"
+            :to="{ name: 'Coworkers'}"
+        >
+          Add New Coworker
+        </router-link>
       </button>
     </div>
     <form class="new-coworkers__form">
-      <label
-          class="new-coworkers__form--label"
-          for="cwkId"
-      >
-        Coworking Id
-      </label>
       <input
           class="new-coworkers__form--input"
-          type="number"
+          type="hidden"
           id="cwkId"
           name="cwkId"
           v-model="userId.coworking_id"
@@ -95,6 +94,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
+    height: 100vh;
     padding: 10px;
   }
 
@@ -123,9 +123,12 @@ export default defineComponent({
       font-size: 7px;
       text-align: center;
       text-transform: uppercase;
-      color: var(--color-white);
       background-color: var(--color-secondary-40);
       border-radius: 3px;
+
+      &-anchor{
+        color: var(--color-white);
+      }
 
       @include media('>=600') {
         width: 220px;

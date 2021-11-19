@@ -39,7 +39,7 @@
         </li>
         <li class="menu__sidebar--li">
           <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
-            <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
+            <img src="@/assets/img/icons/check-square.svg" alt="check-square">
             <span>Coworking</span>
           </router-link>
         </li>
@@ -75,7 +75,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
-    height: 100vh;
+    height: 100%;
   }
 
   &__header {
@@ -105,6 +105,9 @@ export default defineComponent({
       cursor: pointer;
       transition: all 0.5s ease-in-out;
 
+      @include media('>=600') {
+        display: none;
+      }
     }
 
     &--burger-bar {
@@ -166,6 +169,10 @@ export default defineComponent({
   .menu__sidebar {
     display: none;
     transform: translateX(-100%);
+
+    @include media('>=600') {
+      display: inline;
+    }
 
     &--sub-heading {
       margin: 0 20px;

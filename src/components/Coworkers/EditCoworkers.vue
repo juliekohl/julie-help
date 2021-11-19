@@ -2,18 +2,30 @@
   <div class="edit-coworkers" v-if="coworkerUserId">
     <div class="edit-coworkers__header">
       <h1 class="edit-coworkers__header--heading">{{coworkerUser.name}}</h1>
-      <button
-          class="edit-coworkers__header--btn-delete"
-          v-on:click="handleDelete"
-      >
-        Delete
-      </button>
-      <button
-          class="edit-coworkers__header--btn"
-          v-on:click="handleEdit"
-      >
-        Edit
-      </button>
+      <div class="edit-coworkers__header--btn">
+        <button
+            class="edit-coworkers__header--btn-delete"
+            v-on:click="handleEdit"
+        >
+          <router-link
+              class="edit-coworkers__header--btn-delete-anchor"
+              :to="{ name: 'Coworkers'}"
+          >
+            Delete
+          </router-link>
+        </button>
+        <button
+            class="edit-coworkers__header--btn-edit"
+            v-on:click="handleEdit"
+        >
+          <router-link
+              class="edit-coworkers__header--btn-edit-anchor"
+              :to="{ name: 'Coworkers'}"
+          >
+            Edit
+          </router-link>
+        </button>
+      </div>
     </div>
     <form class="edit-coworkers__form">
       <label
@@ -27,7 +39,7 @@
           type="text"
           id="name"
           name="name"
-          placeholder="user name edit"
+          placeholder="name"
           v-model="coworkerUser.name"
       />
       <label
@@ -41,7 +53,7 @@
           type="password"
           id="password"
           name="password"
-          placeholder="user password edit"
+          placeholder="password"
           v-model="coworkerUser.password"
       />
     </form>
@@ -90,6 +102,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
+    height: 100vh;
     padding: 10px;
   }
 
@@ -112,33 +125,46 @@ export default defineComponent({
     }
 
     &--btn {
-      width: 90px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
-      text-align: center;
-      text-transform: uppercase;
-      color: var(--color-white);
-      background-color: var(--color-secondary-40);
-      border-radius: 3px;
+      align-self: center;
 
-      @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
-      }
-      &-delete {
-        width: 70px;
+      &-edit {
+        width: 90px;
         height: 17px;
+        margin: 10px;
         padding: 2px;
         font-size: 7px;
         text-align: center;
         text-transform: uppercase;
-        color: var(--color-white);
+        background-color: var(--color-secondary-40);
+        border-radius: 3px;
+
+        &-anchor{
+          color: var(--color-white);
+        }
+
+        @include media('>=600') {
+          width: 220px;
+          height: 32px;
+          padding: 5px;
+          font-size: 14px;
+          border-radius: 5px;
+        }
+      }
+
+      &-delete {
+        width: 70px;
+        height: 17px;
+        margin: 10px;
+        padding: 2px;
+        font-size: 7px;
+        text-align: center;
+        text-transform: uppercase;
         background-color: var(--color-alert-50);
         border-radius: 3px;
+
+        &-anchor{
+          color: var(--color-white);
+        }
 
         @include media('>=600') {
           width: 150px;
