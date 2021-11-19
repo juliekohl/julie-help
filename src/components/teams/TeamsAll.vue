@@ -10,7 +10,7 @@
             class="teams__header-btn--anchor"
             :to="{ name: 'TeamsCreate', params: { id: teamUserId }}"
         >
-          Add new coworker
+          Add new team
         </router-link>
       </button>
     </div>
