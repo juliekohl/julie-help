@@ -149,6 +149,7 @@ export default defineComponent( {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       gap: 10px;
       margin: 10px;
       padding: 10px;
