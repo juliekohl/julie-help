@@ -6,7 +6,7 @@
           class="new-teams__header--btn"
           v-on:click="handleCreate"
       >
-        Add New Coworker
+        Add New Team
       </button>
     </div>
     <form class="new-teams__form">
