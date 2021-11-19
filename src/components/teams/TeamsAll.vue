@@ -83,7 +83,7 @@ export default defineComponent( {
 <style lang="scss">
 .teams {
   padding: 5px;
-  height: 100vh;
+  height: 100%;
 
   @include media('>=600') {
     margin-top: 0;

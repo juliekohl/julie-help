@@ -82,7 +82,7 @@ export default defineComponent( {
 <style lang="scss">
 .coworkers {
   padding: 5px;
-  height: 100vh;
+  height: 100%;
 
   @include media('>=600') {
     margin-top: 0;

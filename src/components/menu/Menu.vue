@@ -75,7 +75,7 @@ export default defineComponent({
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
-    height: 100vh;
+    height: 100%;
   }
 
   &__header {
