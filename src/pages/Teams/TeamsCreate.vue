@@ -49,7 +49,7 @@ import axios from "axios";
 export default defineComponent( {
   name: 'TeamsCreate',
   setup() {
-    const userId = ref({coworking_id: 2, name: '', email: '', password: ''});
+    const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
 
     return {
       userId
