@@ -5,15 +5,25 @@
       <div class="edit-coworkers__header--btn">
         <button
             class="edit-coworkers__header--btn-delete"
-            v-on:click="handleDelete"
+            v-on:click="handleEdit"
         >
-          Delete
+          <router-link
+              class="edit-coworkers__header--btn-delete-anchor"
+              :to="{ name: 'Coworkers'}"
+          >
+            Delete
+          </router-link>
         </button>
         <button
             class="edit-coworkers__header--btn-edit"
             v-on:click="handleEdit"
         >
-          Edit
+          <router-link
+              class="edit-coworkers__header--btn-edit-anchor"
+              :to="{ name: 'Coworkers'}"
+          >
+            Edit
+          </router-link>
         </button>
       </div>
     </div>
@@ -125,9 +135,12 @@ export default defineComponent({
         font-size: 7px;
         text-align: center;
         text-transform: uppercase;
-        color: var(--color-white);
         background-color: var(--color-secondary-40);
         border-radius: 3px;
+
+        &-anchor{
+          color: var(--color-white);
+        }
 
         @include media('>=600') {
           width: 220px;
@@ -146,9 +159,12 @@ export default defineComponent({
         font-size: 7px;
         text-align: center;
         text-transform: uppercase;
-        color: var(--color-white);
         background-color: var(--color-alert-50);
         border-radius: 3px;
+
+        &-anchor{
+          color: var(--color-white);
+        }
 
         @include media('>=600') {
           width: 150px;

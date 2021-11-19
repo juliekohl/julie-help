@@ -6,7 +6,12 @@
           class="new-teams__header--btn"
           v-on:click="handleCreate"
       >
-        Add New Team
+        <router-link
+            class="edit-teams__header--btn-anchor"
+            :to="{ name: 'Teams'}"
+        >
+          Add New Team
+        </router-link>
       </button>
     </div>
     <form class="new-teams__form">
@@ -118,9 +123,12 @@ export default defineComponent( {
       font-size: 7px;
       text-align: center;
       text-transform: uppercase;
-      color: var(--color-white);
       background-color: var(--color-secondary-40);
       border-radius: 3px;
+
+      &-anchor{
+        color: var(--color-white);
+      }
 
       @include media('>=600') {
         width: 220px;
