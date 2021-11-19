@@ -54,7 +54,7 @@ export default defineComponent( {
     const coworker = ref({id: null, name: '', email: ''});
     const coworkersId = coworker.value.id;
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=5`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=1`)
         .then(response => response.json())
         .then(data => all.value = data);
 
@@ -165,7 +165,6 @@ export default defineComponent( {
       }
 
       &--span {
-        //align-self: center;
         color: var(--color-black);
       }
 

@@ -20,7 +20,6 @@ export default {
 
 <style lang="scss">
 .app {
-  height: 100vh;
 
   @include media('>=600') {
     display: grid;
