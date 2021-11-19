@@ -105,6 +105,9 @@ export default defineComponent({
       cursor: pointer;
       transition: all 0.5s ease-in-out;
 
+      @include media('>=600') {
+        display: none;
+      }
     }
 
     &--burger-bar {
@@ -166,6 +169,10 @@ export default defineComponent({
   .menu__sidebar {
     display: none;
     transform: translateX(-100%);
+
+    @include media('>=600') {
+      display: inline;
+    }
 
     &--sub-heading {
       margin: 0 20px;
