@@ -13,14 +13,14 @@ describe('Coworkers', () => {
     it('should have Coworkers as H1', () => {
         const wrapper = mount(CoworkersAll);
 
-        const h1cCoworkers = wrapper.find('h1.coworkers__heading');
+        const h1cCoworkers = wrapper.find('h1.coworkers__header-heading');
         expect(h1cCoworkers.text()).toContain('Coworkers');
     })
 
     it('should have add new coworker as button', () => {
         const wrapper = mount(CoworkersAll);
 
-        const addNewCoworker = wrapper.find('button.coworkers__btn');
+        const addNewCoworker = wrapper.find('button.coworkers__header-btn');
         expect(addNewCoworker.exists()).toBe(true);
     })
 })
