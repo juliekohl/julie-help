@@ -4,7 +4,8 @@ import Login from "@/pages/Login.vue";
 // import Teams from "@/pages/Teams/Teams.vue";
 import TeamsAll from "@/components/teams/TeamsAll.vue";
 import TeamsView from "@/pages/Teams/TeamsView.vue";
-import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
+// import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
+import EditTeams from "@/components/teams/EditTeams.vue";
 // import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
 import NewTeams from "@/components/teams/NewTeams.vue";
 // import Coworkers from "@/pages/Coworkers/Coworkers.vue";
@@ -42,7 +43,8 @@ const routes = [
     {
         path: '/teams/:id/edit',
         name: 'TeamsEdit',
-        component: TeamsEdit
+        component: EditTeams
+        // component: TeamsEdit
     },
     {
         path: '/teams/create',
