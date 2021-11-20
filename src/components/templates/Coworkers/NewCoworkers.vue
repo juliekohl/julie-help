@@ -1,61 +1,61 @@
 <template>
-  <div class="new-teams">
-    <div class="new-teams__header">
-      <h1 class="new-teams__header--heading">New Team</h1>
+  <div class="new-coworkers">
+    <div class="new-coworkers__header">
+      <h1 class="new-coworkers__header--heading">New Coworker</h1>
       <button
-          class="new-teams__header--btn"
+          class="new-coworkers__header--btn"
           v-on:click="handleCreate"
       >
         <router-link
-            class="edit-teams__header--btn-anchor"
-            :to="{ name: 'Teams'}"
+            class="edit-coworkers__header--btn-anchor"
+            :to="{ name: 'CoworkersOld'}"
         >
-          Add New Team
+          Add New Coworker
         </router-link>
       </button>
     </div>
-    <form class="new-teams__form">
+    <form class="new-coworkers__form">
       <input
-          class="new-teams__form--input"
+          class="new-coworkers__form--input"
           type="hidden"
           id="cwkId"
           name="cwkId"
           v-model="userId.coworking_id"
       />
       <label
-          class="new-teams__form--label"
+          class="new-coworkers__form--label"
           for="name"
       >
         Name
       </label>
       <input
-          class="new-teams__form--input"
+          class="new-coworkers__form--input"
           type="text"
           id="name"
           name="name"
           v-model="userId.name"
       />
       <label
-          class="new-teams__form--label"
+          class="new-coworkers__form--label"
           for="email"
       >
         Email
       </label>
       <input
-          class="new-teams__form--input"
+          class="new-coworkers__form--input"
           type="email"
           id="email"
           name="email"
           v-model="userId.email"
       />
       <label
-          class="new-teams__form--label"
+          class="new-coworkers__form--label"
           for="password"
       >
         Password
       </label>
       <input
-          class="new-teams__form--input"
+          class="new-coworkers__form--input"
           type="password"
           id="password"
           name="password"
@@ -69,8 +69,8 @@
 import {defineComponent, ref} from "vue";
 import axios from "axios";
 
-export default defineComponent( {
-  name: 'NewTeams',
+export default defineComponent({
+  name: 'NewCoworkers',
   setup() {
     const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
 
@@ -80,7 +80,7 @@ export default defineComponent( {
   },
   methods: {
     handleCreate(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams`, this.userId);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, this.userId);
       location.reload();
     }
   }
@@ -88,7 +88,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-.new-teams {
+.new-coworkers {
   padding: 5px;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);

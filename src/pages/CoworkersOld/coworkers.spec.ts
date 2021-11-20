@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import Coworkers from "@/pages/Coworkers/Coworkers.vue";
+import Coworkers from "@/pages/CoworkersOld/Coworkers.vue";
 
 describe('Coworkers', () => {
     it('is an HTML tag div', () => {
@@ -9,7 +9,7 @@ describe('Coworkers', () => {
         const coworkers = wrapper.find('div.coworkers');
         expect(coworkers.exists()).toBe(true);
     })
-    it('should have Coworkers as H1', () => {
+    it('should have CoworkersOld as H1', () => {
         const wrapper = mount(Coworkers);
 
         const h1cCoworkers = wrapper.find('h1');

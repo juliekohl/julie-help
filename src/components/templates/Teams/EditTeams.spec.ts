@@ -1,15 +1,15 @@
 import {mount} from "@vue/test-utils";
-import EditTeams from "@/components/teams/EditTeams.vue";
+import EditTeams from "@/components/templates/Teams/EditTeams.vue";
 
-describe('Edit Teams', () => {
+describe('Edit TeamsOld', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(EditTeams);
-        const editTeams = wrapper.find('div.edit-teams');
+        const editTeams = wrapper.find('div.edit-TeamsOld');
 
         expect(editTeams.exists()).toBe(true);
     })
 
-    it('should have Teams as H1', () => {
+    it('should have TeamsOld as H1', () => {
         const wrapper = mount(EditTeams);
         const h1editTeams = wrapper.find('h1.edit-teams__header--heading');
 

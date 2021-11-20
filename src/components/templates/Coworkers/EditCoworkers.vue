@@ -9,7 +9,7 @@
         >
           <router-link
               class="edit-coworkers__header--btn-delete-anchor"
-              :to="{ name: 'Coworkers'}"
+              :to="{ name: 'CoworkersOld'}"
           >
             Delete
           </router-link>
@@ -20,7 +20,7 @@
         >
           <router-link
               class="edit-coworkers__header--btn-edit-anchor"
-              :to="{ name: 'Coworkers'}"
+              :to="{ name: 'CoworkersOld'}"
           >
             Edit
           </router-link>

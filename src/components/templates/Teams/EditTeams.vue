@@ -9,7 +9,7 @@
         >
           <router-link
               class="edit-teams__header--btn-delete-anchor"
-              :to="{ name: 'Teams'}"
+              :to="{ name: 'TeamsOld'}"
           >
             Delete
           </router-link>
@@ -20,7 +20,7 @@
         >
           <router-link
               class="edit-teams__header--btn-edit-anchor"
-              :to="{ name: 'Teams'}"
+              :to="{ name: 'TeamsOld'}"
           >
             Edit
           </router-link>

@@ -1,12 +1,12 @@
 import {mount} from "@vue/test-utils";
-import Menu from "@/components/menu/Menu.vue";
+import Menu from "@/components/atoms/Menu/Menu.vue";
 
 describe('menu', () => {
     it('is an HTML tag nav', () => {
         const wrapper = mount(Menu);
         // console.log(wrapper.html())
 
-        const menu = wrapper.find('nav.menu');
+        const menu = wrapper.find('nav.Menu');
         expect(menu.exists()).toBe(true);
     })
 
@@ -25,12 +25,12 @@ describe('menu', () => {
         expect(menuSidebar.exists()).toBe(true);
     })
 
-    it('should have 3 li: coworkers, teams, and coworking', () => {
+    it('should have 3 li: coworkers, TeamsOld, and coworking', () => {
         const wrapper = mount(Menu);
         const menuSidebarItems = wrapper.findAll('ul.menu__sidebar--options li');
 
-        expect(menuSidebarItems[0].text()).toContain('Coworkers');
-        expect(menuSidebarItems[1].text()).toContain('Teams');
+        expect(menuSidebarItems[0].text()).toContain('CoworkersOld');
+        expect(menuSidebarItems[1].text()).toContain('TeamsOld');
         expect(menuSidebarItems[2].text()).toContain('Coworking');
     })
 

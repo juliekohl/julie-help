@@ -1,11 +1,11 @@
 <template>
-  <div class="footer">
-      <span class="footer__text--one">
+  <div class="footer-unit">
+    <span class="footer-unit__text-one">
       COPYRIGHT @ 2021 <strong>Juliana Cochenski</strong>, All rights Reserved
     </span>
-      <span class="footer__text--two">
+    <span class="footer-unit__text-two">
       Hand-crafted & Made with
-      <img class="footer__text--two-img" src="@/assets/img/icons/heart.svg" alt="heart">
+      <img class="footer-unit__text-two-img" src="@/assets/img/icons/heart.svg" alt="heart">
     </span>
   </div>
 </template>
@@ -14,11 +14,11 @@
 import {defineComponent} from "vue";
 
 export default defineComponent ({
-  name: 'Footer'
+  name: 'FooterUnit'
 })
 </script>
 <style lang="scss">
-.footer {
+.footer-unit {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,29 +32,29 @@ export default defineComponent ({
     font-size: 12px;
   }
 
-  &__text--one {
+  &__text-one {
     align-self: center;
     strong {
       color:var(--color-secondary-40);
     }
   }
 
-  &__text--two {
+  &__text-two {
     align-self: center;
     font-weight: 500;
 
     @include media('>=600') {
       font-weight: 600;
     }
+  }
 
-    &-img {
-      width: 5px;
-      height: 5px;
+  &__text-two-img {
+    width: 5px;
+    height: 5px;
 
-      @include media('>=600') {
-        width: 10px;
-        height: 10px;
-      }
+    @include media('>=600') {
+      width: 10px;
+      height: 10px;
     }
   }
 }

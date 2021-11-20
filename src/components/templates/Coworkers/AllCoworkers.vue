@@ -43,7 +43,7 @@ import { defineComponent, ref } from "vue";
 import axios from "axios";
 
 export default defineComponent( {
-  name: 'CoworkersAll',
+  name: 'AllCoworkers',
 
   setup() {
     const all = ref({});
