@@ -8,7 +8,7 @@
       >
         <router-link
             class="coworkers-update__header--button-anchor"
-            :to="{ name: 'Coworkers'}"
+            :to="{ name: 'CoworkersRetrieveAll'}"
         >
           Add New Coworker
         </router-link>

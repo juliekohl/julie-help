@@ -9,7 +9,7 @@
         >
           <router-link
               class="teams-update__header--button-delete-anchor"
-              :to="{ name: 'Teams'}"
+              :to="{ name: 'TeamsRetrieveAll'}"
           >
             Delete
           </router-link>
@@ -20,7 +20,7 @@
         >
           <router-link
               class="teams-update__header--button-edit-anchor"
-              :to="{ name: 'Teams'}"
+              :to="{ name: 'TeamsRetrieveAll'}"
           >
             Edit
           </router-link>

@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
 import TeamsRetrieveAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
 
-describe('Teams', () => {
+describe('TeamsRetrieveAll', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(TeamsRetrieveAll);
         const teams = wrapper.find('div.teams-retrieve-all');

@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
 import CoworkersRetrieveAll from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
 
-describe('Coworkers', () => {
+describe('CoworkersRetrieveAll', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(CoworkersRetrieveAll);
 

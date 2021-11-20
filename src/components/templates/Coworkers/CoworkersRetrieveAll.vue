@@ -28,7 +28,7 @@
               :data-id="i.id"
               @click="handleListItem"
               class="coworkers-retrieve-all__options-li--button"
-              :to="{ name: 'CoworkersEdit', params: { id: i.id }}"
+              :to="{ name: 'CoworkersUpdate', params: { id: i.id }}"
           >
             Edit
           </router-link>

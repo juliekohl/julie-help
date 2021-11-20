@@ -9,7 +9,7 @@
         >
           <router-link
               class="coworkers-update__header--button-delete-anchor"
-              :to="{ name: 'Coworkers'}"
+              :to="{ name: 'CoworkersRetrieveAll'}"
           >
             Delete
           </router-link>
@@ -20,7 +20,7 @@
         >
           <router-link
               class="coworkers-update__header--button-edit-anchor"
-              :to="{ name: 'Coworkers'}"
+              :to="{ name: 'CoworkersRetrieveAll'}"
           >
             Edit
           </router-link>

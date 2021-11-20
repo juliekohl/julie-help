@@ -26,19 +26,19 @@
       <div class="menu__sidebar--sub-heading">My Coworking</div>
       <ul class="menu__sidebar--options">
         <li class="menu__sidebar--li">
-          <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
+          <router-link :to="{ name: 'CoworkersRetrieveAll'}" @click.prevent="toggle">
             <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
             <span>Coworkers</span>
           </router-link>
         </li>
         <li class="menu__sidebar--li">
-          <router-link :to="{ name: 'Teams'}" @click.prevent="toggle">
+          <router-link :to="{ name: 'TeamsRetrieveAll'}" @click.prevent="toggle">
             <img src="@/assets/img/icons/user-icon.svg" alt="icon-user">
             <span>Teams</span>
           </router-link>
         </li>
         <li class="menu__sidebar--li">
-          <router-link :to="{ name: 'Coworkers'}" @click.prevent="toggle">
+          <router-link :to="{ name: 'CoworkersRetrieveAll'}" @click.prevent="toggle">
             <img src="@/assets/img/icons/check-square.svg" alt="check-square">
             <span>Coworking</span>
           </router-link>

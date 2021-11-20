@@ -28,7 +28,7 @@
               :data-id="i.id"
               @click="handleListItem"
               class="teams-retrieve-all__options-li--button"
-              :to="{ name: 'TeamsEdit', params: { id: i.id }}"
+              :to="{ name: 'TeamsUpdate', params: { id: i.id }}"
           >
             Edit
           </router-link>

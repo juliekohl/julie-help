@@ -8,7 +8,7 @@
       >
         <router-link
             class="teams-update__header--button-anchor"
-            :to="{ name: 'Teams'}"
+            :to="{ name: 'TeamsRetrieveAll'}"
         >
           Add New Team
         </router-link>

@@ -1,14 +1,14 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-import TeamsAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
-import TeamsView from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
-import EditTeams from "@/components/templates/Teams/TeamsUpdate.vue";
-import NewTeams from "@/components/templates/Teams/TeamsCreate.vue";
-import CoworkersView from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
-import AllCoworkers from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
-import NewCoworkers from "@/components/templates/Coworkers/CoworkersCreate.vue";
-import EditCoworkers from "@/components/templates/Coworkers/CoworkersUpdate.vue";
+import TeamsRetrieveAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
+import TeamsRetrieveSingle from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
+import TeamsCreate from "@/components/templates/Teams/TeamsCreate.vue";
+import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
+import CoworkersRetrieveAll from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
+import CoworkersRetrieveSingle from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
+import CoworkersCreate from "@/components/templates/Coworkers/CoworkersCreate.vue";
+import CoworkersUpdate from "@/components/templates/Coworkers/CoworkersUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -30,23 +30,23 @@ const routes = [
 
     {
         path: '/teams',
-        name: 'Teams',
-        component: TeamsAll
+        name: 'TeamsRetrieveAll',
+        component: TeamsRetrieveAll
     },
     {
         path: '/teams/:id',
-        name: 'TeamsView',
-        component: TeamsView
-    },
-    {
-        path: '/teams/:id/edit',
-        name: 'TeamsEdit',
-        component: EditTeams
+        name: 'TeamsRetrieveSingle',
+        component: TeamsRetrieveSingle
     },
     {
         path: '/teams/create',
         name: 'TeamsCreate',
-        component: NewTeams
+        component: TeamsCreate
+    },
+    {
+        path: '/teams/:id/edit',
+        name: 'TeamsUpdate',
+        component: TeamsUpdate
     },
 
     /**
@@ -55,23 +55,23 @@ const routes = [
 
     {
         path: '/coworkers',
-        name: 'Coworkers',
-        component: AllCoworkers
+        name: 'CoworkersRetrieveAll',
+        component: CoworkersRetrieveAll
     },
     {
         path: '/coworkers/:id',
-        name: 'CoworkersView',
-        component: CoworkersView
-    },
-    {
-        path: '/coworkers/:id/edit',
-        name: 'CoworkersEdit',
-        component: EditCoworkers
+        name: 'CoworkersRetrieveSingle',
+        component: CoworkersRetrieveSingle
     },
     {
         path: '/coworkers/create',
         name: 'CoworkersCreate',
-        component: NewCoworkers
+        component: CoworkersCreate
+    },
+    {
+        path: '/coworkers/:id/edit',
+        name: 'CoworkersUpdate',
+        component: CoworkersUpdate
     },
 ]
 
