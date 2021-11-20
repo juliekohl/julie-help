@@ -8,7 +8,7 @@
       >
         <router-link
             class="edit-coworkers__header--btn-anchor"
-            :to="{ name: 'CoworkersOld'}"
+            :to="{ name: 'Coworkers'}"
         >
           Add New Coworker
         </router-link>

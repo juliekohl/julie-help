@@ -1,15 +1,15 @@
 import {mount} from "@vue/test-utils";
 import NewTeams from "@/components/templates/Teams/NewTeams.vue";
 
-describe('New TeamsOld', () => {
+describe('New Teams', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(NewTeams);
-        const newTeams = wrapper.find('div.new-TeamsOld');
+        const newTeams = wrapper.find('div.new-teams');
 
         expect(newTeams.exists()).toBe(true);
     })
 
-    it('should have TeamsOld as H1', () => {
+    it('should have Teams as H1', () => {
         const wrapper = mount(NewTeams);
         const h1newTeams = wrapper.find('h1.new-teams__header--heading');
 

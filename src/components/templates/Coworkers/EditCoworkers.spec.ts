@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
 import EditCoworkers from "@/components/templates/Coworkers/EditCoworkers.vue";
 
-describe('Edit CoworkersOld', () => {
+describe('Edit Coworkers', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(EditCoworkers);
         // console.log(wrapper.html());
@@ -10,7 +10,7 @@ describe('Edit CoworkersOld', () => {
         expect(editCoworkers.exists()).toBe(true);
     })
 
-    it('should have CoworkersOld as H1', () => {
+    it('should have Coworkers as H1', () => {
         const wrapper = mount(EditCoworkers);
 
         const h1editCoworkers = wrapper.find('h1.edit-coworkers__header--heading');

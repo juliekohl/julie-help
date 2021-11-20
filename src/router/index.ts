@@ -1,17 +1,17 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-// import TeamsOld from "@/pages/TeamsOld/TeamsOld.vue";
+// import Teams from "@/pages/Teams/Teams.vue";
 import TeamsAll from "@/components/templates/Teams/TeamsAll.vue";
-import TeamsView from "@/pages/TeamsOld/TeamsView.vue";
-// import TeamsEdit from "@/pages/TeamsOld/TeamsEdit.vue";
+import TeamsView from "@/components/templates/Teams/TeamsView.vue";
+// import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
 import EditTeams from "@/components/templates/Teams/EditTeams.vue";
-// import TeamsCreate from "@/pages/TeamsOld/TeamsCreate.vue";
+// import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
 import NewTeams from "@/components/templates/Teams/NewTeams.vue";
-// import CoworkersOld from "@/pages/CoworkersOld/CoworkersOld.vue";
-import CoworkersView from "@/pages/CoworkersOld/CoworkersView.vue";
-// import CoworkersEdit from "@/pages/CoworkersOld/CoworkersEdit.vue";
-// import CoworkersCreate from "@/pages/CoworkersOld/CoworkersCreate.vue";
+// import Coworkers from "@/pages/Coworkers/Coworkers.vue";
+import CoworkersView from "@/components/templates/Coworkers/CoworkersView.vue";
+// import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
+// import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 import AllCoworkers from "@/components/templates/Coworkers/AllCoworkers.vue";
 import NewCoworkers from "@/components/templates/Coworkers/NewCoworkers.vue";
 import EditCoworkers from "@/components/templates/Coworkers/EditCoworkers.vue";
@@ -29,34 +29,40 @@ const routes = [
         name: 'Login',
         component: Login
     },
+
+    /**
+     * Teams
+     */
+
     {
-        path: '/TeamsOld',
+        path: '/teams',
         name: 'Teams',
         component: TeamsAll
-        // component: TeamsOld
     },
     {
-        path: '/TeamsOld/:id',
+        path: '/teams/:id',
         name: 'TeamsView',
         component: TeamsView
     },
     {
-        path: '/TeamsOld/:id/edit',
+        path: '/teams/:id/edit',
         name: 'TeamsEdit',
         component: EditTeams
-        // component: TeamsEdit
     },
     {
-        path: '/TeamsOld/create',
+        path: '/teams/create',
         name: 'TeamsCreate',
         component: NewTeams
-        // component: TeamsCreate
     },
+
+    /**
+     * Coworkers
+     */
+
     {
         path: '/coworkers',
         name: 'Coworkers',
         component: AllCoworkers
-        // component: CoworkersOld
     },
     {
         path: '/coworkers/:id',
@@ -67,13 +73,11 @@ const routes = [
         path: '/coworkers/:id/edit',
         name: 'CoworkersEdit',
         component: EditCoworkers
-        // component: CoworkersEdit
     },
     {
         path: '/coworkers/create',
         name: 'CoworkersCreate',
         component: NewCoworkers
-        // component: CoworkersCreate
     },
 ]
 

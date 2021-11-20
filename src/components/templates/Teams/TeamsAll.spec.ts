@@ -1,22 +1,22 @@
 import {mount} from "@vue/test-utils";
 import TeamsAll from "@/components/templates/Teams/TeamsAll.vue";
 
-describe('TeamsOld', () => {
+describe('Teams', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(TeamsAll);
-        const teams = wrapper.find('div.TeamsOld');
+        const teams = wrapper.find('div.teams');
 
         expect(teams.exists()).toBe(true);
     })
 
-    it('should have TeamsOld as H1', () => {
+    it('should have Teams as H1', () => {
         const wrapper = mount(TeamsAll);
         const h1cTeams = wrapper.find('h1.teams__header-heading');
 
-        expect(h1cTeams.text()).toContain('TeamsOld');
+        expect(h1cTeams.text()).toContain('Teams');
     })
 
-    it('should have add new TeamsOld as button', () => {
+    it('should have add new Teams as button', () => {
         const wrapper = mount(TeamsAll);
         const addNewTeams = wrapper.find('button.teams__header-btn');
 

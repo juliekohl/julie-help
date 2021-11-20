@@ -8,7 +8,7 @@
       >
         <router-link
             class="edit-teams__header--btn-anchor"
-            :to="{ name: 'TeamsOld'}"
+            :to="{ name: 'Teams'}"
         >
           Add New Team
         </router-link>
