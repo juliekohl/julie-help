@@ -1,17 +1,19 @@
 <template>
-  <h1>Team Info</h1>
-  <div class="info">
-    <span>Name: {{teamUser.name}}</span>
-    <span>Email: {{teamUser.email}}</span>
-    <button
-        class="form__btn"
-        type="button"
-        v-on:click="handleEdit"
-    >
-      <router-link
-          :to="{ name: 'TeamsEdit', params: { id: teamUserId }}"
-      >Edit</router-link>
-    </button>
+  <div class="teams-retrieve-single">
+    <h1>Team Info</h1>
+    <div class="info">
+      <span>Name: {{teamUser.name}}</span>
+      <span>Email: {{teamUser.email}}</span>
+      <button
+          class="form__button"
+          type="button"
+          v-on:click="handleEdit"
+      >
+        <router-link
+            :to="{ name: 'TeamsEdit', params: { id: teamUserId }}"
+        >Edit</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ import {useRouter} from "vue-router";
 import axios from "axios";
 
 export default defineComponent( {
-  name: 'TeamsView',
+  name: 'TeamsRetrieveSingle',
   setup() {
     const router = useRouter();
     const teamUser = ref({id: null, name: '', email: ''});

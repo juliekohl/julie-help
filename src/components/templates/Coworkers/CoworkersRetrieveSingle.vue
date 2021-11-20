@@ -1,18 +1,20 @@
 <template>
-  <h1>Coworkers Info</h1>
-  <div class="info">
-    <span>Name: {{coworkerUser.name}}</span>
-    <span>Email: {{coworkerUser.email}}</span>
-    <span>Cwk_Id: {{coworkerUser.coworkingId}}</span>
-    <button
-        class="form__btn"
-        type="button"
-        v-on:click="handleEdit"
-    >
-      <router-link
-          :to="{ name: 'CoworkersEdit', params: { id: coworkerUserId }}"
-      >Edit</router-link>
-    </button>
+  <div class="coworkers-retrieve-single">
+    <h1>Coworkers Info</h1>
+    <div class="info">
+      <span>Name: {{coworkerUser.name}}</span>
+      <span>Email: {{coworkerUser.email}}</span>
+      <span>Cwk_Id: {{coworkerUser.coworkingId}}</span>
+      <button
+          class="form__button"
+          type="button"
+          v-on:click="handleEdit"
+      >
+        <router-link
+            :to="{ name: 'CoworkersEdit', params: { id: coworkerUserId }}"
+        >Edit</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,7 @@ import {useRouter} from "vue-router";
 import axios from "axios";
 
 export default defineComponent( {
-  name: 'CoworkersView',
+  name: 'CoworkersRetrieveSingle',
   setup() {
     const router = useRouter();
     const coworkerUser = ref({id: null, name: '', email: '', coworkingId: null});

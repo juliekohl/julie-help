@@ -12,7 +12,7 @@
           v-model="coworking.name"
       />
       <button
-          class="form__btn"
+          class="form__button"
           type="button"
           v-on:click="handleCreate"
       >Create
@@ -39,13 +39,13 @@
           v-model="coworking.name"
       />
       <button
-          class="form__btn"
+          class="form__button"
           type="button"
           v-on:click="handleEdit"
       >Edit
       </button>
       <button
-          class="form__btn"
+          class="form__button"
           type="button"
           v-on:click="handleDelete"
       >Delete
@@ -110,7 +110,7 @@ export default defineComponent({
   align-items: center;
   margin: 20px;
 }
-.form__btn {
+.form__button {
   margin: 10px;
 }
 ul {

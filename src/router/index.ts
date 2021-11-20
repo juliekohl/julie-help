@@ -1,20 +1,14 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-// import Teams from "@/pages/Teams/Teams.vue";
-import TeamsAll from "@/components/templates/Teams/TeamsAll.vue";
-import TeamsView from "@/components/templates/Teams/TeamsView.vue";
-// import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
-import EditTeams from "@/components/templates/Teams/EditTeams.vue";
-// import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
-import NewTeams from "@/components/templates/Teams/NewTeams.vue";
-// import Coworkers from "@/pages/Coworkers/Coworkers.vue";
-import CoworkersView from "@/components/templates/Coworkers/CoworkersView.vue";
-// import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
-// import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
-import AllCoworkers from "@/components/templates/Coworkers/AllCoworkers.vue";
-import NewCoworkers from "@/components/templates/Coworkers/NewCoworkers.vue";
-import EditCoworkers from "@/components/templates/Coworkers/EditCoworkers.vue";
+import TeamsAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
+import TeamsView from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
+import EditTeams from "@/components/templates/Teams/TeamsUpdate.vue";
+import NewTeams from "@/components/templates/Teams/TeamsCreate.vue";
+import CoworkersView from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
+import AllCoworkers from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
+import NewCoworkers from "@/components/templates/Coworkers/CoworkersCreate.vue";
+import EditCoworkers from "@/components/templates/Coworkers/CoworkersUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 

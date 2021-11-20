@@ -1,25 +1,25 @@
 <template>
-  <div class="edit-coworkers" v-if="coworkerUserId">
-    <div class="edit-coworkers__header">
-      <h1 class="edit-coworkers__header--heading">{{coworkerUser.name}}</h1>
-      <div class="edit-coworkers__header--btn">
+  <div class="coworkers-update" v-if="coworkerUserId">
+    <div class="coworkers-update__header">
+      <h1 class="coworkers-update__header--heading">{{coworkerUser.name}}</h1>
+      <div class="coworkers-update__header--button">
         <button
-            class="edit-coworkers__header--btn-delete"
+            class="coworkers-update__header--button-delete"
             v-on:click="handleEdit"
         >
           <router-link
-              class="edit-coworkers__header--btn-delete-anchor"
+              class="coworkers-update__header--button-delete-anchor"
               :to="{ name: 'Coworkers'}"
           >
             Delete
           </router-link>
         </button>
         <button
-            class="edit-coworkers__header--btn-edit"
+            class="coworkers-update__header--button-edit"
             v-on:click="handleEdit"
         >
           <router-link
-              class="edit-coworkers__header--btn-edit-anchor"
+              class="coworkers-update__header--button-edit-anchor"
               :to="{ name: 'Coworkers'}"
           >
             Edit
@@ -27,15 +27,15 @@
         </button>
       </div>
     </div>
-    <form class="edit-coworkers__form">
+    <form class="coworkers-update__form">
       <label
-          class="edit-coworkers__form--label"
+          class="coworkers-update__form--label"
           for="name"
       >
        Name
       </label>
       <input
-          class="edit-coworkers__form--input"
+          class="coworkers-update__form--input"
           type="text"
           id="name"
           name="name"
@@ -43,13 +43,13 @@
           v-model="coworkerUser.name"
       />
       <label
-          class="edit-coworkers__form--label"
+          class="coworkers-update__form--label"
           for="password"
       >
         Password
       </label>
       <input
-          class="edit-coworkers__form--input"
+          class="coworkers-update__form--input"
           type="password"
           id="password"
           name="password"
@@ -67,7 +67,7 @@ import {useRouter} from "vue-router";
 import axios from "axios";
 
 export default defineComponent({
-  name: 'EditCoworkers',
+  name: 'CoworkersUpdate',
   setup() {
     const router = useRouter();
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
@@ -96,7 +96,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.edit-coworkers {
+.coworkers-update {
   padding: 5px;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
@@ -124,7 +124,7 @@ export default defineComponent({
       }
     }
 
-    &--btn {
+    &--button {
       align-self: center;
 
       &-edit {

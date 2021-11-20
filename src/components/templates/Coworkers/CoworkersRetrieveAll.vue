@@ -1,34 +1,34 @@
 <template>
-  <div class="teams">
-    <div class="teams__header">
-      <h1 class="teams__header-heading">Teams</h1>
+  <div class="coworkers-retrieve-all">
+    <div class="coworkers-retrieve-all__header">
+      <h1 class="coworkers-retrieve-all__header-heading">Coworkers</h1>
       <button
-          class="teams__header-btn"
+          class="coworkers-retrieve-all__header-button"
           v-on:click="handleCreate"
       >
         <router-link
-            class="teams__header-btn--anchor"
-            :to="{ name: 'TeamsCreate', params: { id: teamUserId }}"
+            class="coworkers-retrieve-all__header-button--anchor"
+            :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
         >
-          Add new team
+          Add new coworker
         </router-link>
       </button>
     </div>
-    <div class="teams__options">
-      <ul class="teams__options-ul">
+    <div class="coworkers-retrieve-all__options">
+      <ul class="coworkers-retrieve-all__options-ul">
         <li
             v-for="i in all"
             :key="i"
             :data-id="i.id"
-            class="teams__options-li"
+            class="coworkers-retrieve-all__options-li"
         >
           {{ i.name }}
-          <span class="teams__options-li--span">{{i.email}}</span>
+          <span class="coworkers-retrieve-all__options-li--span">{{i.email}}</span>
           <router-link
               :data-id="i.id"
               @click="handleListItem"
-              class="teams__options-li--btn"
-              :to="{ name: 'TeamsEdit', params: { id: i.id }}"
+              class="coworkers-retrieve-all__options-li--button"
+              :to="{ name: 'CoworkersEdit', params: { id: i.id }}"
           >
             Edit
           </router-link>
@@ -39,45 +39,44 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import { defineComponent, ref } from "vue";
 import axios from "axios";
 
 export default defineComponent( {
-  name: 'TeamsAll',
+  name: 'CoworkersRetrieveAll',
 
   setup() {
     const all = ref({});
-    const teamUser = ref({id: null, name: '', email: ''});
-    const teamUserId = teamUser.value.id;
+    const coworker = ref({id: null, name: '', email: ''});
+    const coworkersId = coworker.value.id;
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=1`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=1`)
         .then(response => response.json())
-        .then(data => {all.value = data});
+        .then(data => all.value = data);
 
     const handleListItem = (e: any): void => {
-      teamUser.value.id = e.target.getAttribute('data-id');
-      teamUser.value.name = e.target.innerHTML;
-      teamUser.value.email = e.target.innerHTML;
+      coworker.value.id = e.target.getAttribute('data-id');
+      coworker.value.name = e.target.innerHTML;
+      coworker.value.email = e.target.innerHTML;
     }
 
     return {
       all,
-      teamUser,
-      teamUserId,
+      coworker,
+      coworkersId,
       handleListItem
     }
   },
   methods: {
     handleCreate(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams`);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`);
       location.reload();
     }
-  },
+  }
 })
 </script>
-
 <style lang="scss">
-.teams {
+.coworkers-retrieve-all {
   padding: 5px;
   height: 100%;
 
@@ -109,7 +108,7 @@ export default defineComponent( {
       }
     }
 
-    &-btn {
+    &-button {
       width: 110px;
       height: 17px;
       padding: 2px;
@@ -166,7 +165,7 @@ export default defineComponent( {
         color: var(--color-black);
       }
 
-      &--btn {
+      &--button {
         display: block;
         width: 50px;
         height: 15px;

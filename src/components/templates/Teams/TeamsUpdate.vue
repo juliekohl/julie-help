@@ -1,25 +1,25 @@
 <template>
-  <div class="edit-teams" v-if="teamUserId">
-    <div class="edit-teams__header">
-      <h1 class="edit-teams__header--heading">{{teamUser.name}}</h1>
-      <div class="edit-teams__header--btn">
+  <div class="teams-update" v-if="teamUserId">
+    <div class="teams-update__header">
+      <h1 class="teams-update__header--heading">{{teamUser.name}}</h1>
+      <div class="teams-update__header--button">
         <button
-            class="edit-teams__header--btn-delete"
+            class="teams-update__header--button-delete"
             v-on:click="handleEdit"
         >
           <router-link
-              class="edit-teams__header--btn-delete-anchor"
+              class="teams-update__header--button-delete-anchor"
               :to="{ name: 'Teams'}"
           >
             Delete
           </router-link>
         </button>
         <button
-            class="edit-teams__header--btn-edit"
+            class="teams-update__header--button-edit"
             v-on:click="handleEdit"
         >
           <router-link
-              class="edit-teams__header--btn-edit-anchor"
+              class="teams-update__header--button-edit-anchor"
               :to="{ name: 'Teams'}"
           >
             Edit
@@ -27,15 +27,15 @@
         </button>
       </div>
     </div>
-    <form class="edit-teams__form">
+    <form class="teams-update__form">
       <label
-          class="edit-teams__form--label"
+          class="teams-update__form--label"
           for="name"
       >
         Name
       </label>
       <input
-          class="edit-teams__form--input"
+          class="teams-update__form--input"
           type="text"
           id="name"
           name="name"
@@ -43,13 +43,13 @@
           v-model="teamUser.name"
       />
       <label
-          class="edit-teams__form--label"
+          class="teams-update__form--label"
           for="password"
       >
         Password
       </label>
       <input
-          class="edit-teams__form--input"
+          class="teams-update__form--input"
           type="password"
           id="password"
           name="password"
@@ -66,7 +66,7 @@ import {useRouter} from "vue-router";
 import axios from "axios";
 
 export default defineComponent( {
-  name: 'EditTeams',
+  name: 'TeamsUpdate',
   setup() {
     const router = useRouter();
     const teamUserId: number = Number(router.currentRoute.value.params.id);
@@ -96,7 +96,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-.edit-teams {
+.teams-update {
   padding: 5px;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
@@ -124,7 +124,7 @@ export default defineComponent( {
       }
     }
 
-    &--btn {
+    &--button {
       align-self: center;
 
       &-edit {
