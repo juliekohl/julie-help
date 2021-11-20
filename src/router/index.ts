@@ -1,11 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-import TeamsRetrieveAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
+import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
 import TeamsRetrieveSingle from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
 import TeamsCreate from "@/components/templates/Teams/TeamsCreate.vue";
 import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
-import CoworkersRetrieveAll from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
+import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
 import CoworkersRetrieveSingle from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
 import CoworkersCreate from "@/components/templates/Coworkers/CoworkersCreate.vue";
 import CoworkersUpdate from "@/components/templates/Coworkers/CoworkersUpdate.vue";
