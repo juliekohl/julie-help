@@ -44,7 +44,7 @@ export default defineComponent( {
   props: {
     title: String
   },
-  setup(props) {
+  setup() {
     const all = ref({});
     const coworker = ref({id: null, name: '', email: ''});
     const coworkersId = coworker.value.id;
