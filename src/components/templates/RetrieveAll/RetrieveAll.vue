@@ -2,17 +2,13 @@
   <div class="retrieve-all">
     <div class="retrieve-all__header">
       <h1 class="retrieve-all__header-heading">{{ title }}</h1>
-      <button
-          class="retrieve-all__header-button"
-          v-on:click="handleCreate"
+      <button-unit
+          class="retrieve-all__header_button"
+          color="purple"
+          :to="{ name: 'CoworkersCreate'}"
       >
-        <router-link
-            class="retrieve-all__header-button--anchor"
-            :to="{ name: 'CoworkersCreate', params: { id: coworkersId }}"
-        >
-          Add new coworker
-        </router-link>
-      </button>
+        Add new coworker
+      </button-unit>
     </div>
     <div class="retrieve-all__options">
       <ul class="retrieve-all__options-ul">
@@ -24,14 +20,13 @@
         >
           {{ i.name }}
           <span class="retrieve-all__options-li--span">{{i.email}}</span>
-          <router-link
-              :data-id="i.id"
-              @click="handleListItem"
+          <button-unit
               class="retrieve-all__options-li--button"
+              color="gray"
               :to="{ name: 'CoworkersUpdate', params: { id: i.id }}"
           >
             Edit
-          </router-link>
+          </button-unit>
         </li>
       </ul>
     </div>
@@ -41,9 +36,11 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent( {
   name: 'RetrieveAll',
+  components: {ButtonUnit},
   props: {
     title: String
   },
@@ -109,29 +106,6 @@ export default defineComponent( {
         font-weight: 500;
       }
     }
-
-    &-button {
-      width: 110px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
-      text-align: center;
-      text-transform: uppercase;
-      background-color: var(--color-secondary-40);
-      border-radius: 3px;
-
-      @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
-      }
-
-      &--anchor {
-        color: var(--color-white);
-      }
-    }
   }
 
   &__options {
@@ -165,28 +139,6 @@ export default defineComponent( {
 
       &--span {
         color: var(--color-black);
-      }
-
-      &--button {
-        display: block;
-        width: 50px;
-        height: 15px;
-        padding: 4px;
-        font-size: 8px;
-        text-align: center;
-        text-transform: uppercase;
-        color: var(--color-black);
-        background-color: var(--color-gray-50);
-        border-radius: 3px;
-
-        @include media('>=600') {
-          width: 100px;
-          height: 30px;
-          padding: 10px;
-          font-size: 12px;
-          font-weight: 500;
-          border-radius: 6px;
-        }
       }
     }
   }
