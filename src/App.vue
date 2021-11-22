@@ -2,18 +2,18 @@
   <div class="app">
     <Menu class="app__menu" />
     <router-view class="app__main" />
-    <Footer class="app__footer" />
+    <FooterUnit class="app__footer-unit" />
   </div>
 </template>
 
 <script lang="ts">
 import index from "./router";
-import Menu from "@/components/menu/Menu.vue";
-import Footer from "@/components/footer/Footer.vue";
+import Menu from "@/components/atoms/Menu/Menu.vue";
+import FooterUnit from "@/components/atoms/FooterUnit/FooterUnit.vue";
 
 export default {
   name: 'App',
-  components: { Footer, Menu },
+  components: { FooterUnit, Menu },
   router: index
 }
 </script>
@@ -27,7 +27,7 @@ export default {
     grid-template-columns: 300px 1fr;
     grid-template-areas:
     "menu main"
-    "menu footer";
+    "menu footer-unit";
   }
 
   &__menu {
@@ -38,8 +38,8 @@ export default {
     grid-area: main;
   }
 
-  &__footer {
-    grid-area: footer;
+  &__footer-unit {
+    grid-area: footer-unit;
   }
 }
 </style>

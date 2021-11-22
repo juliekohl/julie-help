@@ -1,20 +1,14 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Dashboard from "@/pages/Dashboard.vue";
-import Login from "@/pages/Login.vue";
-// import Teams from "@/pages/Teams/Teams.vue";
-import TeamsAll from "@/components/teams/TeamsAll.vue";
-import TeamsView from "@/pages/Teams/TeamsView.vue";
-// import TeamsEdit from "@/pages/Teams/TeamsEdit.vue";
-import EditTeams from "@/components/teams/EditTeams.vue";
-// import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
-import NewTeams from "@/components/teams/NewTeams.vue";
-// import Coworkers from "@/pages/Coworkers/Coworkers.vue";
-import CoworkersView from "@/pages/Coworkers/CoworkersView.vue";
-// import CoworkersEdit from "@/pages/Coworkers/CoworkersEdit.vue";
-// import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
-import CoworkersAll from "@/components/Coworkers/CoworkersAll.vue";
-import NewCoworkers from "@/components/Coworkers/NewCoworkers.vue";
-import EditCoworkers from "@/components/Coworkers/EditCoworkers.vue";
+import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
+import Login from "@/components/templates/Login/Login.vue";
+import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
+import TeamsRetrieveSingle from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
+import TeamsCreate from "@/components/templates/Teams/TeamsCreate.vue";
+import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
+import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
+import CoworkersRetrieveSingle from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
+import CoworkersCreate from "@/components/templates/Coworkers/CoworkersCreate.vue";
+import CoworkersUpdate from "@/components/templates/Coworkers/CoworkersUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -29,51 +23,55 @@ const routes = [
         name: 'Login',
         component: Login
     },
+
+    /**
+     * Teams
+     */
+
     {
         path: '/teams',
-        name: 'Teams',
-        component: TeamsAll
-        // component: Teams
+        name: 'TeamsRetrieveAll',
+        component: TeamsRetrieveAll
     },
     {
         path: '/teams/:id',
-        name: 'TeamsView',
-        component: TeamsView
-    },
-    {
-        path: '/teams/:id/edit',
-        name: 'TeamsEdit',
-        component: EditTeams
-        // component: TeamsEdit
+        name: 'TeamsRetrieveSingle',
+        component: TeamsRetrieveSingle
     },
     {
         path: '/teams/create',
         name: 'TeamsCreate',
-        component: NewTeams
-        // component: TeamsCreate
+        component: TeamsCreate
     },
     {
+        path: '/teams/:id/edit',
+        name: 'TeamsUpdate',
+        component: TeamsUpdate
+    },
+
+    /**
+     * Coworkers
+     */
+
+    {
         path: '/coworkers',
-        name: 'Coworkers',
-        component: CoworkersAll
-        // component: Coworkers
+        name: 'CoworkersRetrieveAll',
+        component: CoworkersRetrieveAll
     },
     {
         path: '/coworkers/:id',
-        name: 'CoworkersView',
-        component: CoworkersView
-    },
-    {
-        path: '/coworkers/:id/edit',
-        name: 'CoworkersEdit',
-        component: EditCoworkers
-        // component: CoworkersEdit
+        name: 'CoworkersRetrieveSingle',
+        component: CoworkersRetrieveSingle
     },
     {
         path: '/coworkers/create',
         name: 'CoworkersCreate',
-        component: NewCoworkers
-        // component: CoworkersCreate
+        component: CoworkersCreate
+    },
+    {
+        path: '/coworkers/:id/edit',
+        name: 'CoworkersUpdate',
+        component: CoworkersUpdate
     },
 ]
 
