@@ -12,22 +12,13 @@
     </div>
     <div class="retrieve-all__options">
       <ul class="retrieve-all__options-ul">
-        <li
-            v-for="i in all"
-            :key="i"
-            :data-id="i.id"
+        <list-item
+            v-for="item in all"
+            :key="item"
             class="retrieve-all__options-li"
-        >
-          {{ i.name }}
-          <span class="retrieve-all__options-li--span">{{i.email}}</span>
-          <button-unit
-              class="retrieve-all__options-li--button"
-              color="gray"
-              :to="{ name: 'CoworkersUpdate', params: { id: i.id }}"
-          >
-            Edit
-          </button-unit>
-        </li>
+            :item="item"
+            :to="{ name: 'CoworkersUpdate', params: { id: item.id }}"
+        />
       </ul>
     </div>
   </div>
@@ -37,10 +28,11 @@
 import { defineComponent, ref } from "vue";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
+import ListItem from "@/components/molecules/ListItem/ListItem.vue";
 
 export default defineComponent( {
   name: 'RetrieveAll',
-  components: {ButtonUnit},
+  components: {ListItem, ButtonUnit},
   props: {
     title: String
   },
@@ -53,17 +45,10 @@ export default defineComponent( {
         .then(response => response.json())
         .then(data => all.value = data);
 
-    const handleListItem = (e: any): void => {
-      coworker.value.id = e.target.getAttribute('data-id');
-      coworker.value.name = e.target.innerHTML;
-      coworker.value.email = e.target.innerHTML;
-    }
-
     return {
       all,
       coworker,
       coworkersId,
-      handleListItem
     }
   },
   methods: {
@@ -109,36 +94,9 @@ export default defineComponent( {
   }
 
   &__options {
-
     &-ul {
       @include media('>=600') {
         padding: 0;
-      }
-    }
-
-    &-li {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin: 10px;
-      padding: 10px;
-      font-size: 10px;
-      text-align: center;
-      color: var(--color-secondary-45);
-      box-shadow: var(--box-shadow-v2);
-      border-radius: 3px;
-
-      @include media('>=600') {
-        margin: 15px;
-        padding: 30px;
-        font-size: 15px;
-        border-radius: 8px;
-      }
-
-      &--span {
-        color: var(--color-black);
       }
     }
   }
