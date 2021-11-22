@@ -43,8 +43,9 @@
 
 <script lang="ts">
 // import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent( {
   name: 'Login',
   // components: {
   //   ValidationObserver,
@@ -61,16 +62,11 @@ export default {
   //     console.log('Foi!', this.formData);
   //   }
   // }
-}
+})
 
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .form {
   position: relative;
   margin: 0 auto;
