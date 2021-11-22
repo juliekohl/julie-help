@@ -31,8 +31,6 @@ export default defineComponent( {
     color: String,
   },
   emits: ['click'],
-  setup() {
-  }
 })
 </script>
 
@@ -59,6 +57,11 @@ export default defineComponent( {
   &--color-gray {
     color: var(--color-black);
     background-color: var(--color-gray-50);
+  }
+
+  &--color-red {
+    color: var(--color-white);
+    background-color: var(--color-alert-50);
   }
 }
 </style>
