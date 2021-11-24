@@ -1,56 +1,60 @@
 <template>
-  <h1 class="heading">Register Coworking</h1>
-  <form
-      class="form"
-  >
-      <label for="name">Coworking Name</label>
-      <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Coworking name"
-          v-model="coworking.name"
-      />
-      <button
-          class="form__button"
-          type="button"
-          v-on:click="handleCreate"
-      >Create
-      </button>
-  </form>
-
-  <ul>
-    <li v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
-  </ul>
-
-  <div v-if="cwk.id">
-    <h2>Coworking Info</h2>
-    <span>Name: {{cwk.name}}</span>
-    <h2>Edit coworking</h2>
+  <div class="Coworking">
+    <h1 class="Coworking__heading">Register Coworking</h1>
     <form
-        class="form"
+        class="Coworking__form"
     >
-      <label for="name-edit">{{cwk.name ? cwk.name : 'Coworking Name'}}</label>
-      <input
-          type="text"
-          id="name-edit"
-          name="name-edit"
-          placeholder="Coworking name edit"
-          v-model="coworking.name"
-      />
-      <button
-          class="form__button"
-          type="button"
-          v-on:click="handleEdit"
-      >Edit
-      </button>
-      <button
-          class="form__button"
-          type="button"
-          v-on:click="handleDelete"
-      >Delete
-      </button>
+        <label class="Coworking__form-label" for="name">Coworking Name</label>
+        <input
+            class="Coworking__form-input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Coworking name"
+            v-model="coworking.name"
+        />
+        <button
+            class="Coworking__form-button"
+            type="button"
+            v-on:click="handleCreate"
+        >Create Coworking
+        </button>
     </form>
+
+    <ul class="Coworking__list">
+      <li class="Coworking__list-item" v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
+    </ul>
+
+    <div class="Coworking__info" v-if="cwk.id">
+      <h2 class="Coworking__info-sub-heading">Coworking Info</h2>
+      <span class="Coworking__info-span">Name: {{cwk.name}}</span>
+      <h2 class="Coworking__info-sub-heading">Edit coworking</h2>
+      <form
+          class="Coworking__form"
+      >
+        <label class="Coworking__form-label" for="name-edit">{{cwk.name ? cwk.name : 'Coworking Name'}}</label>
+        <input
+            class="Coworking__form-input"
+            type="text"
+            id="name-edit"
+            name="name-edit"
+            placeholder="Coworking name edit"
+            v-model="coworking.name"
+        />
+        <button
+            class="Coworking__form-button"
+            type="button"
+            v-on:click="handleEdit"
+        >Edit
+        </button>
+        <button
+            class="Coworking__form-button"
+            type="button"
+            v-on:click="handleDelete"
+        >Delete
+        </button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -100,23 +104,32 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.heading {
+.Coworking {
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    &-button {
+      margin: 10px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+
+    &-item {}
+  }
+
+  &__info-sub-heading {
   text-align: center;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-.form__button {
-  margin: 10px;
-}
-ul {
-  list-style-type: none;
-}
-h2 {
-  text-align: center;
+  }
 }
 </style>
