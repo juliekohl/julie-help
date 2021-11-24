@@ -3,7 +3,7 @@
     <div class="retrieve-all__header">
       <h1 class="retrieve-all__header-heading">{{ title }}</h1>
       <button-unit
-          class="retrieve-all__header_button"
+          class="retrieve-all__header-button"
           color="purple"
           :to="{ name: 'CoworkersCreate'}"
       >
