@@ -1,12 +1,12 @@
 <template>
   <div class="coworkers-retrieve-single">
-    <h1>Coworkers Info</h1>
-    <div class="info">
-      <span>Name: {{coworkerUser.name}}</span>
-      <span>Email: {{coworkerUser.email}}</span>
-      <span>Cwk_Id: {{coworkerUser.coworkingId}}</span>
+    <h1 class="coworkers-retrieve-single__heading">Coworkers Info</h1>
+    <div class="coworkers-retrieve-single__info">
+      <span class="coworkers-retrieve-single__info-span">Name: {{coworkerUser.name}}</span>
+      <span class="coworkers-retrieve-single__info-span">Email: {{coworkerUser.email}}</span>
+      <span class="coworkers-retrieve-single__info-span">Cwk_Id: {{coworkerUser.coworkingId}}</span>
       <button
-          class="form__button"
+          class="coworkers-retrieve-single__info-button"
           type="button"
           v-on:click="handleEdit"
       >
@@ -49,7 +49,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-.info {
+.coworkers-retrieve-single {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

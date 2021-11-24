@@ -7,7 +7,7 @@
           v-on:click="handleCreate"
       >
         <router-link
-            class="teams-retrieve-all__header-button--anchor"
+            class="teams-retrieve-all__header-button-anchor"
             :to="{ name: 'TeamsCreate', params: { id: teamUserId }}"
         >
           Add new team
@@ -23,11 +23,11 @@
             class="teams-retrieve-all__options-li"
         >
           {{ i.name }}
-          <span class="teams-retrieve-all__options-li--span">{{i.email}}</span>
+          <span class="teams-retrieve-all__options-li-span">{{i.email}}</span>
           <router-link
               :data-id="i.id"
               @click="handleListItem"
-              class="teams-retrieve-all__options-li--button"
+              class="teams-retrieve-all__options-li-button"
               :to="{ name: 'TeamsUpdate', params: { id: i.id }}"
           >
             Edit
@@ -127,7 +127,7 @@ export default defineComponent( {
         border-radius: 5px;
       }
 
-      &--anchor {
+      &-anchor {
         color: var(--color-white);
       }
     }
@@ -162,11 +162,11 @@ export default defineComponent( {
         border-radius: 8px;
       }
 
-      &--span {
+      &-span {
         color: var(--color-black);
       }
 
-      &--button {
+      &-button {
         display: block;
         width: 50px;
         height: 15px;

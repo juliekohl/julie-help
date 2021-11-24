@@ -1,17 +1,17 @@
 <template>
   <nav class="menu">
     <div class="menu__header">
-      <h1 class="menu__header--heading">Julie.help!</h1>
+      <h1 class="menu__header-heading">Julie.help!</h1>
       <div
           :class="[
-              'menu__header--burger',
-              isBurgerActive && 'menu__header--burger-active'
+              'menu__header-burger',
+              isBurgerActive && 'menu__header-burger--active'
           ]"
           @click.prevent="toggle"
       >
         <slot>
-          <button class="menu__header--burger-button">
-            <span class="menu__header--burger-bar"></span>
+          <button class="menu__header-burger-button">
+            <span class="menu__header-burger-bar"></span>
           </button>
         </slot>
       </div>
@@ -24,10 +24,10 @@
       ]"
       @click.prevent="toggle"
     >
-      <div class="menu__sidebar--sub-heading">My Coworking</div>
-      <ul class="menu__sidebar--options">
+      <div class="menu__sidebar-sub-heading">My Coworking</div>
+      <ul class="menu__sidebar-options">
         <menu-item
-            class="menu__sidebar--li"
+            class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="user-icon"
             alt="icon-user"
@@ -35,7 +35,7 @@
           Coworkers
         </menu-item>
         <menu-item
-            class="menu__sidebar--li"
+            class="menu__sidebar-li"
             :to="{ name: 'TeamsRetrieveAll'}"
             icon="user-icon"
             alt="icon-user"
@@ -43,7 +43,7 @@
           Teams
         </menu-item>
         <menu-item
-            class="menu__sidebar--li"
+            class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="check-square"
             alt="check-square"
@@ -92,7 +92,7 @@ export default defineComponent({
     justify-content: space-between;
     align-items: flex-start;
 
-    &--heading {
+    &-heading {
       padding: 25px;
       font-size: 20px;
       line-height: 27px;
@@ -104,7 +104,7 @@ export default defineComponent({
       }
     }
 
-    &--burger-button {
+    &-burger-button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -119,7 +119,7 @@ export default defineComponent({
       }
     }
 
-    &--burger-bar {
+    &-burger-bar {
       width: 30px;
       height: 3px;
       background-color: var(--color-gray-70);
@@ -133,8 +133,8 @@ export default defineComponent({
       }
     }
 
-    &--burger-bar::before,
-    &--burger-bar::after {
+    &-burger-bar::before,
+    &-burger-bar::after {
       content: '';
       position: absolute;
       width: 30px;
@@ -151,26 +151,26 @@ export default defineComponent({
       }
     }
 
-    &--burger-bar::before {
+    &-burger-bar::before {
       transform: translateY(-16px);
     }
 
-    &--burger-bar::after {
+    &-burger-bar::after {
       transform: translateY(16px);
     }
 
     /* ANIMATION */
-    &--burger-active &--burger-bar {
+    &-burger--active &-burger-bar {
       transform: translateX(-50px);
       background: transparent;
       box-shadow: none;
     }
 
-    &--burger-active &--burger-bar::before {
+    &-burger--active &-burger-bar::before {
       transform: rotate(45deg) translate(35px, -35px);
     }
 
-    &--burger-active &--burger-bar::after {
+    &-burger--active &-burger-bar::after {
       transform: rotate(-45deg) translate(35px, 35px);
     }
   }
@@ -183,7 +183,7 @@ export default defineComponent({
       display: inline;
     }
 
-    &--sub-heading {
+    &-sub-heading {
       margin: 0 20px;
       font-size: 18px;
       text-transform: uppercase;
@@ -194,7 +194,7 @@ export default defineComponent({
       }
     }
 
-    &--options {
+    &-options {
       margin-top: 15px;
     }
   }

@@ -1,21 +1,23 @@
 <template>
-  <form class="form">
-    <h2 class="form__heading">Login</h2>
-    <div class="form__box">
-        <div class="form-input__box">
-          <label class="form__label" for="email">User Email</label>
-          <input class="form__input" type="email" id="email" placeholder="email" autofocus>
+  <div class="login">
+    <form class="login__form">
+      <h2 class="login__form-heading">Login</h2>
+      <div class="login__form-box">
+          <div class="login__form-text">
+            <label class="login__form-text-label" for="email">User Email</label>
+            <input class="login__form-text-input" type="email" id="email" placeholder="email" autofocus>
+          </div>
+        <div class="login__form-text">
+          <label class="login__form-text-label" for="password">Password</label>
+          <input class="login__form-text-input" type="password" id="password" placeholder="password">
         </div>
-      <div class="form-input__box">
-        <label class="form__label" for="password">Password</label>
-        <input class="form__input" type="password" id="password" placeholder="password">
+        <div class="login__form-text">
+          <button class="login__form-text-button">Sing In</button>
+        </div>
       </div>
-      <div class="form-input__box">
-        <button class="form__button">Sing In</button>
-      </div>
-    </div>
-      <p class="form__paragraph">Forget Password? <a class="form__anchor" href="#"> Click Here</a></p>
-  </form>
+        <p class="login__form-paragraph">Forget Password? <a class="login__form-paragraph-anchor" href="#"> Click Here</a></p>
+    </form>
+  </div>
 
 <!--  <div>-->
 <!--    <h2>VeeValidate Form</h2>-->
@@ -63,40 +65,66 @@ export default defineComponent( {
   //   }
   // }
 })
-
 </script>
 
 <style lang="scss">
-.form {
-  position: relative;
-  margin: 0 auto;
-  width: 350px;
-  padding: 40px 40px 60px;
-  background: black;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+.login {
+
+  &__form {
+    position: relative;
+    margin: 0 auto;
+    width: 350px;
+    padding: 40px 40px 60px;
+    background: black;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+    &-heading {
+      color: #c7c7c7;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+    &-box {
+      text-align: left;
+      margin-top: 40px;
+    }
+    &-text {
+      margin-top: 20px;
+
+      &-label {
+        display: block;
+        color: #868696;
+        margin-bottom: 5px;
+        font-size: 18px;
+      }
+      &-button {
+        padding: 5px 15px;
+        width: 100%;
+        height: 60px;
+        background: #131419;
+        border: none;
+        border-radius: 40px;
+        font-size: 18px;
+        color: #03a9f4;
+        outline: none;
+        box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+      }
+    }
+    &-paragraph {
+      margin-top: 30px;
+      color: #555;
+
+      &-anchor {
+        color: #08833b;
+      }
+    }
+  }
 }
-.form__heading {
-  color: #c7c7c7;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-}
-.form__box {
-  text-align: left;
-  margin-top: 40px;
-}
-.form-input__box {
-  margin-top: 20px;
-}
-.form__label {
-  display: block;
-  color: #868696;
-  margin-bottom: 5px;
-  font-size: 18px;
-}
-.form__input {
+
+.login__form-text-input {
   padding: 5px 15px;
   width: 100%;
   height: 50px;
@@ -108,40 +136,20 @@ export default defineComponent( {
   outline: none;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
-.form__input [type='submit'] {
+.login__form-text-input [type='submit'] {
   margin-top: 20px;
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
-.form__input [type='submit']:active {
+.login__form-text-input [type='submit']:active {
   margin-top: 20px;
   color: #006c9c;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
-.form__input ::placeholder {
+.login__form-text-input::placeholder {
   color: #555;
   font-size: 18px;
 }
-.form__input-required {
+.login__form-text-input-required {
   color: #ff0047;
-}
-.form__button {
-  padding: 5px 15px;
-  width: 100%;
-  height: 60px;
-  background: #131419;
-  border: none;
-  border-radius: 40px;
-  font-size: 18px;
-  color: #03a9f4;
-  outline: none;
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-}
-.form__paragraph {
-  margin-top: 30px;
-  color: #555;
-}
-a {
-  color: #08833b;
 }
 </style>
