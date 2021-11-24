@@ -1,5 +1,7 @@
 <template>
-  <RetrieveAll />
+  <RetrieveAll
+      title="Teams"
+  />
 </template>
 
 <script lang="ts">
