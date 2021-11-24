@@ -1,25 +1,25 @@
 <template>
   <div class="teams-update" v-if="teamUserId">
     <div class="teams-update__header">
-      <h1 class="teams-update__header--heading">{{teamUser.name}}</h1>
-      <div class="teams-update__header--button">
+      <h1 class="teams-update__header-heading">{{teamUser.name}}</h1>
+      <div class="teams-update__header-button">
         <button
-            class="teams-update__header--button-delete"
+            class="teams-update__header-button-delete"
             v-on:click="handleEdit"
         >
           <router-link
-              class="teams-update__header--button-delete-anchor"
+              class="teams-update__header-button-delete-anchor"
               :to="{ name: 'TeamsRetrieveAll'}"
           >
             Delete
           </router-link>
         </button>
         <button
-            class="teams-update__header--button-edit"
+            class="teams-update__header-button-edit"
             v-on:click="handleEdit"
         >
           <router-link
-              class="teams-update__header--button-edit-anchor"
+              class="teams-update__header-button-edit-anchor"
               :to="{ name: 'TeamsRetrieveAll'}"
           >
             Edit
@@ -29,13 +29,13 @@
     </div>
     <form class="teams-update__form">
       <label
-          class="teams-update__form--label"
+          class="teams-update__form-label"
           for="name"
       >
         Name
       </label>
       <input
-          class="teams-update__form--input"
+          class="teams-update__form-input"
           type="text"
           id="name"
           name="name"
@@ -43,13 +43,13 @@
           v-model="teamUser.name"
       />
       <label
-          class="teams-update__form--label"
+          class="teams-update__form-label"
           for="password"
       >
         Password
       </label>
       <input
-          class="teams-update__form--input"
+          class="teams-update__form-input"
           type="password"
           id="password"
           name="password"
@@ -112,7 +112,7 @@ export default defineComponent( {
     justify-content: space-between;
     padding: 5px;
 
-    &--heading {
+    &-heading {
       align-self: center;
       font-size: 13px;
       font-weight: 400;
@@ -124,7 +124,7 @@ export default defineComponent( {
       }
     }
 
-    &--button {
+    &-button {
       align-self: center;
 
       &-edit {
@@ -187,7 +187,7 @@ export default defineComponent( {
       margin: 20px;
     }
 
-    &--label {
+    &-label {
       align-self: flex-start;
       margin-bottom: 5px;
       font-size: 10px;
@@ -198,7 +198,7 @@ export default defineComponent( {
       }
     }
 
-    &--input {
+    &-input {
       align-self: flex-start;
       width: 100%;
       height: 25px;
