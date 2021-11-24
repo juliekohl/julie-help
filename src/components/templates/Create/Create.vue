@@ -1,18 +1,14 @@
 <template>
   <div class="create">
     <div class="create__header">
-      <h1 class="create__header--heading">New Coworker</h1>
-      <button
+      <h1 class="create__header--heading">{{ title }}</h1>
+      <button-unit
           class="create__header--button"
-          v-on:click="handleCreate"
+          color="purple"
+          :to="{ name: 'CoworkersRetrieveAll'}"
       >
-        <router-link
-            class="update__header--button-anchor"
-            :to="{ name: 'CoworkersRetrieveAll'}"
-        >
-          Add New Coworker
-        </router-link>
-      </button>
+        Add New Coworker
+      </button-unit>
     </div>
     <form class="create__form">
       <input
@@ -68,9 +64,14 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent({
   name: 'Create',
+  components: {ButtonUnit},
+  props: {
+    title: String
+  },
   setup() {
     const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
 
@@ -113,29 +114,6 @@ export default defineComponent({
       @include media('>=600') {
         font-size: 25px;
         font-weight: 500;
-      }
-    }
-
-    &--button {
-      width: 110px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
-      text-align: center;
-      text-transform: uppercase;
-      background-color: var(--color-secondary-40);
-      border-radius: 3px;
-
-      &-anchor{
-        color: var(--color-white);
-      }
-
-      @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
       }
     }
   }
