@@ -190,7 +190,7 @@ export default defineComponent({
       color: var(--color-gray-70);
 
       @include media('>=600') {
-        margin: 65px 35px 0px 35px;
+        margin: 65px 35px 0 35px;
       }
     }
 
