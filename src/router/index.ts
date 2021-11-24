@@ -8,7 +8,7 @@ import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
 import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
 import CoworkersRetrieveSingle from "@/components/templates/Coworkers/CoworkersRetrieveSingle.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
-import CoworkersUpdate from "@/components/templates/Coworkers/CoworkersUpdate.vue";
+import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
