@@ -1,13 +1,13 @@
 <template>
   <div class="teams-create">
     <div class="teams-create__header">
-      <h1 class="teams-create__header--heading">New Team</h1>
+      <h1 class="teams-create__header-heading">New Team</h1>
       <button
-          class="teams-create__header--button"
+          class="teams-create__header-button"
           v-on:click="handleCreate"
       >
         <router-link
-            class="teams-update__header--button-anchor"
+            class="teams-update__header-button-anchor"
             :to="{ name: 'TeamsRetrieveAll'}"
         >
           Add New Team
@@ -16,46 +16,46 @@
     </div>
     <form class="teams-create__form">
       <input
-          class="teams-create__form--input"
+          class="teams-create__form-input"
           type="hidden"
           id="cwkId"
           name="cwkId"
           v-model="userId.coworking_id"
       />
       <label
-          class="teams-create__form--label"
+          class="teams-create__form-label"
           for="name"
       >
         Name
       </label>
       <input
-          class="teams-create__form--input"
+          class="teams-create__form-input"
           type="text"
           id="name"
           name="name"
           v-model="userId.name"
       />
       <label
-          class="teams-create__form--label"
+          class="teams-create__form-label"
           for="email"
       >
         Email
       </label>
       <input
-          class="teams-create__form--input"
+          class="teams-create__form-input"
           type="email"
           id="email"
           name="email"
           v-model="userId.email"
       />
       <label
-          class="teams-create__form--label"
+          class="teams-create__form-label"
           for="password"
       >
         Password
       </label>
       <input
-          class="teams-create__form--input"
+          class="teams-create__form-input"
           type="password"
           id="password"
           name="password"
@@ -104,7 +104,7 @@ export default defineComponent( {
     justify-content: space-between;
     padding: 5px;
 
-    &--heading {
+    &-heading {
       align-self: center;
       font-size: 13px;
       font-weight: 400;
@@ -116,7 +116,7 @@ export default defineComponent( {
       }
     }
 
-    &--button {
+    &-button {
       width: 110px;
       height: 17px;
       padding: 2px;
@@ -151,7 +151,7 @@ export default defineComponent( {
       margin: 20px;
     }
 
-    &--label {
+    &-label {
       align-self: flex-start;
       margin-bottom: 5px;
       font-size: 10px;
@@ -162,7 +162,7 @@ export default defineComponent( {
       }
     }
 
-    &--input {
+    &-input {
       align-self: flex-start;
       width: 100%;
       height: 25px;
