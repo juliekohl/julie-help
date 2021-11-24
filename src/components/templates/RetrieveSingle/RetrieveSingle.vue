@@ -1,20 +1,20 @@
 <template>
   <div class="retrieve-single">
     <div class="retrieve-single__header">
-      <h1 class="retrieve-single__header--heading">Coworkers Info</h1>
-      <button
-          class="retrieve-single__header--button"
+      <h1 class="retrieve-single__header-heading">{{ title }}</h1>
+      <button-unit
+          class="retrieve-single__header-button"
+          color="purple"
+          :to="{ name: 'CoworkersUpdate', params: { id: coworkerUserId }}"
           v-on:click="handleEdit"
       >
-        <router-link
-            :to="{ name: 'CoworkersUpdate', params: { id: coworkerUserId }}"
-        >Edit</router-link>
-      </button>
+        Edit
+      </button-unit>
     </div>
     <div class="retrieve-single__info">
-      <span class="retrieve-single__info--span">Name: {{coworkerUser.name}}</span>
-      <span class="retrieve-single__info--span">Email: {{coworkerUser.email}}</span>
-      <span class="retrieve-single__info--span">Cwk_Id: {{coworkerUser.coworkingId}}</span>
+      <span class="retrieve-single__info-span">Name: {{coworkerUser.name}}</span>
+      <span class="retrieve-single__info-span">Email: {{coworkerUser.email}}</span>
+      <span class="retrieve-single__info-span">Cwk_Id: {{coworkerUser.coworkingId}}</span>
     </div>
   </div>
 </template>
@@ -23,9 +23,14 @@
 import {defineComponent, ref} from "vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent( {
   name: 'RetrieveSingle',
+  components: {ButtonUnit},
+  props: {
+    title: String
+  },
   setup() {
     const router = useRouter();
     const coworkerUser = ref({id: null, name: '', email: '', coworkingId: null});
@@ -64,9 +69,10 @@ export default defineComponent( {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 5px;
 
-    &--heading {
+    &-heading {
       align-self: center;
       font-size: 13px;
       font-weight: 400;
@@ -78,22 +84,25 @@ export default defineComponent( {
       }
     }
 
-    &--button {}
+    &-button {
+      align-self: center;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin: 10px;
 
     @include media('>=600') {
       margin: 20px;
     }
 
-    &--span {
-      align-self: center;
+    &-span {
+      align-self: flex-start;
+      margin: 5px;
     }
   }
 }

@@ -1,41 +1,35 @@
 <template>
   <div class="update" v-if="coworkerUserId">
     <div class="update__header">
-      <h1 class="update__header--heading">{{coworkerUser.name}}</h1>
-      <div class="update__header--button">
-        <button
-            class="update__header--button-delete"
+      <h1 class="update__header-heading">{{coworkerUser.name}}</h1>
+      <div class="update__header-button">
+        <button-unit
+            class="update__header-button-delete"
+            color="red"
+            :to="{ name: 'CoworkersRetrieveAll'}"
             v-on:click="handleEdit"
         >
-          <router-link
-              class="update__header--button-delete-anchor"
-              :to="{ name: 'CoworkersRetrieveAll'}"
-          >
-            Delete
-          </router-link>
-        </button>
-        <button
-            class="update__header--button-edit"
+          Delete
+        </button-unit>
+        <button-unit
+            class="update__header-button-edit"
+            color="purple"
+            :to="{ name: 'CoworkersRetrieveAll'}"
             v-on:click="handleEdit"
         >
-          <router-link
-              class="update__header--button-edit-anchor"
-              :to="{ name: 'CoworkersRetrieveAll'}"
-          >
-            Edit
-          </router-link>
-        </button>
+          Edit
+        </button-unit>
       </div>
     </div>
     <form class="update__form">
       <label
-          class="update__form--label"
+          class="update__form-label"
           for="name"
       >
         Name
       </label>
       <input
-          class="update__form--input"
+          class="update__form-input"
           type="text"
           id="name"
           name="name"
@@ -43,13 +37,13 @@
           v-model="coworkerUser.name"
       />
       <label
-          class="update__form--label"
+          class="update__form-label"
           for="password"
       >
         Password
       </label>
       <input
-          class="update__form--input"
+          class="update__form-input"
           type="password"
           id="password"
           name="password"
@@ -65,9 +59,11 @@
 import {defineComponent, ref} from "vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent({
   name: 'Update',
+  components: {ButtonUnit},
   setup() {
     const router = useRouter();
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
@@ -110,10 +106,12 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 5px;
 
-    &--heading {
+    &-heading {
       align-self: center;
+      margin-right: 10px;
       font-size: 13px;
       font-weight: 400;
       color: var(--color-black);
@@ -124,58 +122,25 @@ export default defineComponent({
       }
     }
 
-    &--button {
+    &-button {
       align-self: center;
+      display: contents;
+      margin-left: 10px;
 
-      &-edit {
-        width: 90px;
-        height: 17px;
-        margin: 10px;
-        padding: 2px;
-        font-size: 7px;
-        text-align: center;
-        text-transform: uppercase;
-        background-color: var(--color-secondary-40);
-        border-radius: 3px;
-
-        &-anchor{
-          color: var(--color-white);
-        }
-
-        @include media('>=600') {
-          width: 220px;
-          height: 32px;
-          padding: 5px;
-          font-size: 14px;
-          border-radius: 5px;
-        }
+      @include media('>=600') {
+        display: flex;
       }
 
       &-delete {
-        width: 70px;
-        height: 17px;
-        margin: 10px;
-        padding: 2px;
-        font-size: 7px;
-        text-align: center;
-        text-transform: uppercase;
-        background-color: var(--color-alert-50);
-        border-radius: 3px;
+        margin: 5px;
+      }
 
-        &-anchor{
-          color: var(--color-white);
-        }
-
-        @include media('>=600') {
-          width: 150px;
-          height: 32px;
-          padding: 5px;
-          font-size: 14px;
-          border-radius: 5px;
-        }
+      &-edit {
+        margin: 5px;
       }
     }
   }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -187,7 +152,7 @@ export default defineComponent({
       margin: 20px;
     }
 
-    &--label {
+    &-label {
       align-self: flex-start;
       margin-bottom: 5px;
       font-size: 10px;
@@ -198,7 +163,7 @@ export default defineComponent({
       }
     }
 
-    &--input {
+    &-input {
       align-self: flex-start;
       width: 100%;
       height: 25px;

@@ -5,8 +5,9 @@
       :to="to"
     >
       <img
-        :src="require(`@/assets/img/icons/${icon}.svg`)"
-        :alt="alt"
+          class="menu-item__button-image"
+          :src="require(`@/assets/img/icons/${icon}.svg`)"
+          :alt="alt"
       />
       <span  class="menu-item__button-span"><slot></slot></span>
     </button-unit>

@@ -22,6 +22,7 @@
         'menu__sidebar',
         isSidebarActive && 'menu__sidebar--active'
       ]"
+      @click.prevent="toggle"
     >
       <div class="menu__sidebar--sub-heading">My Coworking</div>
       <ul class="menu__sidebar--options">
@@ -189,29 +190,12 @@ export default defineComponent({
       color: var(--color-gray-70);
 
       @include media('>=600') {
-        margin: 65px 35px 0px 35px;
+        margin: 65px 35px 0 35px;
       }
     }
 
     &--options {
       margin-top: 15px;
-    }
-
-    &--li {
-      margin: 8px 15px;
-      line-height: 28px;
-
-      img {
-        margin-right: 10px;
-        width: 20px;
-        height: 20px;
-      }
-
-      span {
-        display: inline-flex;
-        font-size: 19px;
-        color: var(--color-gray-90);
-      }
     }
   }
 

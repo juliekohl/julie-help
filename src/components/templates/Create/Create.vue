@@ -1,61 +1,57 @@
 <template>
   <div class="create">
     <div class="create__header">
-      <h1 class="create__header--heading">New Coworker</h1>
-      <button
-          class="create__header--button"
-          v-on:click="handleCreate"
+      <h1 class="create__header-heading">{{ title }}</h1>
+      <button-unit
+          class="create__header-button"
+          color="purple"
+          :to="{ name: 'CoworkersRetrieveAll'}"
       >
-        <router-link
-            class="update__header--button-anchor"
-            :to="{ name: 'CoworkersRetrieveAll'}"
-        >
-          Add New Coworker
-        </router-link>
-      </button>
+        Add New Coworker
+      </button-unit>
     </div>
     <form class="create__form">
       <input
-          class="create__form--input"
+          class="create__form-input"
           type="hidden"
           id="cwkId"
           name="cwkId"
           v-model="userId.coworking_id"
       />
       <label
-          class="create__form--label"
+          class="create__form-label"
           for="name"
       >
         Name
       </label>
       <input
-          class="create__form--input"
+          class="create__form-input"
           type="text"
           id="name"
           name="name"
           v-model="userId.name"
       />
       <label
-          class="create__form--label"
+          class="create__form-label"
           for="email"
       >
         Email
       </label>
       <input
-          class="create__form--input"
+          class="create__form-input"
           type="email"
           id="email"
           name="email"
           v-model="userId.email"
       />
       <label
-          class="create__form--label"
+          class="create__form-label"
           for="password"
       >
         Password
       </label>
       <input
-          class="create__form--input"
+          class="create__form-input"
           type="password"
           id="password"
           name="password"
@@ -68,9 +64,14 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent({
   name: 'Create',
+  components: {ButtonUnit},
+  props: {
+    title: String
+  },
   setup() {
     const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
 
@@ -104,7 +105,7 @@ export default defineComponent({
     justify-content: space-between;
     padding: 5px;
 
-    &--heading {
+    &-heading {
       align-self: center;
       font-size: 13px;
       font-weight: 400;
@@ -113,29 +114,6 @@ export default defineComponent({
       @include media('>=600') {
         font-size: 25px;
         font-weight: 500;
-      }
-    }
-
-    &--button {
-      width: 110px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
-      text-align: center;
-      text-transform: uppercase;
-      background-color: var(--color-secondary-40);
-      border-radius: 3px;
-
-      &-anchor{
-        color: var(--color-white);
-      }
-
-      @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
       }
     }
   }
@@ -151,7 +129,7 @@ export default defineComponent({
       margin: 20px;
     }
 
-    &--label {
+    &-label {
       align-self: flex-start;
       margin-bottom: 5px;
       font-size: 10px;
@@ -162,7 +140,7 @@ export default defineComponent({
       }
     }
 
-    &--input {
+    &-input {
       align-self: flex-start;
       width: 100%;
       height: 25px;
