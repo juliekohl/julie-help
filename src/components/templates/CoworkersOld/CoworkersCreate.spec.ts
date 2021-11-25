@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
-import CoworkersCreate from "@/components/templates/Coworkers/CoworkersCreate.vue";
+import CoworkersCreate from "@/components/templates/CoworkersOld/CoworkersCreate.vue";
 
-describe('New Coworkers', () => {
+describe('New CoworkersOld', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(CoworkersCreate);
 

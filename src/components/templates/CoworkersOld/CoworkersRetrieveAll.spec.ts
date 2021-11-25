@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import CoworkersRetrieveAll from "@/components/templates/Coworkers/CoworkersRetrieveAll.vue";
+import CoworkersRetrieveAll from "@/components/templates/CoworkersOld/CoworkersRetrieveAll.vue";
 
 describe('CoworkersRetrieveAll', () => {
     it('is an HTML tag div', () => {
@@ -9,11 +9,11 @@ describe('CoworkersRetrieveAll', () => {
         expect(coworkers.exists()).toBe(true);
     })
 
-    it('should have H1 containing Coworkers', () => {
+    it('should have H1 containing CoworkersOld', () => {
         const wrapper = mount(CoworkersRetrieveAll);
 
         const h1 = wrapper.find('h1.coworkers-retrieve-all__header-heading');
-        expect(h1.text()).toContain('Coworkers');
+        expect(h1.text()).toContain('CoworkersOld');
     })
 
     it('should have a button', () => {

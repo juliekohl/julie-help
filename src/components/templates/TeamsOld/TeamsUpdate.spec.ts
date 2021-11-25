@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
-import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
+import TeamsUpdate from "@/components/templates/TeamsOld/TeamsUpdate.vue";
 
-describe('Edit Teams', () => {
+describe('Edit TeamsOld', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(TeamsUpdate);
         const teamsUpdate = wrapper.find('div.teams-update');

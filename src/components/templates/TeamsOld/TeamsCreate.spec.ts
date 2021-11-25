@@ -1,7 +1,7 @@
 import {mount} from "@vue/test-utils";
-import TeamsCreate from "@/components/templates/Teams/TeamsCreate.vue";
+import TeamsCreate from "@/components/templates/TeamsOld/TeamsCreate.vue";
 
-describe('Teams Create', () => {
+describe('TeamsOld Create', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(TeamsCreate);
         const teamsCreate = wrapper.find('div.teams-create');

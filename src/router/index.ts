@@ -2,9 +2,9 @@ import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
 import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
-import TeamsRetrieveSingle from "@/components/templates/Teams/TeamsRetrieveSingle.vue";
-import TeamsCreate from "@/components/templates/Teams/TeamsCreate.vue";
-import TeamsUpdate from "@/components/templates/Teams/TeamsUpdate.vue";
+import TeamsRetrieveSingle from "@/components/templates/TeamsOld/TeamsRetrieveSingle.vue";
+import TeamsCreate from "@/components/templates/TeamsOld/TeamsCreate.vue";
+import TeamsUpdate from "@/components/templates/TeamsOld/TeamsUpdate.vue";
 import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
 import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetriveSingle.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
@@ -25,7 +25,7 @@ const routes = [
     },
 
     /**
-     * Teams
+     * TeamsOld
      */
 
     {
@@ -50,7 +50,7 @@ const routes = [
     },
 
     /**
-     * Coworkers
+     * CoworkersOld
      */
 
     {

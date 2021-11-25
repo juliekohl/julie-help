@@ -1,7 +1,7 @@
 <template>
   <li class="list-item">
     {{ item.name }}
-    <span class="list-item__span">
+    <span class="list-item__subitem">
       {{ item.email }}
     </span>
     <button-unit
@@ -50,7 +50,7 @@ export default defineComponent( {
     border-radius: 8px;
   }
 
-  &__span {
+  &__subitem {
     color: var(--color-black);
   }
 }

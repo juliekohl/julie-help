@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import RetrieveAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
+import RetrieveAll from "@/components/templates/TeamsOld/TeamsRetrieveAll.vue";
 
 export default {
   name: 'TeamsRetrieveAll',

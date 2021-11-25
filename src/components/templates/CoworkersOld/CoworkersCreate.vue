@@ -82,7 +82,7 @@ export default defineComponent({
     handleCreate(): void {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, this.userId);
       location.reload();
-    }
+    },
   }
 })
 </script>

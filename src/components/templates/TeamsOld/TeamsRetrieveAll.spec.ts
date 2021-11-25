@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import TeamsRetrieveAll from "@/components/templates/Teams/TeamsRetrieveAll.vue";
+import TeamsRetrieveAll from "@/components/templates/TeamsOld/TeamsRetrieveAll.vue";
 
 describe('TeamsRetrieveAll', () => {
     it('is an HTML tag div', () => {
@@ -9,11 +9,11 @@ describe('TeamsRetrieveAll', () => {
         expect(teams.exists()).toBe(true);
     })
 
-    it('should have an H1 containing Teams', () => {
+    it('should have an H1 containing TeamsOld', () => {
         const wrapper = mount(TeamsRetrieveAll);
         const h1 = wrapper.find('h1.teams-retrieve-all__header-heading');
 
-        expect(h1.text()).toContain('Teams');
+        expect(h1.text()).toContain('TeamsOld');
     })
 
     it('should have a button', () => {

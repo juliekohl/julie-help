@@ -25,12 +25,12 @@ describe('menu', () => {
         expect(menuSidebar.exists()).toBe(true);
     })
 
-    it('should have 3 li: coworkers, Teams, and coworking', () => {
+    it('should have 3 li: coworkers, TeamsOld, and coworking', () => {
         const wrapper = mount(Menu);
         const menuSidebarItems = wrapper.findAll('ul.menu__sidebar--options li');
 
-        expect(menuSidebarItems[0].text()).toContain('Coworkers');
-        expect(menuSidebarItems[1].text()).toContain('Teams');
+        expect(menuSidebarItems[0].text()).toContain('CoworkersOld');
+        expect(menuSidebarItems[1].text()).toContain('TeamsOld');
         expect(menuSidebarItems[2].text()).toContain('Coworking');
     })
 
