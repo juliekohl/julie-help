@@ -1,55 +1,46 @@
 <template>
   <div class="retrieve-single">
-    <div class="retrieve-single__header">
+    <header class="retrieve-single__header">
       <h1 class="retrieve-single__header-heading">{{ title }}</h1>
       <button-unit
           class="retrieve-single__header-button"
           color="purple"
-          :to="{ name: 'CoworkersUpdate', params: { id: coworkerUserId }}"
-          v-on:click="handleEdit"
+          :to="{ name: updateToName, params: { id: entity.id }}"
       >
         Edit
       </button-unit>
-    </div>
-    <div class="retrieve-single__info">
-      <span class="retrieve-single__info-span">Name: {{coworkerUser.name}}</span>
-      <span class="retrieve-single__info-span">Email: {{coworkerUser.email}}</span>
-      <span class="retrieve-single__info-span">Cwk_Id: {{coworkerUser.coworkingId}}</span>
-    </div>
+    </header>
+    <section class="retrieve-single__info">
+      <div
+          v-for="(value, key) in entity"
+          :key="key"
+          class="retrieve-single__info-item"
+      >
+        <span v-if="key === 'id'">ID: {{ value }}</span>
+        <span v-else-if="key === 'name'">Name: {{ value }}</span>
+        <span v-else-if="key === 'email'">
+          Email:
+          <a :href="`mailto:${value}`" target="_blank">
+            {{ value }}
+          </a>
+        </span>
+        <span v-else>{{key}}: {{value}}</span>
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
-import {useRouter} from "vue-router";
-import axios from "axios";
+import { defineComponent } from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent( {
   name: 'RetrieveSingle',
   components: {ButtonUnit},
   props: {
-    title: String
-  },
-  setup() {
-    const router = useRouter();
-    const coworkerUser = ref({id: null, name: '', email: '', coworkingId: null});
-    const coworkerUserId: number = Number(router.currentRoute.value.params.id);
-
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworkerUserId}`)
-        .then(response => response.json())
-        .then(data => {coworkerUser.value = data});
-
-    return {
-      coworkerUser,
-      coworkerUserId
-    }
-  },
-  methods: {
-    handleEdit(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.coworkerUserId}`, this.coworkerUser);
-      location.reload();
-    }
+    title: String,
+    updateToName: String,
+    entity: Array,
   },
 })
 </script>
@@ -100,7 +91,7 @@ export default defineComponent( {
       margin: 20px;
     }
 
-    &-span {
+    &-item {
       align-self: flex-start;
       margin: 5px;
     }

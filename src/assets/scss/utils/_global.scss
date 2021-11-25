@@ -49,6 +49,10 @@ button:hover {
     filter: brightness(85%);
 }
 
+a {
+    color: var(--color-black);
+}
+
 a:hover {
-    filter: brightness(85%);
+    filter: brightness(55%);
 }
