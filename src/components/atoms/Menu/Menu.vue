@@ -24,7 +24,7 @@
       ]"
       @click.prevent="toggle"
     >
-      <div class="menu__sidebar-sub-heading">My Coworking</div>
+      <div class="menu__sidebar-subheading">My Coworking</div>
       <ul class="menu__sidebar-options">
         <menu-item
             class="menu__sidebar-li"
@@ -183,7 +183,7 @@ export default defineComponent({
       display: inline;
     }
 
-    &-sub-heading {
+    &-subheading {
       margin: 0 20px;
       font-size: 18px;
       text-transform: uppercase;

@@ -26,9 +26,9 @@
     </ul>
 
     <div class="Coworking__info" v-if="cwk.id">
-      <h2 class="Coworking__info-sub-heading">Coworking Info</h2>
+      <h2 class="Coworking__info-subheading">Coworking Info</h2>
       <span class="Coworking__info-span">Name: {{cwk.name}}</span>
-      <h2 class="Coworking__info-sub-heading">Edit coworking</h2>
+      <h2 class="Coworking__info-subheading">Edit coworking</h2>
       <form
           class="Coworking__form"
       >
@@ -128,7 +128,7 @@ export default defineComponent({
     &-item {}
   }
 
-  &__info-sub-heading {
+  &__info-subheading {
   text-align: center;
   }
 }
