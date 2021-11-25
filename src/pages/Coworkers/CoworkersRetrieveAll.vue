@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+import {ref} from "vue";
 import RetrieveAll from "@/components/templates/RetrieveAll/RetrieveAll.vue";
 
 export default {

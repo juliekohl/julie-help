@@ -12,7 +12,7 @@
           <input class="login__form-text-input" type="password" id="password" placeholder="password">
         </div>
         <div class="login__form-text">
-          <button class="login__form-text-button">Sing In</button>
+          <button class="login__form-text-button">Sign In</button>
         </div>
       </div>
         <p class="login__form-paragraph">Forget Password? <a class="login__form-paragraph-anchor" href="#"> Click Here</a></p>
@@ -47,7 +47,7 @@
 // import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import {defineComponent} from "vue";
 
-export default defineComponent( {
+export default defineComponent({
   name: 'Login',
   // components: {
   //   ValidationObserver,

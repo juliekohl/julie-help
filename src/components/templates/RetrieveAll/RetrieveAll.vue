@@ -33,7 +33,11 @@ export default defineComponent( {
   name: 'RetrieveAll',
   components: {ListItem, ButtonUnit},
   props: {
-    title: String
+    title: String,
+    createToName: String,
+    createButtonText: String,
+    all: Object,
+    updateToName: String,
   },
 })
 </script>
@@ -59,11 +63,21 @@ export default defineComponent( {
     }
   }
 
-  &__options {
-    &-ul {
-      @include media('>=600') {
-        padding: 0;
-      }
+  &__header-heading {
+    align-self: center;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-black);
+
+    @include media('>=600') {
+      font-size: 25px;
+      font-weight: 500;
+    }
+  }
+
+  &__options-ul {
+    @include media('>=600') {
+      padding: 0;
     }
   }
 }

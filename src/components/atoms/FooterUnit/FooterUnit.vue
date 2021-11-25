@@ -13,7 +13,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 
-export default defineComponent ({
+export default defineComponent({
   name: 'FooterUnit'
 })
 </script>
@@ -34,6 +34,7 @@ export default defineComponent ({
 
   &__text-one {
     align-self: center;
+
     strong {
       color:var(--color-secondary-40);
     }

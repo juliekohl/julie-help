@@ -9,11 +9,9 @@
           ]"
           @click.prevent="toggle"
       >
-        <slot>
-          <button class="menu__header-burger-button">
-            <span class="menu__header-burger-bar"></span>
-          </button>
-        </slot>
+        <button class="menu__header-burger-button">
+          <span class="menu__header-burger-bar"></span>
+        </button>
       </div>
     </div>
     <div
@@ -30,7 +28,7 @@
             class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="user-icon"
-            alt="icon-user"
+            alt="user icon"
         >
           Coworkers
         </menu-item>
@@ -38,7 +36,7 @@
             class="menu__sidebar-li"
             :to="{ name: 'TeamsRetrieveAll'}"
             icon="user-icon"
-            alt="icon-user"
+            alt="user icon"
         >
           Teams
         </menu-item>
@@ -46,7 +44,7 @@
             class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="check-square"
-            alt="check-square"
+            alt="check square icon"
         >
           Coworking
         </menu-item>
@@ -57,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import MenuItem from "@/components/atoms/MenuItem/MenuItem.vue";
 
 export default defineComponent({
