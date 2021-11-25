@@ -6,7 +6,7 @@ import TeamsRetrieveSingle from "@/components/templates/TeamsOld/TeamsRetrieveSi
 import TeamsCreate from "@/components/templates/TeamsOld/TeamsCreate.vue";
 import TeamsUpdate from "@/components/templates/TeamsOld/TeamsUpdate.vue";
 import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
-import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetriveSingle.vue";
+import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetrieveSingle.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
 
