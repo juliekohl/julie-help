@@ -36,17 +36,17 @@ export default defineComponent( {
 
 <style lang="scss">
 .button-unit {
-  width: 110px;
-  padding: 10px;
-  font-size: 7px;
+  width: 110rem;
+  padding: 10rem;
+  font-size: 7rem;
   text-align: center;
   text-transform: uppercase;
-  border-radius: 3px;
+  border-radius: 3rem;
 
   @include media('>=600') {
-    width: 220px;
-    font-size: 14px;
-    border-radius: 5px;
+    width: 220rem;
+    font-size: 14rem;
+    border-radius: 5rem;
   }
 
   &--color-purple {

@@ -31,8 +31,8 @@ export default defineComponent( {
 
 <style lang="scss">
 .menu-item {
-  margin: 8px 15px;
-  line-height: 28px;
+  margin: 8rem 15rem;
+  line-height: 28rem;
 
   &__button {
     display: flex;
@@ -42,15 +42,15 @@ export default defineComponent( {
 
     &-image {
       align-self: center;
-      margin-right: 10px;
-      width: 20px;
-      height: 20px;
+      margin-right: 10rem;
+      width: 20rem;
+      height: 20rem;
     }
 
     &-span {
       display: inline-flex;
       align-self: center;
-      font-size: 19px;
+      font-size: 19rem;
       color: var(--color-gray-90);
       text-transform: initial;
     }

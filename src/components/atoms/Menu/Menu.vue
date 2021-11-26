@@ -91,14 +91,14 @@ export default defineComponent({
     align-items: flex-start;
 
     &-heading {
-      padding: 25px;
-      font-size: 20px;
-      line-height: 27px;
+      padding: 25rem;
+      font-size: 20rem;
+      line-height: 27rem;
       color:var(--color-secondary-40);
 
       @include media('>=600') {
-        margin: 10px 0 0 15px;
-        font-size: 32px;
+        margin: 10rem 0 0 15rem;
+        font-size: 32rem;
       }
     }
 
@@ -107,8 +107,8 @@ export default defineComponent({
       justify-content: center;
       align-items: center;
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 80rem;
+      height: 80rem;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
 
@@ -118,16 +118,16 @@ export default defineComponent({
     }
 
     &-burger-bar {
-      width: 30px;
-      height: 3px;
+      width: 30rem;
+      height: 3rem;
       background-color: var(--color-gray-70);
-      border-radius: 3px;
+      border-radius: 3rem;
       box-shadow: var(--box-shadow-v2);
       transition: all 0.5s ease-in-out;
 
       @include media('>=600') {
-        width: 50px;
-        height: 6px;
+        width: 50rem;
+        height: 6rem;
       }
     }
 
@@ -135,41 +135,41 @@ export default defineComponent({
     &-burger-bar::after {
       content: '';
       position: absolute;
-      width: 30px;
-      height: 3px;
+      width: 30rem;
+      height: 3rem;
       background-color: var(--color-gray-70);
-      border-radius: 3px;
+      border-radius: 3rem;
       box-shadow: var(--box-shadow-v2);
       transition: all 0.5s ease-in-out;
 
       @include media('>=600') {
-        width: 50px;
-        height: 6px;
-        border-radius: 5px;
+        width: 50rem;
+        height: 6rem;
+        border-radius: 5rem;
       }
     }
 
     &-burger-bar::before {
-      transform: translateY(-16px);
+      transform: translateY(-16rem);
     }
 
     &-burger-bar::after {
-      transform: translateY(16px);
+      transform: translateY(16rem);
     }
 
     /* ANIMATION */
     &-burger--active &-burger-bar {
-      transform: translateX(-50px);
+      transform: translateX(-50rem);
       background: transparent;
       box-shadow: none;
     }
 
     &-burger--active &-burger-bar::before {
-      transform: rotate(45deg) translate(35px, -35px);
+      transform: rotate(45deg) translate(35rem, -35rem);
     }
 
     &-burger--active &-burger-bar::after {
-      transform: rotate(-45deg) translate(35px, 35px);
+      transform: rotate(-45deg) translate(35rem, 35rem);
     }
   }
 
@@ -182,18 +182,18 @@ export default defineComponent({
     }
 
     &-subheading {
-      margin: 0 20px;
-      font-size: 18px;
+      margin: 0 20rem;
+      font-size: 18rem;
       text-transform: uppercase;
       color: var(--color-gray-70);
 
       @include media('>=600') {
-        margin: 65px 35px 0 35px;
+        margin: 65rem 35rem 0 35rem;
       }
     }
 
     &-options {
-      margin-top: 15px;
+      margin-top: 15rem;
     }
   }
 
@@ -202,7 +202,7 @@ export default defineComponent({
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    margin: 20px 0;
+    margin: 20rem 0;
     padding: 0 1rem;
     transform: translateX(-0.7%);
     transition: all 0.5s ease-in-out;
