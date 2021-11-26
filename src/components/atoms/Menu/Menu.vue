@@ -56,7 +56,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import MenuItem from "@/components/atoms/MenuItem/MenuItem.vue";
+import MenuItem from "@/components/molecules/MenuItem/MenuItem.vue";
 
 export default defineComponent({
   name: 'Menu',
