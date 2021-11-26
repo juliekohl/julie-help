@@ -1,5 +1,5 @@
 import {mount} from "@vue/test-utils";
-import Menu from "@/components/atoms/Menu/Menu.vue";
+import Menu from "@/components/organisms/Menu/Menu.vue";
 
 describe('menu', () => {
     it('is an HTML tag nav', () => {

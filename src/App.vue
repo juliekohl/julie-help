@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import index from "./router";
-import Menu from "@/components/atoms/Menu/Menu.vue";
+import Menu from "@/components/organisms/Menu/Menu.vue";
 import FooterUnit from "@/components/atoms/FooterUnit/FooterUnit.vue";
 
 export default {
