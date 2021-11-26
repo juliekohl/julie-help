@@ -73,10 +73,10 @@ export default defineComponent({
   &__form {
     position: relative;
     margin: 0 auto;
-    width: 350px;
-    padding: 40px 40px 60px;
+    width: 350rem;
+    padding: 40rem 40rem 60rem;
     background: black;
-    border-radius: 10px;
+    border-radius: 10rem;
     text-align: center;
     box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
 
@@ -84,29 +84,29 @@ export default defineComponent({
       color: #c7c7c7;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 4rem;
     }
     &-box {
       text-align: left;
-      margin-top: 40px;
+      margin-top: 40rem;
     }
     &-text {
-      margin-top: 20px;
+      margin-top: 20rem;
 
       &-label {
         display: block;
         color: #868696;
-        margin-bottom: 5px;
-        font-size: 18px;
+        margin-bottom: 5rem;
+        font-size: 18rem;
       }
       &-button {
-        padding: 5px 15px;
+        padding: 5rem 15rem;
         width: 100%;
-        height: 60px;
+        height: 60rem;
         background: #131419;
         border: none;
-        border-radius: 40px;
-        font-size: 18px;
+        border-radius: 40rem;
+        font-size: 18rem;
         color: #03a9f4;
         outline: none;
         box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
@@ -114,7 +114,7 @@ export default defineComponent({
       }
     }
     &-paragraph {
-      margin-top: 30px;
+      margin-top: 30rem;
       color: #555;
 
       &-anchor {
@@ -125,29 +125,29 @@ export default defineComponent({
 }
 
 .login__form-text-input {
-  padding: 5px 15px;
+  padding: 5rem 15rem;
   width: 100%;
-  height: 50px;
+  height: 50rem;
   background: #131419;
   border: none;
-  border-radius: 40px;
-  font-size: 18px;
+  border-radius: 40rem;
+  font-size: 18rem;
   color: #03a9f4;
   outline: none;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 .login__form-text-input [type='submit'] {
-  margin-top: 20px;
+  margin-top: 20rem;
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 .login__form-text-input [type='submit']:active {
-  margin-top: 20px;
+  margin-top: 20rem;
   color: #006c9c;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 .login__form-text-input::placeholder {
   color: #555;
-  font-size: 18px;
+  font-size: 18rem;
 }
 .login__form-text-input-required {
   color: #ff0047;

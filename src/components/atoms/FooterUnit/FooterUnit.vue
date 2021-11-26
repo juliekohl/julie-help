@@ -17,6 +17,7 @@ export default defineComponent({
   name: 'FooterUnit'
 })
 </script>
+
 <style lang="scss">
 .footer-unit {
   display: flex;
@@ -24,12 +25,12 @@ export default defineComponent({
   justify-content: space-between;
   align-items: flex-end;
   align-content: flex-end;
-  font-size: 7px;
-  margin: 10px 5px;
-  padding: 5px;
+  font-size: 7rem;
+  margin: 10rem 5rem;
+  padding: 5rem;
 
   @include media('>=600') {
-    font-size: 12px;
+    font-size: 12rem;
   }
 
   &__text-one {
@@ -50,12 +51,12 @@ export default defineComponent({
   }
 
   &__text-two-img {
-    width: 5px;
-    height: 5px;
+    width: 5rem;
+    height: 5rem;
 
     @include media('>=600') {
-      width: 10px;
-      height: 10px;
+      width: 10rem;
+      height: 10rem;
     }
   }
 }

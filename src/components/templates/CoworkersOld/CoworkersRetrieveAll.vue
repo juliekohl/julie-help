@@ -75,55 +75,56 @@ export default defineComponent( {
   }
 })
 </script>
+
 <style lang="scss">
 .coworkers-retrieve-all {
-  padding: 5px;
+  padding: 5rem;
   height: 100%;
 
   @include media('>=600') {
     margin-top: 0;
-    padding: 10px;
+    padding: 10rem;
   }
 
   &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15px 15px 20px 15px;
-    padding: 5px;
+    margin: 15rem 15rem 20rem 15rem;
+    padding: 5rem;
 
     @include media('>=600') {
-      margin: 18px 20px 60px 15px;
+      margin: 18rem 20rem 60rem 15rem;
     }
 
     &-heading {
       align-self: center;
-      font-size: 13px;
+      font-size: 13rem;
       font-weight: 400;
       color: var(--color-black);
 
       @include media('>=600') {
-        font-size: 25px;
+        font-size: 25rem;
         font-weight: 500;
       }
     }
 
     &-button {
-      width: 110px;
-      height: 17px;
-      padding: 2px;
-      font-size: 7px;
+      width: 110rem;
+      height: 17rem;
+      padding: 2rem;
+      font-size: 7rem;
       text-align: center;
       text-transform: uppercase;
       background-color: var(--color-secondary-40);
-      border-radius: 3px;
+      border-radius: 3rem;
 
       @include media('>=600') {
-        width: 220px;
-        height: 32px;
-        padding: 5px;
-        font-size: 14px;
-        border-radius: 5px;
+        width: 220rem;
+        height: 32rem;
+        padding: 5rem;
+        font-size: 14rem;
+        border-radius: 5rem;
       }
 
       &-anchor {
@@ -145,20 +146,20 @@ export default defineComponent( {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin: 10px;
-      padding: 10px;
-      font-size: 10px;
+      gap: 10rem;
+      margin: 10rem;
+      padding: 10rem;
+      font-size: 10rem;
       text-align: center;
       color: var(--color-secondary-45);
       box-shadow: var(--box-shadow-v2);
-      border-radius: 3px;
+      border-radius: 3rem;
 
       @include media('>=600') {
-        margin: 15px;
-        padding: 30px;
-        font-size: 15px;
-        border-radius: 8px;
+        margin: 15rem;
+        padding: 30rem;
+        font-size: 15rem;
+        border-radius: 8rem;
       }
 
       &-span {
@@ -167,23 +168,23 @@ export default defineComponent( {
 
       &-button {
         display: block;
-        width: 50px;
-        height: 15px;
-        padding: 4px;
-        font-size: 8px;
+        width: 50rem;
+        height: 15rem;
+        padding: 4rem;
+        font-size: 8rem;
         text-align: center;
         text-transform: uppercase;
         color: var(--color-black);
         background-color: var(--color-gray-50);
-        border-radius: 3px;
+        border-radius: 3rem;
 
         @include media('>=600') {
-          width: 100px;
-          height: 30px;
-          padding: 10px;
-          font-size: 12px;
+          width: 100rem;
+          height: 30rem;
+          padding: 10rem;
+          font-size: 12rem;
           font-weight: 500;
-          border-radius: 6px;
+          border-radius: 6rem;
         }
       }
     }

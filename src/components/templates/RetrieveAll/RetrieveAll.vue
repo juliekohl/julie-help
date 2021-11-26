@@ -41,36 +41,37 @@ export default defineComponent( {
   },
 })
 </script>
+
 <style lang="scss">
 .retrieve-all {
-  padding: 5px;
+  padding: 5rem;
   height: 100%;
 
   @include media('>=600') {
     margin-top: 0;
-    padding: 10px;
+    padding: 10rem;
   }
 
   &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15px 15px 20px 15px;
-    padding: 5px;
+    margin: 15rem 15rem 20rem 15rem;
+    padding: 5rem;
 
     @include media('>=600') {
-      margin: 18px 20px 60px 15px;
+      margin: 18rem 20rem 60rem 15rem;
     }
   }
 
   &__header-heading {
     align-self: center;
-    font-size: 13px;
+    font-size: 13rem;
     font-weight: 400;
     color: var(--color-black);
 
     @include media('>=600') {
-      font-size: 25px;
+      font-size: 25rem;
       font-weight: 500;
     }
   }

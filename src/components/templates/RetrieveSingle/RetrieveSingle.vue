@@ -47,13 +47,13 @@ export default defineComponent( {
 
 <style lang="scss">
 .retrieve-single {
-  padding: 5px;
+  padding: 5rem;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
     height: 100vh;
-    padding: 10px;
+    padding: 10rem;
   }
 
   &__header {
@@ -61,16 +61,16 @@ export default defineComponent( {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 5rem;
 
     &-heading {
       align-self: center;
-      font-size: 13px;
+      font-size: 13rem;
       font-weight: 400;
       color: var(--color-black);
 
       @include media('>=600') {
-        font-size: 25px;
+        font-size: 25rem;
         font-weight: 500;
       }
     }
@@ -85,15 +85,15 @@ export default defineComponent( {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 10px;
+    margin: 10rem;
 
     @include media('>=600') {
-      margin: 20px;
+      margin: 20rem;
     }
 
     &-item {
       align-self: flex-start;
-      margin: 5px;
+      margin: 5rem;
     }
   }
 }

@@ -34,20 +34,20 @@ export default defineComponent( {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 10px;
+  gap: 10rem;
+  margin: 10rem;
+  padding: 10rem;
+  font-size: 10rem;
   text-align: left;
   color: var(--color-secondary-45);
   box-shadow: var(--box-shadow-v2);
-  border-radius: 3px;
+  border-radius: 3rem;
 
   @include media('>=600') {
-    margin: 15px;
-    padding: 30px;
-    font-size: 15px;
-    border-radius: 8px;
+    margin: 15rem;
+    padding: 30rem;
+    font-size: 15rem;
+    border-radius: 8rem;
   }
 
   &__subitem {
