@@ -1,6 +1,10 @@
 import {mount} from "@vue/test-utils";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
+const mountGlobal = {
+    stubs: ['router-link']
+};
+
 describe('ButtonUnit', () => {
     it('is an HTML tag button', () => {
         const wrapper = mount(ButtonUnit);
@@ -12,30 +16,14 @@ describe('ButtonUnit', () => {
     it('is an HTML tag a', () => {
        const wrapper = mount(ButtonUnit, {
            props: {
-               to: {},
-               color: '',
+               to: {
+                   name: 'Test'
+               },
            },
-           global: {
-               stubs: ['router-link'],
-           }
+           global: mountGlobal
        });
        const anchor = wrapper.find('a.button-unit');
 
-        expect(anchor.exists()).toBe(false);
-    });
-
-    it('is an HTML tag router-link', () => {
-        const wrapper = mount(ButtonUnit, {
-            props: {
-                to: {},
-                color: '',
-            },
-            global: {
-                stubs: ['router-link'],
-            }
-        });
-        const routerLink = wrapper.find('router-link.button-unit');
-
-        expect(routerLink.exists()).toBe(false);
+       expect(anchor.exists()).toBe(false);
     });
 })

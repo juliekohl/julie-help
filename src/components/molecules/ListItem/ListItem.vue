@@ -15,15 +15,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent, PropType} from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
+import {PropsTo} from "@/shared/types/PropsTo.interface";
+
+export interface PropsItem {
+  id?: number;
+  name: string;
+  email: string;
+}
 
 export default defineComponent( {
   name: 'ListItem',
   components: { ButtonUnit },
   props: {
-    item: Object,
-    to: Object
+    item: {
+      type: Object as PropType<PropsItem>,
+      required: true
+    },
+    to: {
+      type: Object as PropType<PropsTo>,
+      required: true
+    },
   },
 })
 </script>
