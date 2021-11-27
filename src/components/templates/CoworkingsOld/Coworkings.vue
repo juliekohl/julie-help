@@ -25,14 +25,14 @@
       <li class="Coworking__list-item" v-for="i in all" :key="i" :data-id="i.id" @click="handleListItem">{{ i.name }}</li>
     </ul>
 
-    <div class="Coworking__info" v-if="cwk.id">
+    <div class="Coworking__info" v-if="coworking.id">
       <h2 class="Coworking__info-subheading">Coworking Info</h2>
-      <span class="Coworking__info-span">Name: {{cwk.name}}</span>
+      <span class="Coworking__info-span">Name: {{coworking.name}}</span>
       <h2 class="Coworking__info-subheading">Edit coworking</h2>
       <form
           class="Coworking__form"
       >
-        <label class="Coworking__form-label" for="name-edit">{{cwk.name ? cwk.name : 'Coworking Name'}}</label>
+        <label class="Coworking__form-label" for="name-edit">{{coworking.name ? coworking.name : 'Coworking Name'}}</label>
         <input
             class="Coworking__form-input"
             type="text"
@@ -66,23 +66,20 @@ export default defineComponent({
   name: 'RegisterCoworking',
   setup() {
     const all = ref({});
-    const cwk = ref({id: null, name: ''});
-    const coworking = ref({name: ''});
+    const coworking = ref({id: null, name: ''});
 
     fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkings`)
         .then(response => response.json())
         .then(data => all.value = data);
 
     const handleListItem = (e: any) => {
-      cwk.value.id = e.target.getAttribute('data-id');
-      cwk.value.name = e.target.innerHTML;
+      coworking.value.id = e.target.getAttribute('data-id');
       coworking.value.name = e.target.innerHTML;
     }
 
     return {
       all,
       coworking,
-      cwk,
       handleListItem
     }
   },
@@ -92,11 +89,11 @@ export default defineComponent({
       location.reload();
     },
     handleEdit(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.cwk.id}`, this.coworking);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.coworking.id}`, this.coworking);
       location.reload();
     },
     handleDelete(): void {
-      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.cwk.id}`);
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworking/${this.coworking.id}`);
       location.reload();
     },
   }
