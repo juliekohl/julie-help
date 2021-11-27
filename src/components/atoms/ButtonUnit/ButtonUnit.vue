@@ -22,13 +22,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {defineComponent, PropType} from "vue";
+import {PropsTo} from "@/shared/types/PropsTo.interface";
 
 export default defineComponent( {
   name: 'ButtonUnit',
   props: {
-    to: Object,
-    color: String,
+    to: {
+      type: Object as PropType<PropsTo>,
+      required: false
+    },
+    color: {
+      type: String,
+      required: true,
+      default: 'purple',
+      validator: (value: string) => {
+        return ['purple', 'red', 'gray'].includes(value);
+      }
+    },
   },
   emits: ['click'],
 })

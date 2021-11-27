@@ -31,7 +31,7 @@ describe('ListItem', () => {
             props: propsDefault,
             global: mountGlobal
         });
-        const subitem = wrapper.find('span.list-item__subitem');
+        const subItem = wrapper.find('span.list-item__subitem');
 
         expect(subItem.exists()).toBe(true);
     });
