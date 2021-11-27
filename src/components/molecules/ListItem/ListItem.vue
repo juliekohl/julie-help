@@ -1,6 +1,10 @@
 <template>
   <li class="list-item">
-    {{ item.name }}
+    <router-link
+        :to="{ name: retrieveSingleToName, params: { id: item.id } }"
+    >
+      {{ item.name }}
+    </router-link>
     <span class="list-item__subitem">
       {{ item.email }}
     </span>
@@ -17,7 +21,6 @@
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
-import {PropsTo} from "@/shared/types/PropsTo.interface";
 
 export interface PropsItem {
   id?: number;
@@ -33,10 +36,8 @@ export default defineComponent( {
       type: Object as PropType<PropsItem>,
       required: true
     },
-    to: {
-      type: Object as PropType<PropsTo>,
-      required: true
-    },
+    updateToName: String,
+    retrieveSingleToName: String
   },
 })
 </script>

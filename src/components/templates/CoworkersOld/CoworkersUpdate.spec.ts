@@ -1,10 +1,23 @@
 import {mount} from "@vue/test-utils";
 import CoworkersUpdate from "@/components/templates/CoworkersOld/CoworkersUpdate.vue";
 
+jest.mock('vue-router', () => {
+    return {
+        useRouter: jest.fn(() => ({
+            currentRoute: {
+                value: {
+                    params: {
+                        id: 1
+                    }
+                }
+            },
+        }))
+    };
+});
+
 describe('CoworkersOld Update', () => {
     it('is an HTML tag div', () => {
         const wrapper = mount(CoworkersUpdate);
-        // console.log(wrapper.html());
 
         const coworkersUpdate = wrapper.find('div.coworkers-update');
         expect(coworkersUpdate.exists()).toBe(true);
