@@ -14,8 +14,8 @@
       <input
           class="create__form-input"
           type="hidden"
-          id="cwkId"
-          name="cwkId"
+          id="coworkingId"
+          name="coworkingId"
           v-model="userId.coworking_id"
       />
       <label

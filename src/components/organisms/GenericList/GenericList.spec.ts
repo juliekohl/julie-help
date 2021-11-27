@@ -5,9 +5,13 @@ describe('GenericList', () => {
     it('is an HTML tag ul', () => {
         const wrapper = mount(GenericList, {
             props: {
-                item: {},
-                to: {},
-                all: {},
+                all: [
+                    {
+                        id: 1,
+                        name: 'Test',
+                        email: 'test@test.com'
+                    }
+                ],
             },
             global: {
                 stubs: ['router-link'],

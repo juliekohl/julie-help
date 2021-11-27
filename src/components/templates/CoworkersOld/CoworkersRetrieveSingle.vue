@@ -4,7 +4,7 @@
     <div class="coworkers-retrieve-single__info">
       <span class="coworkers-retrieve-single__info-span">Name: {{coworkerUser.name}}</span>
       <span class="coworkers-retrieve-single__info-span">Email: {{coworkerUser.email}}</span>
-      <span class="coworkers-retrieve-single__info-span">Cwk_Id: {{coworkerUser.coworkingId}}</span>
+      <span class="coworkers-retrieve-single__info-span">Coworking_Id: {{coworkerUser.coworkingId}}</span>
       <button
           class="coworkers-retrieve-single__info-button"
           type="button"

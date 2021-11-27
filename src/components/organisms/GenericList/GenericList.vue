@@ -13,16 +13,17 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import ListItem from "@/components/molecules/ListItem/ListItem.vue";
+import {defineComponent, PropType} from "vue";
+import ListItem, {PropsItem as ListItemPropsItem} from "@/components/molecules/ListItem/ListItem.vue";
 
 export default defineComponent( {
   name: 'GenericList',
   components: {ListItem},
   props: {
-    item: Object,
-    to: Object,
-    all: Object
+    all: {
+      type: Object as PropType<ListItemPropsItem[]>,
+      required: true
+    }
   }
 })
 </script>

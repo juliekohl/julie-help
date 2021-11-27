@@ -23,19 +23,4 @@ describe('ButtonUnit', () => {
 
         expect(anchor.exists()).toBe(false);
     });
-
-    it('is an HTML tag router-link', () => {
-        const wrapper = mount(ButtonUnit, {
-            props: {
-                to: {},
-                color: '',
-            },
-            global: {
-                stubs: ['router-link'],
-            }
-        });
-        const routerLink = wrapper.find('router-link.button-unit');
-
-        expect(routerLink.exists()).toBe(false);
-    });
 })
