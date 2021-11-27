@@ -11,7 +11,7 @@
     <button-unit
         class="list-item__button"
         color="gray"
-        :to="to"
+        :to="{ name: updateToName, params: { id: item.id } }"
     >
       Edit
     </button-unit>
@@ -23,7 +23,7 @@ import {defineComponent, PropType} from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export interface PropsItem {
-  id?: number;
+  id: number;
   name: string;
   email: string;
 }

@@ -6,8 +6,9 @@
       v-for="item in all"
       class="generic-list__list-item"
       :key="item"
-      :to="{ name: 'CoworkersUpdate', params: { id: item.id } }"
       :item="item"
+      update-to-name="CoworkersUpdate"
+      retrieve-single-to-name="CoworkersRetrieveAll"
     />
   </ul>
 </template>
