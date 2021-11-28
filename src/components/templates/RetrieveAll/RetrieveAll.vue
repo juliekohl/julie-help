@@ -5,7 +5,7 @@
       <button-unit
           class="retrieve-all__header-button"
           color="purple"
-          :to="{ name: createToName}"
+          :to="{ name: createToName }"
       >
         Add new {{ createButtonText }}
       </button-unit>
@@ -14,10 +14,11 @@
       <ul class="retrieve-all__options-ul">
         <list-item
             v-for="item in all"
-            :key="item"
             class="retrieve-all__options-li"
+            :key="item"
             :item="item"
-            :to="{ name: updateToName, params: { id: item.id }}"
+            :update-to-name="updateToName"
+            :retrieve-single-to-name="retrieveSingleToName"
         />
       </ul>
     </section>
@@ -38,6 +39,7 @@ export default defineComponent( {
     createButtonText: String,
     all: Object,
     updateToName: String,
+    retrieveSingleToName: String
   },
 })
 </script>

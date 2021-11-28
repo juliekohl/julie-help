@@ -4,6 +4,7 @@
     create-to-name="CoworkersCreate"
     create-button-text="coworker"
     update-to-name="CoworkersUpdate"
+    retrieve-single-to-name="CoworkersRetrieveSingle"
     :all="all"
   />
 </template>

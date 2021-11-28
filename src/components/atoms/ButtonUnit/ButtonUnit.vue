@@ -34,8 +34,7 @@ export default defineComponent( {
     },
     color: {
       type: String,
-      required: true,
-      default: 'purple',
+      default: null,
       validator: (value: string) => {
         return ['purple', 'red', 'gray'].includes(value);
       }
