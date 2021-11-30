@@ -9,6 +9,10 @@ import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
 import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetrieveSingle.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
+import OfficesRetrieveAll from "@/pages/Offices/OfficesRetrieveAll.vue";
+import OfficesRetrieveSingle from "@/pages/Offices/OfficesRetrieveSingle.vue";
+import OfficesCreate from "@/pages/Offices/OfficesCreate.vue";
+import OfficesUpdate from "@/pages/Offices/OfficesUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -25,7 +29,7 @@ const routes = [
     },
 
     /**
-     * TeamsOld
+     * Teams
      */
 
     {
@@ -50,7 +54,7 @@ const routes = [
     },
 
     /**
-     * CoworkersOld
+     * Coworkers
      */
 
     {
@@ -72,6 +76,31 @@ const routes = [
         path: '/coworkers/:id/edit',
         name: 'CoworkersUpdate',
         component: CoworkersUpdate
+    },
+
+    /**
+     * Offices
+     */
+    //
+    {
+        path: '/offices',
+        name: 'OfficesRetrieveAll',
+        component: OfficesRetrieveAll
+    },
+    {
+        path: '/offices/:id',
+        name: 'OfficesRetrieveSingle',
+        component: OfficesRetrieveSingle
+    },
+    {
+        path: '/offices/create',
+        name: 'OfficesCreate',
+        component: OfficesCreate
+    },
+    {
+        path: '/offices/:id/edit',
+        name: 'OfficesUpdate',
+        component: OfficesUpdate
     },
 ]
 
