@@ -5,9 +5,9 @@
       <button-unit
           class="create__header-button"
           color="purple"
-          :to="{ name: 'CoworkersRetrieveAll'}"
+          v-on:click="handleCreate"
       >
-        Add New Coworker
+        Add New {{ createButtonText }}
       </button-unit>
     </div>
     <form class="create__form">
@@ -70,7 +70,9 @@ export default defineComponent({
   name: 'Create',
   components: {ButtonUnit},
   props: {
-    title: String
+    title: String,
+    createButtonText: String,
+    entity: Array,
   },
   setup() {
     const userId = ref({coworking_id: 1, name: '', email: '', password: ''});
