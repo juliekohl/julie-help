@@ -1,12 +1,11 @@
 <template>
-  <div class="update" v-if="coworkerUserId">
+  <div class="update">{{entity.id}}
     <div class="update__header">
-      <h1 class="update__header-heading">{{coworkerUser.name}}</h1>
+      <h1 class="update__header-heading">{{entity.name}}</h1>
       <div class="update__header-button">
         <button-unit
             class="update__header-button-delete"
             color="red"
-            :to="{ name: 'CoworkersRetrieveAll'}"
             v-on:click="handleEdit"
         >
           Delete
@@ -14,7 +13,6 @@
         <button-unit
             class="update__header-button-edit"
             color="purple"
-            :to="{ name: 'CoworkersRetrieveAll'}"
             v-on:click="handleEdit"
         >
           Edit
@@ -64,6 +62,9 @@ import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 export default defineComponent({
   name: 'Update',
   components: {ButtonUnit},
+  props: {
+    entity: Array,
+  },
   setup() {
     const router = useRouter();
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
