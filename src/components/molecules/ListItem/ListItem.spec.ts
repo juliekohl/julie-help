@@ -3,6 +3,7 @@ import ListItem from "@/components/molecules/ListItem/ListItem.vue";
 
 const propsDefault = {
     item: {
+        id: 1,
         name: 'name',
         email: 'name@name.com'
     },

@@ -1,7 +1,7 @@
 <template>
   <RetrieveSingle
     title="Offices Info"
-    update-to-name="OffocesUpdate"
+    update-to-name="OfficesUpdate"
     :entity="office"
   />
 </template>
@@ -25,7 +25,7 @@ export default {
         .then(response => response.json())
         .then(data => {
           office.value.name = data.name;
-          office.value.type = data.email;
+          office.value.type = data.type;
         });
 
     return {

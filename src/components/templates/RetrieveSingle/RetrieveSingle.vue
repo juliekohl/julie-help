@@ -24,6 +24,7 @@
             {{ value }}
           </a>
         </span>
+        <span v-else-if="key === 'type'">Type: {{ value }}</span>
         <span v-else>{{key}}: {{value}}</span>
       </div>
     </section>
