@@ -42,6 +42,14 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
+            :to="{ name: 'OfficesRetrieveAll'}"
+            icon="check-square"
+            alt="check square icon"
+        >
+          Offices
+        </menu-item>
+        <menu-item
+            class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="check-square"
             alt="check square icon"

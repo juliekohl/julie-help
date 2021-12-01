@@ -39,7 +39,7 @@
       </button>
     </form>
 
-    <ul class="offices__list">
+    <ul class="offices__list" v-if="office.id">
       <li class="offices__list-item" v-for="item in items" :key="item" :data-id="item.id" @click="handleListItem">{{ item.name }}</li>
     </ul>
 
@@ -114,7 +114,7 @@ export default defineComponent({
   },
   methods: {
     handleCreate(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices`);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices`, this.office);
       location.reload();
     },
     handleEdit(): void {
@@ -146,6 +146,7 @@ export default defineComponent({
     &-button {
       width: 90px;
       margin: 10rem;
+      text-align: center;
       background-color: #004f8a;
     }
   }
