@@ -25,13 +25,15 @@ describe('menu', () => {
         expect(menuSidebar.exists()).toBe(true);
     })
 
-    it('should have 3 li: coworkers, TeamsOld, and coworking', () => {
+    it('should have 4 li: coworkers, TeamsOld, and coworking', () => {
         const wrapper = mount(Menu);
         const menuSidebarItems = wrapper.findAll('ul.menu__sidebar--options li');
 
-        expect(menuSidebarItems[0].text()).toContain('CoworkersOld');
-        expect(menuSidebarItems[1].text()).toContain('TeamsOld');
-        expect(menuSidebarItems[2].text()).toContain('Coworking');
+        expect(menuSidebarItems[0].text()).toContain('Coworkers');
+        expect(menuSidebarItems[1].text()).toContain('Teams');
+        expect(menuSidebarItems[2].text()).toContain('Offices');
+        expect(menuSidebarItems[3].text()).toContain('Plans');
+        expect(menuSidebarItems[4].text()).toContain('Coworking');
     })
 
     it('should show/hide when clicking on hamburger', async () => {
