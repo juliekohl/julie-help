@@ -13,6 +13,10 @@ import OfficesRetrieveAll from "@/pages/Offices/OfficesRetrieveAll.vue";
 import OfficesRetrieveSingle from "@/pages/Offices/OfficesRetrieveSingle.vue";
 import OfficesCreate from "@/pages/Offices/OfficesCreate.vue";
 import OfficesUpdate from "@/pages/Offices/OfficesUpdate.vue";
+import PlansRetrieveAll from "@/pages/Plans/PlansRetrieveAll.vue";
+import PlansRetrieveSingle from "@/pages/Plans/PlansRetrieveSingle.vue";
+import PlansCreate from "@/pages/Plans/PlansCreate.vue";
+import PlansUpdate from "@/pages/Plans/PlansUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -81,7 +85,7 @@ const routes = [
     /**
      * Offices
      */
-    //
+
     {
         path: '/offices',
         name: 'OfficesRetrieveAll',
@@ -101,6 +105,31 @@ const routes = [
         path: '/offices/:id/edit',
         name: 'OfficesUpdate',
         component: OfficesUpdate
+    },
+
+    /**
+     * Plans
+     */
+
+    {
+        path: '/plans',
+        name: 'PlansRetrieveAll',
+        component: PlansRetrieveAll
+    },
+    {
+        path: '/plans/:id',
+        name: 'PlansRetrieveSingle',
+        component: PlansRetrieveSingle
+    },
+    {
+        path: '/plans/create',
+        name: 'PlansCreate',
+        component: PlansCreate
+    },
+    {
+        path: '/plans/:id/edit',
+        name: 'PlansUpdate',
+        component: PlansUpdate
     },
 ]
 
