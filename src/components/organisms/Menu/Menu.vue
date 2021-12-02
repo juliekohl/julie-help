@@ -50,6 +50,14 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
+            :to="{ name: 'PlansRetrieveAll'}"
+            icon="check-square"
+            alt="check square icon"
+        >
+          Plans
+        </menu-item>
+        <menu-item
+            class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="check-square"
             alt="check square icon"
