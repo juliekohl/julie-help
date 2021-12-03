@@ -1,12 +1,12 @@
 <template>
-  <div class="update">{{entity.id}}
+  <div class="update">
     <div class="update__header">
       <h1 class="update__header-heading">{{entity.name}}</h1>
       <div class="update__header-button">
         <button-unit
             class="update__header-button-delete"
             color="red"
-            v-on:click="handleEdit"
+            v-on:click="handleDelete"
         >
           Delete
         </button-unit>
@@ -63,7 +63,7 @@ export default defineComponent({
   name: 'Update',
   components: {ButtonUnit},
   props: {
-    entity: Array,
+    entity: Object,
   },
   setup() {
     const router = useRouter();
