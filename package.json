@@ -18,7 +18,8 @@
     "vue-axios": "^3.3.7",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.12",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

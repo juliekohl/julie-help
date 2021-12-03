@@ -1,68 +1,74 @@
 <template>
   <div class="coworkers-create">
-    <div class="coworkers-create__header">
-      <h1 class="coworkers-create__header-heading">Create Coworker</h1>
-      <button-unit
-          class="coworkers-create__header-button"
-          color="purple"
-          @click="handleCreate"
-      >
-        Add New Coworker
-      </button-unit>
-    </div>
-    <form class="coworkers-create__form">
-      <input
+    <Form
+        class="coworkers-create__form"
+        @submit="onSubmit"
+        :validation-schema="schema"
+    >
+      <div class="coworkers-create__header">
+        <h1 class="coworkers-create__header-heading">Create Coworker</h1>
+        <button-unit
+            class="coworkers-create__header-button"
+            color="purple"
+        >
+          Add New Coworker
+        </button-unit>
+      </div>
+
+      <Field
           class="coworkers-create__form-input"
-          type="hidden"
           id="coworkingId"
           name="coworkingId"
-          v-model="coworker.coworking_id"
+          type="hidden"
       />
+
       <label
           class="coworkers-create__form-label"
           for="name"
       >
         Name
       </label>
-      <input
+      <Field
           class="coworkers-create__form-input"
           type="text"
           id="name"
           name="name"
-          v-model="coworker.name"
       />
+      <ErrorMessage name="name" />
+
       <label
           class="coworkers-create__form-label"
           for="email"
       >
         Email
       </label>
-      <input
+      <Field
           class="coworkers-create__form-input"
           type="email"
           id="email"
           name="email"
-          v-model="coworker.email"
       />
+      <ErrorMessage name="email" />
+
       <label
           class="coworkers-create__form-label"
           for="password"
       >
         Password
       </label>
-      <input
+      <Field
           class="coworkers-create__form-input"
           type="password"
           id="password"
           name="password"
-          v-model="coworker.password"
       />
-    </form>
+      <ErrorMessage name="password" />
+    </Form>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent} from "vue";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
@@ -100,6 +106,7 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
     padding: 5rem;
 
     &-heading {
