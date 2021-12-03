@@ -7,7 +7,7 @@
       <button
           class="form__button"
           type="button"
-          v-on:click="handleEdit"
+          @click="handleEdit"
       >
         <router-link
             :to="{ name: 'TeamsUpdate', params: { id: teamUserId }}"

@@ -5,7 +5,7 @@
       <button-unit
           class="create__header-button"
           color="purple"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >
         Add New {{ createButtonText }}
       </button-unit>

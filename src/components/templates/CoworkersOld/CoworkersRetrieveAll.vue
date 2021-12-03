@@ -4,7 +4,7 @@
       <h1 class="coworkers-retrieve-all__header-heading">Coworkers</h1>
       <button
           class="coworkers-retrieve-all__header-button"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >
         <router-link
             class="coworkers-retrieve-all__header-button-anchor"

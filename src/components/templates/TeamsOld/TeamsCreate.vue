@@ -4,7 +4,7 @@
       <h1 class="teams-create__header-heading">New Team</h1>
       <button
           class="teams-create__header-button"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >
         <router-link
             class="teams-update__header-button-anchor"

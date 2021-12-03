@@ -15,7 +15,7 @@
       'button-unit',
       color && `button-unit--color-${color}`,
     ]"
-    v-on:click="$emit('click')"
+    @click="$emit('click')"
   >
     <slot></slot>
   </button>

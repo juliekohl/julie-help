@@ -34,7 +34,7 @@
       <button
           class="offices__form-button"
           type="button"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >Create offices
       </button>
     </form>
@@ -72,13 +72,13 @@
         <button
             class="offices__form-button"
             type="button"
-            v-on:click="handleEdit"
+            @click="handleEdit"
         >Edit
         </button>
         <button
             class="offices__form-button"
             type="button"
-            v-on:click="handleDelete"
+            @click="handleDelete"
         >Delete
         </button>
       </form>
