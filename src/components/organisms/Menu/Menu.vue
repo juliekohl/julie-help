@@ -26,6 +26,14 @@
       <ul class="menu__sidebar-options">
         <menu-item
             class="menu__sidebar-li"
+            :to="{ name: 'Dashboard'}"
+            icon="check-square"
+            alt="check square icon"
+        >
+          Dashboard
+        </menu-item>
+        <menu-item
+            class="menu__sidebar-li"
             :to="{ name: 'CoworkersRetrieveAll'}"
             icon="user-icon"
             alt="user icon"

@@ -1,8 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// import { ValidationProvider } from 'vee-validate/dist/vee-validate.full.esm';
-// import { ValidationObserver } from 'vee-validate';
 import index from './router/index';
+import 'c3/c3.min.css';
 
 createApp(App)
     .use(index)

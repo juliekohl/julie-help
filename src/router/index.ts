@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Dashboard from "@/components/templates/Dashboard/Dashboard.vue";
+import Dashboard from "@/pages/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
 import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
 import TeamsRetrieveSingle from "@/components/templates/TeamsOld/TeamsRetrieveSingle.vue";

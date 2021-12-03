@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "c3": "^0.7.20",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
     "include-media": "^1.4.10",
@@ -22,6 +23,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/c3": "^0.7.6",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
