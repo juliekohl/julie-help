@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  border: 0;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote::before, blockquote::after,
+q::before,
+q::after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/**
+ * Montserrat
+ */
+:root {
+  --color-gray-100: #1a1b27;
+  --color-gray-90: #1e1e20;
+  --color-gray-80: #4a4a4c;
+  --color-gray-70: #8d8d8d;
+  --color-gray-60: #bcbcbf;
+  --color-gray-50: #dde1e6;
+  --color-gray-40: #e9e9ea;
+  --color-gray-24: #eeeff0;
+  --color-gray-16: #f6f6f6;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-primary-150: #051834;
+  --color-primary-100: #004f8a;
+  --color-primary-50: #00abe2;
+  --color-primary-40: #9adcf2;
+  --color-primary-24: #c1e9f6;
+  --color-primary-16: #d5eff8;
+  --color-primary-8: #f7fafb;
+  --color-secondary-100: #0018d8;
+  --color-secondary-50: #5d2ef4;
+  --color-secondary-45: #6F2790;
+  --color-secondary-40: #7e72f2;
+  --color-secondary-30: #bda6f9;
+  --color-secondary-24: #d7c8fb;
+  --color-secondary-16: #e3dafc;
+  --color-secondary-8: #f0eafc;
+  --color-success-100: #15a140;
+  --color-success-50: #20c069;
+  --color-success-40: #a5e4c2;
+  --color-success-16: #daf3e4;
+  --color-warning-100: #c3cc19;
+  --color-warning-50: #f2fd23;
+  --color-warning-40: #f8fcb0;
+  --color-warning-16: #fbfcde;
+  --color-alert-100: #c14030;
+  --color-alert-50: #ff5844;
+  --color-alert-40: #ffbab4;
+  --color-alert-16: #fde1e0;
+  --color-gray-blue: #e5e9f0;
+  --color-primary: var(--color-primary-50);
+  --color-primary-dark: var(--color-primary-150);
+  --color-muted: rgba(6, 6, 7, 0.55);
+  --font-primary: var(--font-montserrat);
+  --font-montserrat: "Montserrat", sans-serif;
+  --box-shadow-default: var(--box-shadow-v2);
+  --box-shadow-v1: 0 10rem 6rem -6rem rgba(0, 0, 0, 0.3);
+  --box-shadow-v2: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+  --width-max: 1200rem;
+  --ease-stn: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emp: cubic-bezier(0.3, 0, 0, 1);
+  --ease-smt: cubic-bezier(0.6, 0, 0, 1);
+  --ease-dec: cubic-bezier(0, 0, 0.2, 1);
+  --ease-acc: cubic-bezier(0.4, 0, 1, 1);
+}
+
+:root {
+  font-size: 6.25%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-primary);
+  font-size: 16rem;
+  background: var(--color-gray-blue);
+  color: var(--color-gray-100);
+  cursor: default;
+}
+body.scroll-lock {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  font-size: 32rem;
+  letter-spacing: -0.05em;
+  line-height: 1em;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.divider {
+  border-bottom: 1rem solid var(--color-gray-50);
+}
+
+button:hover {
+  filter: brightness(85%);
+}
+
+a {
+  color: var(--color-black);
+}
+
+a:hover {
+  filter: brightness(55%);
+}
+
+/*# sourceMappingURL=index.css.map */
