@@ -4,7 +4,7 @@
       <h1 class="teams-retrieve-all__header-heading">Teams</h1>
       <button
           class="teams-retrieve-all__header-button"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >
         <router-link
             class="teams-retrieve-all__header-button-anchor"

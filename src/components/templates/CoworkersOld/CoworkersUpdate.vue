@@ -5,7 +5,7 @@
       <div class="coworkers-update__header-button">
         <button
             class="coworkers-update__header-button-delete"
-            v-on:click="handleEdit"
+            @click="handleEdit"
         >
           <router-link
               class="coworkers-update__header-button-delete-anchor"
@@ -16,7 +16,7 @@
         </button>
         <button
             class="coworkers-update__header-button-edit"
-            v-on:click="handleEdit"
+            @click="handleEdit"
         >
           <router-link
               class="coworkers-update__header-button-edit-anchor"

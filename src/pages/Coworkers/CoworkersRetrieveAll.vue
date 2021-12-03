@@ -25,6 +25,7 @@ export default {
     fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=${coworkerId}`)
         .then(response => response.json())
         .then(data => all.value = data);
+    console.log('all', coworkerId, `${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=${coworkerId}`, all);
 
     return {
       all,

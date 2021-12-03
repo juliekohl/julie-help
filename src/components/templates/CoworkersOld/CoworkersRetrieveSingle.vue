@@ -8,7 +8,7 @@
       <button
           class="coworkers-retrieve-single__info-button"
           type="button"
-          v-on:click="handleEdit"
+          @click="handleEdit"
       >
         <router-link
             :to="{ name: 'CoworkersUpdate', params: { id: coworkerUserId }}"

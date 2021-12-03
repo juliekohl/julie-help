@@ -16,7 +16,7 @@
         <button
             class="Coworking__form-button"
             type="button"
-            v-on:click="handleCreate"
+            @click="handleCreate"
         >Create Coworking
         </button>
     </form>
@@ -44,13 +44,13 @@
         <button
             class="Coworking__form-button"
             type="button"
-            v-on:click="handleEdit"
+            @click="handleEdit"
         >Edit
         </button>
         <button
             class="Coworking__form-button"
             type="button"
-            v-on:click="handleDelete"
+            @click="handleDelete"
         >Delete
         </button>
       </form>

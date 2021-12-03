@@ -6,14 +6,14 @@
         <button-unit
             class="update__header-button-delete"
             color="red"
-            v-on:click="handleDelete"
+            @click="handleDelete"
         >
           Delete
         </button-unit>
         <button-unit
             class="update__header-button-edit"
             color="purple"
-            v-on:click="handleEdit"
+            @click="handleEdit"
         >
           Edit
         </button-unit>

@@ -4,7 +4,7 @@
       <h1 class="coworkers-create__header-heading">New Coworker</h1>
       <button
           class="coworkers-create__header-button"
-          v-on:click="handleCreate"
+          @click="handleCreate"
       >
         <router-link
             class="coworkers-update__header-button-anchor"
