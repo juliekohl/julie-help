@@ -71,23 +71,28 @@
 import {defineComponent} from "vue";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
+import { Field, Form, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
 
 export default defineComponent({
   name: 'CoworkersCreate',
-  components: {ButtonUnit},
-  setup() {
-    const coworker = ref({coworking_id: 1, name: '', email: '', password: ''});
-
+  components: {ButtonUnit, Field, Form, ErrorMessage},
+  data() {
+    const schema = yup.object({
+      name: yup.string().required().label('Name'),
+      email: yup.string().required().email().label('Email'),
+      password: yup.string().required().min(8).label('Password'),
+    });
     return {
-      coworker
-    }
+      schema,
+    };
   },
   methods: {
-    handleCreate(): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, this.coworker);
+    onSubmit(values: any) {
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, values);
       this.$router.push({ name: 'CoworkersRetrieveAll' });
-    }
-  }
+    },
+  },
 })
 </script>
 
