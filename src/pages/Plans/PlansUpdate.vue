@@ -1,17 +1,53 @@
 <template>
-  <Update
-      :entity="plan"
-  />
+  <div class="plans-update">
+    <div class="plans-update__header">
+      <h1 class="plans-update__header-heading">{{plan.name}}</h1>
+      <div class="plans-update__header-button">
+        <button-unit
+            class="plans-update__header-button-delete"
+            color="red"
+            @click="handleDelete"
+        >
+          Delete
+        </button-unit>
+        <button-unit
+            class="plans-update__header-button-edit"
+            color="purple"
+            @click="handleEdit"
+        >
+          Edit
+        </button-unit>
+      </div>
+    </div>
+    <form class="plans-update__form">
+      <label
+          class="plans-update__form-label"
+          for="name"
+      >
+        Name
+      </label>
+      <input
+          class="plans-update__form-input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="name"
+          v-model="plan.name"
+      />
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
-import Update from "@/components/templates/Update/Update.vue";
-import {ref} from "vue";
+import {defineComponent, ref} from "vue";
+import axios from "axios";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
-export default {
+export default  defineComponent({
   name: 'PlansUpdate',
   components: {
-    Update,
+    ButtonUnit
+
   },
   setup() {
     const plan = ref({id: null, name: '', value: 100});
@@ -28,15 +64,19 @@ export default {
       plan,
     }
   },
-  // methods: {
-  //   handleEdit(): void {
-  //     axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.planId}`, this.plan);
-  //     location.reload();
-  //   },
-  //   handleDelete(): void {
-  //     axios.delete(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.planId}`);
-  //     location.reload();
-  //   },
-  // },
-}
+  methods: {
+    handleEdit(): void {
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`, this.plan);
+      this.$router.push({ name: 'PlansRetrieveAll' });
+    },
+    handleDelete(): void {
+      axios.delete(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`);
+      this.$router.push({ name: 'PlansRetrieveAll' });
+    },
+  },
+})
 </script>
+
+<style lang="scss">
+.plans-update {}
+</style>
