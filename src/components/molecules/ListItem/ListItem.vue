@@ -5,8 +5,11 @@
     >
       {{ item.name }}
     </router-link>
-    <span class="list-item__subitem">
+    <span v-if="item.email" class="list-item__subitem">
       {{ item.email }}
+    </span>
+    <span v-if="item.type" class="list-item__subitem">
+      {{ item.type }}
     </span>
     <button-unit
         class="list-item__button"
@@ -25,7 +28,8 @@ import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 export interface PropsItem {
   id: number;
   name: string;
-  email: string;
+  email?: string;
+  type?: string;
 }
 
 export default defineComponent( {
