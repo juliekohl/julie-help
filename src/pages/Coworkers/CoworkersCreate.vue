@@ -17,8 +17,8 @@
 
       <Field
           class="coworkers-create__input"
-          id="coworkingId"
-          name="coworkingId"
+          name="coworking_id"
+          :value="1"
           type="hidden"
       />
 
@@ -89,6 +89,7 @@ export default defineComponent({
   },
   methods: {
     onSubmit(values: any) {
+      console.log("values", values);
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers`, values);
       this.$router.push({ name: 'CoworkersRetrieveAll' });
     },
