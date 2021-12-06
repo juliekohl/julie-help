@@ -1,3 +1,5 @@
+// Create
+
 @mixin page-create() {
   padding: 5rem;
   background: var(--color-gray-blue);
@@ -84,6 +86,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25rem;
     padding: 5rem;
     }
 
