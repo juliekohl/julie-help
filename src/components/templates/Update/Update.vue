@@ -1,7 +1,7 @@
 <template>
   <div class="update">
     <div class="update__header">
-      <h1 class="update__header-heading">{{entity.name}}</h1>
+      <h1 class="update__header-heading">{{coworkerUser.name}}</h1>
       <div class="update__header-button">
         <button-unit
             class="update__header-button-delete"
@@ -62,9 +62,6 @@ import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 export default defineComponent({
   name: 'Update',
   components: {ButtonUnit},
-  props: {
-    entity: Object,
-  },
   setup() {
     const router = useRouter();
     const coworkerUserId: number = Number(router.currentRoute.value.params.id);
