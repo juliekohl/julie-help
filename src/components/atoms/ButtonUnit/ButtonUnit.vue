@@ -16,6 +16,7 @@
       color && `button-unit--color-${color}`,
     ]"
     @click="$emit('click')"
+    :type="type"
   >
     <slot></slot>
   </button>
@@ -39,6 +40,13 @@ export default defineComponent( {
         return ['purple', 'red', 'gray'].includes(value);
       }
     },
+    type: {
+      type: String,
+      default: 'button',
+      validator: (value: string) => {
+        return ['button', 'submit', 'reset'].includes(value);
+      }
+    }
   },
   emits: ['click'],
 })

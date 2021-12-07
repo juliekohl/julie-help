@@ -1,22 +1,22 @@
 <template>
-  <div class="coworkers-update">
+  <div class="teams-update">
     <Form
-        class="coworkers-update__form"
+        class="teams-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
     >
-      <div class="coworkers-update__header">
-        <h1 class="coworkers-update__heading">{{coworker.name}}</h1>
-        <div class="coworkers-update__button">
+      <div class="teams-update__header">
+        <h1 class="teams-update__heading">{{team.name}}</h1>
+        <div class="teams-update__button">
           <button-unit
-              class="coworkers-update__button-delete"
+              class="teams-update__button-delete"
               color="red"
               @click="handleDelete"
           >
             Delete
           </button-unit>
           <button-unit
-              class="coworkers-update__button-edit"
+              class="teams-update__button-edit"
               color="purple"
               type="submit"
           >
@@ -25,26 +25,26 @@
         </div>
       </div>
       <label
-          class="coworkers-update__label"
+          class="teams-update__label"
           for="name"
       >
         Name
       </label>
       <Field
-          class="coworkers-update__input"
+          class="teams-update__input"
           type="text"
           id="name"
           name="name"
       />
       <ErrorMessage name="name" />
       <label
-          class="coworkers-update__label"
+          class="teams-update__label"
           for="password"
       >
         Password
       </label>
       <Field
-          class="coworkers-update__input"
+          class="teams-update__input"
           type="password"
           id="password"
           name="password"
@@ -63,20 +63,20 @@ import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 
 export default defineComponent({
-  name: 'CoworkersUpdate',
+  name: 'TeamsUpdate',
   components: {ButtonUnit, Field, Form, ErrorMessage},
   setup() {
     const router = useRouter();
     const id: number = Number(router.currentRoute.value.params.id);
-    const coworker = ref({id, name: '', password: '', email: ''});
+    const team = ref({id, name: '', password: '', email: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${id}`)
+    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams/${id}`)
         .then(response => response.json())
-        .then(data => {coworker.value = data});
+        .then(data => {team.value = data});
 
     return {
       id,
-      coworker
+      team
     }
   },
   data() {
@@ -90,13 +90,13 @@ export default defineComponent({
   },
   methods: {
     onSubmit(values: any) {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.id}`, values);
-      this.$router.push({ name: 'CoworkersRetrieveAll' });
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.id}`, values);
+      this.$router.push({ name: 'TeamsRetrieveAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
-        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.id}`);
-        this.$router.push({ name: 'CoworkersRetrieveAll' });
+        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.id}`);
+        this.$router.push({ name: 'TeamsRetrieveAll' });
       }
     },
   },
@@ -104,7 +104,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.coworkers-update {
+.teams-update {
   @include page-update();
 }
 </style>

@@ -1,10 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/pages/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
-import TeamsRetrieveSingle from "@/components/templates/TeamsOld/TeamsRetrieveSingle.vue";
-import TeamsCreate from "@/components/templates/TeamsOld/TeamsCreate.vue";
-import TeamsUpdate from "@/components/templates/TeamsOld/TeamsUpdate.vue";
 import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
 import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetrieveSingle.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
@@ -17,6 +13,11 @@ import PlansRetrieveAll from "@/pages/Plans/PlansRetrieveAll.vue";
 import PlansRetrieveSingle from "@/pages/Plans/PlansRetrieveSingle.vue";
 import PlansCreate from "@/pages/Plans/PlansCreate.vue";
 import PlansUpdate from "@/pages/Plans/PlansUpdate.vue";
+import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
+import TeamsRetrieveSingle from "@/pages/Teams/TeamsRetrieveSingle.vue";
+import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
+import TeamsUpdate from "@/pages/Teams/TeamsUpdate.vue";
+import CoworkingsUpdate from "@/pages/Coworkings/CoworkingsUpdate.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -130,6 +131,16 @@ const routes = [
         path: '/plans/:id/edit',
         name: 'PlansUpdate',
         component: PlansUpdate
+    },
+
+    /**
+     * Coworkings
+     */
+
+    {
+        path: '/coworkings/:id/edit',
+        name: 'CoworkingsUpdate',
+        component: CoworkingsUpdate
     },
 ]
 

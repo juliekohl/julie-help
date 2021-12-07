@@ -30,6 +30,6 @@ export default {
     return {
       all,
     }
-  }
+  },
 }
 </script>
