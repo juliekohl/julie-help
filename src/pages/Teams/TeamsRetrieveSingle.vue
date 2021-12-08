@@ -10,6 +10,7 @@
 import RetrieveSingle from "@/components/templates/RetrieveSingle/RetrieveSingle.vue";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: 'TeamsRetrieveSingle',
@@ -19,13 +20,15 @@ export default {
   setup() {
     const router = useRouter();
     const teamUserId: number = Number(router.currentRoute.value.params.id);
-    const teamUser = ref({id: teamUserId, name: '', email: ''});
+    const teamUser: any = ref({id: teamUserId, name: '', email: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams/${teamUserId}`)
-        .then(response => response.json())
-        .then(data => {
-          teamUser.value.name = data.name;
-          teamUser.value.email = data.email;
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams/${teamUserId}`)
+        .then(response => {
+          teamUser.value.name = (response.data as any).name;
+          teamUser.value.email = (response.data as any).email;
+        })
+        .catch(error => {
+          error.response;
         });
 
     return {
