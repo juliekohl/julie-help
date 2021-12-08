@@ -52,11 +52,15 @@ export default defineComponent({
   name: 'CoworkingsUpdate',
   components: {ButtonUnit, Field, Form, ErrorMessage},
   setup() {
-    const coworking = ref({id: null, name: ''});
+    const coworking: any = ref({id: null, name: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkings`)
-        .then(response => response.json())
-        .then(data => {coworking.value = data});
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkings`)
+        .then(response => {
+          coworking.value = response.data
+        })
+        .catch(error => {
+          error.response;
+        });
 
     return {
       coworking
