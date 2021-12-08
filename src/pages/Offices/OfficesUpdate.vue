@@ -66,14 +66,11 @@ export default defineComponent({
   components: {ButtonUnit, Field, Form, ErrorMessage},
   setup() {
     const id: number = 1;
-    const office = ref({id, name: '', type: ''});
+    const office: any = ref({id, name: '', type: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/offices?office_id=1`)
-        .then(response => response.json())
-        .then(data => {
-          office.value.id = data.id;
-          office.value.name = data.name;
-          office.value.type = data.type;
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/offices?office_id=1`)
+        .then(response => {
+          office.value = response.data;
         });
 
     return {

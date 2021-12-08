@@ -10,6 +10,7 @@
 import RetrieveSingle from "@/components/templates/RetrieveSingle/RetrieveSingle.vue";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: 'OfficesRetrieveSingle',
@@ -19,13 +20,12 @@ export default {
   setup() {
     const router = useRouter();
     const officeId: number = Number(router.currentRoute.value.params.id);
-    const office = ref({id: officeId, name: '', type: ''});
+    const office: any = ref({id: officeId, name: '', type: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/offices/${officeId}`)
-        .then(response => response.json())
-        .then(data => {
-          office.value.name = data.name;
-          office.value.type = data.type;
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/offices/${officeId}`)
+        .then(response => {
+          office.value.name = (response.data as any).name;
+          office.value.type = (response.data as any).type;
         });
 
     return {

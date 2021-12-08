@@ -8,9 +8,11 @@
       :all="all"
   />
 </template>
+
 <script lang="ts">
 import RetrieveAll from "@/components/templates/RetrieveAll/RetrieveAll.vue";
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: 'PlansRetrieveAll',
@@ -18,13 +20,15 @@ export default {
     RetrieveAll
   },
   setup() {
-    const all = ref({});
+    const all: any = ref({});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/plans?plan_id=1`)
-        .then(response => response.json())
-        .then(data => all.value = data);
-
-    console.log('all', all);
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans?plan_id=1`)
+        .then(response => {
+          all.value = response.data;
+        })
+        .catch(error => {
+          error.response;
+        });
 
     return {
       all,

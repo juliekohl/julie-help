@@ -70,14 +70,11 @@ export default  defineComponent({
     ErrorMessage
   },
   setup() {
-    const plan = ref({id: null, name: '', value: 100});
+    const plan: any = ref({id: null, name: '', value: 100});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/plans?plan_id=1`)
-        .then(response => response.json())
-        .then(data => {
-          plan.value.id = data.id;
-          plan.value.name = data.name;
-          plan.value.value = data.value;
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans?plan_id=1`)
+        .then(response => {
+          plan.value = response.data;
         });
 
     return {

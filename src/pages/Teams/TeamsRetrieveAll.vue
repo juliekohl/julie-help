@@ -10,8 +10,9 @@
 </template>
 
 <script lang="ts">
-import RetrieveAll from "@/components/templates/TeamsOld/TeamsRetrieveAll.vue";
+import RetrieveAll from "@/components/templates/RetrieveAll/RetrieveAll.vue";
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: 'TeamsRetrieveAll',
@@ -19,13 +20,16 @@ export default {
     RetrieveAll
   },
   setup() {
-    const all = ref({});
-    const teamId = localStorage.getItem('teamId');
+    const all: any = ref([]);
+    // const teamId = localStorage.getItem('teamId');
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=${teamId}`)
-        .then(response => response.json())
-        .then(data => all.value = data);
-    console.log('all', teamId, `${process.env.VUE_APP_BACKEND_URL}/teams?team_id=${teamId}`, all);
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=1`)
+        .then(response => {
+          all.value = response.data;
+        })
+        .catch(error => {
+          error.response;
+        });
 
     return {
       all,
