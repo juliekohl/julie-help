@@ -76,7 +76,7 @@ export default defineComponent({
 
         })
         .catch(error => {
-          error.response;
+          console.log(error.response);
         });
 
     return {

@@ -28,7 +28,7 @@ export default {
           teamUser.value.email = (response.data as any).email;
         })
         .catch(error => {
-          error.response;
+          console.log(error.response);
         });
 
     return {
