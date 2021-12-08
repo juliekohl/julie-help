@@ -26,9 +26,6 @@ export default {
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=1`)
         .then(response => {
           all.value = response.data;
-
-          console.log(1, response.data);
-          console.log(2, all.value);
         })
         .catch(error => {
           error.response;
