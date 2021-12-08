@@ -29,7 +29,7 @@ export default {
         })
         .catch(error => {
            error.response;
-        })
+        });
 
     return { all }
   },

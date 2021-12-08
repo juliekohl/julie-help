@@ -41,7 +41,7 @@ export default defineComponent( {
   props: {
     title: String,
     updateToName: String,
-    entity: Array,
+    entity: Object,
   },
 })
 </script>
