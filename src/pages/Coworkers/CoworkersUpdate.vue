@@ -72,7 +72,7 @@ export default defineComponent({
 
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${id}`)
         .then(response => {
-          coworker.value = response.data
+          coworker.value = response.data;
         })
         .catch(error => {
           error.response;

@@ -68,11 +68,16 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const id: number = Number(router.currentRoute.value.params.id);
-    const team = ref({id, name: '', password: '', email: ''});
+    const team: any = ref({id, name: '', password: '', email: ''});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/teams/${id}`)
-        .then(response => response.json())
-        .then(data => {team.value = data});
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams/${id}`)
+        .then(response => {
+          team.value = response.data;
+
+        })
+        .catch(error => {
+          error.response;
+        });
 
     return {
       id,
