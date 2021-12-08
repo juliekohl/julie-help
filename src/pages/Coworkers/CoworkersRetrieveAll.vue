@@ -12,6 +12,7 @@
 <script lang="ts">
 import {ref} from "vue";
 import RetrieveAll from "@/components/templates/RetrieveAll/RetrieveAll.vue";
+import axios from "axios";
 
 export default {
   name: 'CoworkersRetrieveAll',
@@ -19,17 +20,18 @@ export default {
     RetrieveAll
   },
   setup() {
-    const all = ref({});
-    const coworkerId = localStorage.getItem('coworkerId');
+    const all: any = ref([]);
+    // const coworkerId = localStorage.getItem('coworkerId');
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=${coworkerId}`)
-        .then(response => response.json())
-        .then(data => all.value = data);
-    console.log('all', coworkerId, `${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=${coworkerId}`, all);
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=1`)
+        .then(response => {
+          all.value = response.data;
+        })
+        .catch(error => {
+           error.response;
+        })
 
-    return {
-      all,
-    }
+    return { all }
   },
 }
 </script>
