@@ -27,7 +27,7 @@ export default {
           all.value = response.data;
         })
         .catch(error => {
-          error.response;
+          console.log(error.response);
         });
 
     return {

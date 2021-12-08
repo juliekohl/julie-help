@@ -73,11 +73,12 @@ export default defineComponent({
     ErrorMessage
   },
   setup() {
-    const officestypes = ref([]);
+    const officestypes: any = ref([]);
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/officestypes`)
-        .then(response => response.json())
-        .then(data => officestypes.value = data);
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/officestypes`)
+        .then(response => {
+          officestypes.value = response.data;
+        });
 
     return {
       officestypes
