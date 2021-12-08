@@ -10,6 +10,7 @@
 import RetrieveSingle from "@/components/templates/RetrieveSingle/RetrieveSingle.vue";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: 'PlansRetrieveSingle',
@@ -19,13 +20,12 @@ export default {
   setup() {
     const router = useRouter();
     const planId: number = Number(router.currentRoute.value.params.id);
-    const plan = ref({id: planId, name: '', value: 100});
+    const plan: any = ref({id: planId, name: '', value: 100});
 
-    fetch(`${process.env.VUE_APP_BACKEND_URL}/plans/${planId}`)
-        .then(response => response.json())
-        .then(data => {
-          plan.value.name = data.name;
-          plan.value.value = data.value;
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/${planId}`)
+        .then(response => {
+          plan.value.name = (response.data as any).name;
+          plan.value.value = (response.data as any).value;
         });
 
     return {
