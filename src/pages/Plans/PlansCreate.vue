@@ -8,6 +8,7 @@
       <div class="plans-create__header">
         <h1 class="plans-create__heading">Create Plan</h1>
         <button-unit
+            type="submit"
             class="plans-create__button"
             color="purple"
         >
