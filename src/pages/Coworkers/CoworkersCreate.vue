@@ -8,6 +8,7 @@
       <div class="coworkers-create__header">
         <h1 class="coworkers-create__heading">Create Coworker</h1>
         <button-unit
+            type="submit"
             class="coworkers-create__button"
             color="purple"
         >

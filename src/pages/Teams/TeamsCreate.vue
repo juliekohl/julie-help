@@ -8,6 +8,7 @@
       <div class="teams-create__header">
         <h1 class="teams-create__heading">Create Team</h1>
         <button-unit
+            type="submit"
             class="teams-create__button"
             color="purple"
         >

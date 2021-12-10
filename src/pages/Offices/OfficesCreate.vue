@@ -8,6 +8,7 @@
       <div class="offices-create__header">
         <h1 class="offices-create__heading">Create Office</h1>
         <button-unit
+            type="submit"
             class="offices-create__button"
             color="purple"
         >
