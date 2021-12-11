@@ -25,6 +25,11 @@
           </a>
         </span>
         <span v-else-if="key === 'type'">Type: {{ value }}</span>
+
+        <span v-else-if="key === 'planId'">Plan ID: {{ value }}</span>
+        <span v-else-if="key === 'planName'">Plan Name: {{ value }}</span>
+        <span v-else-if="key === 'value'">Plan Value: {{ value }}</span>
+
         <span v-else>{{key}}: {{value}}</span>
       </div>
     </section>

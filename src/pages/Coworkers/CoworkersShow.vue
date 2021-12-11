@@ -24,8 +24,13 @@ export default {
 
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${coworkerUserId}`)
         .then(response => {
+          console.log(1, response.data);
           coworkerUser.value.name = (response.data as any).name;
           coworkerUser.value.email = (response.data as any).email;
+
+          coworkerUser.value.planId = (response.data as any).planId;
+          coworkerUser.value.planName = (response.data as any).planName;
+          coworkerUser.value.value = (response.data as any).value;
         })
         .catch(error => {
           console.log(error.response);
