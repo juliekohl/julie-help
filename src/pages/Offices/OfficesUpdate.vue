@@ -24,6 +24,7 @@
           </button-unit>
         </div>
       </div>
+
       <label
           class="offices-update__label"
           for="name"
@@ -37,19 +38,26 @@
           name="name"
       />
       <ErrorMessage name="name" />
+
       <label
           class="offices-update__label"
           for="type"
       >
-        type
+        Type
       </label>
       <Field
           class="offices-update__input"
-          type="type"
-          id="type"
-          name="type"
-      />
-      <ErrorMessage name="type" />
+          as="select"
+          name="officestype_id"
+      >
+        <option></option>
+        <option
+            v-for="i in officestypes"
+            :key="i"
+            :value="i.id"
+        >{{i.name}}</option>
+      </Field>
+      <ErrorMessage name="officestype_id" />
     </Form>
   </div>
 </template>
@@ -57,6 +65,7 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import axios from "axios";
+import {useRouter} from "vue-router";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
@@ -65,22 +74,31 @@ export default defineComponent({
   name: 'OfficesUpdate',
   components: {ButtonUnit, Field, Form, ErrorMessage},
   setup() {
-    const id: number = 1;
+    const router = useRouter();
+    const id: number = Number(router.currentRoute.value.params.id);
     const office: any = ref({id, name: '', type: ''});
+    const officestypes: any = ref([]);
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/offices?office_id=1`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/offices/${id}`)
         .then(response => {
           office.value = response.data;
         });
 
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/officestypes`)
+        .then(response => {
+          officestypes.value = response.data;
+        });
+
     return {
+      id,
       office,
+      officestypes,
     }
   },
   data() {
     const schema = yup.object({
       name: yup.string().required().label('Name'),
-      type: yup.string().required().label('Type'),
+      officestype_id: yup.string().required().label('Type'),
     });
     return {
       schema,
@@ -88,12 +106,12 @@ export default defineComponent({
   },
   methods: {
     onSubmit(values: any): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.office}`, values);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.id}`, values);
       this.$router.push({ name: 'OfficesShowAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
-        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.office}`);
+        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.id}`);
         this.$router.push({ name: 'OfficesShowAll' });
       }
     },
