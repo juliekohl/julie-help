@@ -50,6 +50,25 @@
           name="password"
       />
       <ErrorMessage name="password" />
+
+      <label
+          class="offices-create__label"
+          for="plans"
+      >
+        Plans
+      </label>
+      <Field
+          as="select"
+          name="plan_id"
+      >
+        <option></option>
+        <option
+            v-for="i in plans"
+            :key="i"
+            :value="i.id"
+        >{{i.name}} - {{i.value}}</option>
+      </Field>
+      <ErrorMessage name="plan_id" />
     </Form>
   </div>
 </template>
@@ -69,24 +88,35 @@ export default defineComponent({
     const router = useRouter();
     const id: number = Number(router.currentRoute.value.params.id);
     const coworker: any = ref({id, name: '', password: '', email: ''});
+    const plans: any = ref([]);
 
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${id}`)
         .then(response => {
           coworker.value = response.data;
         })
         .catch(error => {
-          error.response;
+          console.log(error.response);
+        });
+
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/?plan_id=${id}`)
+        .then(response => {
+          plans.value = response.data;
+        })
+        .catch(error => {
+          console.log(error.response);
         });
 
     return {
       id,
-      coworker
+      coworker,
+      plans
     }
   },
   data() {
     const schema = yup.object({
       name: yup.string().required().label('Name'),
       password: yup.string().required().min(8).label('Password'),
+      plan_id: yup.string().label('Plan'),
     });
     return {
       schema,

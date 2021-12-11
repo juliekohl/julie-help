@@ -36,6 +36,7 @@
           name="name"
       />
       <ErrorMessage name="name" />
+
       <label
           class="offices-create__label"
           for="type"
