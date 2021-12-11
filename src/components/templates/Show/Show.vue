@@ -25,7 +25,34 @@
           </a>
         </span>
         <span v-else-if="key === 'type'">Type: {{ value }}</span>
+
+        <span v-else-if="key === 'planId'">Plan ID: {{ value }}</span>
+        <span v-else-if="key === 'planName'">Plan Name: {{ value }}</span>
+        <span v-else-if="key === 'value'">Plan Value: {{ value }}</span>
+
         <span v-else>{{key}}: {{value}}</span>
+      </div>
+    </section>
+    <section class="show__extra">
+      <h2 class="show__header-heading">{{ extraTitle }}</h2>
+      <div
+          v-for="(v1, k1) in extra"
+          :key="k1"
+          class="show__extra-item"
+      >
+        <div
+          v-for="(v2, k2) in v1"
+          :key="k2"
+        >
+          <span v-if="k2 === 'id'">ID: {{ v2 }}</span>
+          <span v-else-if="k2 === 'name'">Name: {{ v2 }}</span>
+          <span v-else-if="k2 === 'email'">
+          Email:
+          <a :href="`mailto:${v2}`" target="_blank">
+            {{ v2 }}
+          </a>
+        </span>
+        </div>
       </div>
     </section>
   </div>
@@ -42,6 +69,8 @@ export default defineComponent( {
     title: String,
     updateToName: String,
     entity: Object,
+    extraTitle: String,
+    extra: Array
   },
 })
 </script>
@@ -81,7 +110,8 @@ export default defineComponent( {
     }
   }
 
-  &__info {
+  &__info,
+  &__extra {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

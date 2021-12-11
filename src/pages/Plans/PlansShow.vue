@@ -3,6 +3,8 @@
       title="Plans Info"
       update-to-name="PlansUpdate"
       :entity="plan"
+      extraTitle="Coworkers"
+      :extra="planCoworkers"
   />
 </template>
 
@@ -19,17 +21,24 @@ export default {
   },
   setup() {
     const router = useRouter();
-    const planId: number = Number(router.currentRoute.value.params.id);
-    const plan: any = ref({id: planId, name: '', value: 100});
+    const id: number = Number(router.currentRoute.value.params.id);
+    const plan: any = ref({id: id, name: '', value: 0});
+    const planCoworkers: any = ref([]);
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/${planId}`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/${id}`)
         .then(response => {
           plan.value.name = (response.data as any).name;
           plan.value.value = (response.data as any).value;
         });
 
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/coworkers/${id}`)
+        .then(response => {
+          planCoworkers.value = response.data;
+        });
+
     return {
       plan,
+      planCoworkers
     }
   },
 }
