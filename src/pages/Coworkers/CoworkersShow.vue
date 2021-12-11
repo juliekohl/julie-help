@@ -1,5 +1,5 @@
 <template>
-  <RetrieveSingle
+  <Show
       title="Coworkers Info"
       update-to-name="CoworkersUpdate"
       :entity="coworkerUser"
@@ -7,15 +7,15 @@
 </template>
 
 <script lang="ts">
-import RetrieveSingle from "@/components/templates/RetrieveSingle/RetrieveSingle.vue";
+import Show from "@/components/templates/Show/Show.vue";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
 import axios from "axios";
 
 export default {
-  name: 'CoworkersRetrieveSingle',
+  name: 'CoworkersShow',
   components: {
-    RetrieveSingle
+    Show
   },
   setup() {
     const router = useRouter();

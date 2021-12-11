@@ -1,20 +1,20 @@
 <template>
-  <div class="retrieve-single">
-    <header class="retrieve-single__header">
-      <h1 class="retrieve-single__header-heading">{{ title }}</h1>
+  <div class="show">
+    <header class="show__header">
+      <h1 class="show__header-heading">{{ title }}</h1>
       <button-unit
-          class="retrieve-single__header-button"
+          class="show__header-button"
           color="purple"
           :to="{ name: updateToName, params: { id: entity.id }}"
       >
         Edit
       </button-unit>
     </header>
-    <section class="retrieve-single__info">
+    <section class="show__info">
       <div
           v-for="(value, key) in entity"
           :key="key"
-          class="retrieve-single__info-item"
+          class="show__info-item"
       >
         <span v-if="key === 'id'">ID: {{ value }}</span>
         <span v-else-if="key === 'name'">Name: {{ value }}</span>
@@ -36,7 +36,7 @@ import { defineComponent } from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 
 export default defineComponent( {
-  name: 'RetrieveSingle',
+  name: 'Show',
   components: {ButtonUnit},
   props: {
     title: String,
@@ -47,7 +47,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-.retrieve-single {
+.show {
   padding: 5rem;
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);

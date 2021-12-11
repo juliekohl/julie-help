@@ -8,7 +8,7 @@
       :key="item"
       :item="item"
       update-to-name="CoworkersUpdate"
-      retrieve-single-to-name="CoworkersRetrieveAll"
+      show-to-name="CoworkersShowAll"
     />
   </ul>
 </template>

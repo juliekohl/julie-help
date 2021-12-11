@@ -98,7 +98,7 @@ export default defineComponent({
   methods: {
     onSubmit(values: any) {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices`, values);
-      this.$router.push({ name: 'OfficesRetrieveAll' });
+      this.$router.push({ name: 'OfficesShowAll' });
     },
   },
 })

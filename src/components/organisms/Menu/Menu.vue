@@ -34,7 +34,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'CoworkersRetrieveAll'}"
+            :to="{ name: 'CoworkersShowAll'}"
             icon="user-icon"
             alt="user icon"
         >
@@ -42,7 +42,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'TeamsRetrieveAll'}"
+            :to="{ name: 'TeamsShowAll'}"
             icon="user-icon"
             alt="user icon"
         >
@@ -50,7 +50,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'OfficesRetrieveAll'}"
+            :to="{ name: 'OfficesShowAll'}"
             icon="check-square"
             alt="check square icon"
         >
@@ -58,7 +58,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'PlansRetrieveAll'}"
+            :to="{ name: 'PlansShowAll'}"
             icon="check-square"
             alt="check square icon"
         >
@@ -66,7 +66,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'CoworkersRetrieveAll'}"
+            :to="{ name: 'CoworkersShowAll'}"
             icon="check-square"
             alt="check square icon"
         >

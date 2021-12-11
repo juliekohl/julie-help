@@ -1,24 +1,24 @@
 <template>
-  <div class="retrieve-all">
-    <header class="retrieve-all__header">
-      <h1 class="retrieve-all__header-heading">{{ title }}</h1>
+  <div class="show-all">
+    <header class="show-all__header">
+      <h1 class="show-all__header-heading">{{ title }}</h1>
       <button-unit
-          class="retrieve-all__header-button"
+          class="show-all__header-button"
           color="purple"
           :to="{ name: createToName }"
       >
         Add new {{ createButtonText }}
       </button-unit>
     </header>
-    <section class="retrieve-all__options">
-      <ul class="retrieve-all__options-ul">
+    <section class="show-all__options">
+      <ul class="show-all__options-ul">
         <list-item
             v-for="item in all"
-            class="retrieve-all__options-li"
+            class="show-all__options-li"
             :key="item"
             :item="item"
             :update-to-name="updateToName"
-            :retrieve-single-to-name="retrieveSingleToName"
+            :show-to-name="ShowToName"
         />
       </ul>
     </section>
@@ -31,7 +31,7 @@ import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import ListItem from "@/components/molecules/ListItem/ListItem.vue";
 
 export default defineComponent( {
-  name: 'RetrieveAll',
+  name: 'ShowAll',
   components: {ListItem, ButtonUnit},
   props: {
     title: String,
@@ -39,13 +39,13 @@ export default defineComponent( {
     createButtonText: String,
     all: Object,
     updateToName: String,
-    retrieveSingleToName: String
+    ShowToName: String
   },
 })
 </script>
 
 <style lang="scss">
-.retrieve-all {
+.show-all {
   padding: 5rem;
   height: 100%;
 
