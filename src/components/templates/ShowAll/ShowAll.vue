@@ -18,7 +18,7 @@
             :key="item"
             :item="item"
             :update-to-name="updateToName"
-            :show-to-name="ShowToName"
+            :show-to-name="showToName"
         />
       </ul>
     </section>
@@ -39,7 +39,7 @@ export default defineComponent( {
     createButtonText: String,
     all: Object,
     updateToName: String,
-    ShowToName: String
+    showToName: String
   },
 })
 </script>
