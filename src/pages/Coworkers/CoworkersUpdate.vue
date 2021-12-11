@@ -95,12 +95,12 @@ export default defineComponent({
   methods: {
     onSubmit(values: any) {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.id}`, values);
-      this.$router.push({ name: 'CoworkersRetrieveAll' });
+      this.$router.push({ name: 'CoworkersShowAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
         axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${this.id}`);
-        this.$router.push({ name: 'CoworkersRetrieveAll' });
+        this.$router.push({ name: 'CoworkersShowAll' });
       }
     },
   },

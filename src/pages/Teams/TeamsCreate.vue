@@ -91,7 +91,7 @@ export default defineComponent({
   methods: {
     onSubmit(values: any) {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams`, values);
-      this.$router.push({ name: 'TeamsRetrieveAll' });
+      this.$router.push({ name: 'TeamsShowAll' });
     },
   },
 })

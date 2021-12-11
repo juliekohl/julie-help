@@ -1,23 +1,23 @@
 <template>
-  <RetrieveAll
+  <ShowAll
     title="Coworkers"
     create-to-name="CoworkersCreate"
     create-button-text="coworker"
     update-to-name="CoworkersUpdate"
-    retrieve-single-to-name="CoworkersRetrieveSingle"
+    show-to-name="CoworkersShow"
     :all="all"
   />
 </template>
 
 <script lang="ts">
 import {ref} from "vue";
-import RetrieveAll from "@/components/templates/RetrieveAll/RetrieveAll.vue";
+import ShowAll from "@/components/templates/ShowAll/ShowAll.vue";
 import axios from "axios";
 
 export default {
-  name: 'CoworkersRetrieveAll',
+  name: 'CoworkersShowAll',
   components: {
-    RetrieveAll
+    ShowAll
   },
   setup() {
     const all: any = ref([]);

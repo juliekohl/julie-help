@@ -93,12 +93,12 @@ export default  defineComponent({
   methods: {
     onSubmit(values: any): void {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`, values);
-      this.$router.push({ name: 'PlansRetrieveAll' });
+      this.$router.push({ name: 'PlansShowAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
         axios.delete(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`);
-        this.$router.push({ name: 'PlansRetrieveAll' });
+        this.$router.push({ name: 'PlansShowAll' });
       }
     },
   },

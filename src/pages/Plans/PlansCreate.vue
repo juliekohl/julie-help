@@ -65,7 +65,7 @@ export default defineComponent({
   methods: {
     onSubmit(values: any) {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans`, values);
-      this.$router.push({ name: 'PlansRetrieveAll' });
+      this.$router.push({ name: 'PlansShowAll' });
     },
   },
 })

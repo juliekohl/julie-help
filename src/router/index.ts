@@ -1,20 +1,20 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Dashboard from "@/pages/Dashboard/Dashboard.vue";
 import Login from "@/components/templates/Login/Login.vue";
-import CoworkersRetrieveAll from "@/pages/Coworkers/CoworkersRetrieveAll.vue";
-import CoworkersRetrieveSingle from "@/pages/Coworkers/CoworkersRetrieveSingle.vue";
+import CoworkersShowAll from "@/pages/Coworkers/CoworkersShowAll.vue";
+import CoworkersShow from "@/pages/Coworkers/CoworkersShow.vue";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
-import OfficesRetrieveAll from "@/pages/Offices/OfficesRetrieveAll.vue";
-import OfficesRetrieveSingle from "@/pages/Offices/OfficesRetrieveSingle.vue";
+import OfficesShowAll from "@/pages/Offices/OfficesShowAll.vue";
+import OfficesShow from "@/pages/Offices/OfficesShow.vue";
 import OfficesCreate from "@/pages/Offices/OfficesCreate.vue";
 import OfficesUpdate from "@/pages/Offices/OfficesUpdate.vue";
-import PlansRetrieveAll from "@/pages/Plans/PlansRetrieveAll.vue";
-import PlansRetrieveSingle from "@/pages/Plans/PlansRetrieveSingle.vue";
+import PlansShowAll from "@/pages/Plans/PlansShowAll.vue";
+import PlansShow from "@/pages/Plans/PlansShow.vue";
 import PlansCreate from "@/pages/Plans/PlansCreate.vue";
 import PlansUpdate from "@/pages/Plans/PlansUpdate.vue";
-import TeamsRetrieveAll from "@/pages/Teams/TeamsRetrieveAll.vue";
-import TeamsRetrieveSingle from "@/pages/Teams/TeamsRetrieveSingle.vue";
+import TeamsShowAll from "@/pages/Teams/TeamsShowAll.vue";
+import TeamsShow from "@/pages/Teams/TeamsShow.vue";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
 import TeamsUpdate from "@/pages/Teams/TeamsUpdate.vue";
 import CoworkingsUpdate from "@/pages/Coworkings/CoworkingsUpdate.vue";
@@ -39,13 +39,13 @@ const routes = [
 
     {
         path: '/teams',
-        name: 'TeamsRetrieveAll',
-        component: TeamsRetrieveAll
+        name: 'TeamsShowAll',
+        component: TeamsShowAll
     },
     {
         path: '/teams/:id',
-        name: 'TeamsRetrieveSingle',
-        component: TeamsRetrieveSingle
+        name: 'TeamsShow',
+        component: TeamsShow
     },
     {
         path: '/teams/create',
@@ -64,13 +64,13 @@ const routes = [
 
     {
         path: '/coworkers',
-        name: 'CoworkersRetrieveAll',
-        component: CoworkersRetrieveAll
+        name: 'CoworkersShowAll',
+        component: CoworkersShowAll
     },
     {
         path: '/coworkers/:id',
-        name: 'CoworkersRetrieveSingle',
-        component: CoworkersRetrieveSingle
+        name: 'CoworkersShow',
+        component: CoworkersShow
     },
     {
         path: '/coworkers/create',
@@ -89,13 +89,13 @@ const routes = [
 
     {
         path: '/offices',
-        name: 'OfficesRetrieveAll',
-        component: OfficesRetrieveAll
+        name: 'OfficesShowAll',
+        component: OfficesShowAll
     },
     {
         path: '/offices/:id',
-        name: 'OfficesRetrieveSingle',
-        component: OfficesRetrieveSingle
+        name: 'OfficesShow',
+        component: OfficesShow
     },
     {
         path: '/offices/create',
@@ -114,13 +114,13 @@ const routes = [
 
     {
         path: '/plans',
-        name: 'PlansRetrieveAll',
-        component: PlansRetrieveAll
+        name: 'PlansShowAll',
+        component: PlansShowAll
     },
     {
         path: '/plans/:id',
-        name: 'PlansRetrieveSingle',
-        component: PlansRetrieveSingle
+        name: 'PlansShow',
+        component: PlansShow
     },
     {
         path: '/plans/create',

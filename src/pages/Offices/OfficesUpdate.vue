@@ -89,12 +89,12 @@ export default defineComponent({
   methods: {
     onSubmit(values: any): void {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.office}`, values);
-      this.$router.push({ name: 'OfficesRetrieveAll' });
+      this.$router.push({ name: 'OfficesShowAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
         axios.delete(`${process.env.VUE_APP_BACKEND_URL}/offices/${this.office}`);
-        this.$router.push({ name: 'OfficesRetrieveAll' });
+        this.$router.push({ name: 'OfficesShowAll' });
       }
     },
   },

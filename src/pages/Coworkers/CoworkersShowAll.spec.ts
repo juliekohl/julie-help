@@ -1,0 +1,11 @@
+import {mount} from "@vue/test-utils";
+import CoworkersShowAll from "@/pages/Coworkers/CoworkersShowAll.vue";
+
+describe('CoworkersShowAll', () => {
+    it('is an HTML tag div', () => {
+        const wrapper = mount(CoworkersShowAll);
+
+        const coworkers = wrapper.find('div.show-all');
+        expect(coworkers.exists()).toBe(true);
+    })
+})

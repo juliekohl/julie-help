@@ -1,7 +1,7 @@
 <template>
   <li class="list-item">
     <router-link
-        :to="{ name: retrieveSingleToName, params: { id: item.id } }"
+        :to="{ name: ShowToName, params: { id: item.id } }"
     >
       {{ item.name }}
     </router-link>
@@ -41,7 +41,7 @@ export default defineComponent( {
       required: true
     },
     updateToName: String,
-    retrieveSingleToName: String
+    ShowToName: String
   },
 })
 </script>
