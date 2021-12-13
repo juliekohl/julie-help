@@ -27,8 +27,8 @@
         <menu-item
             class="menu__sidebar-li"
             :to="{ name: 'Dashboard'}"
-            icon="check-square"
-            alt="check square icon"
+            icon="home-icon"
+            alt="home icon"
         >
           Dashboard
         </menu-item>
@@ -43,16 +43,16 @@
         <menu-item
             class="menu__sidebar-li"
             :to="{ name: 'TeamsShowAll'}"
-            icon="user-icon"
-            alt="user icon"
+            icon="chat-icon"
+            alt="chat icon"
         >
           Teams
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
             :to="{ name: 'OfficesShowAll'}"
-            icon="check-square"
-            alt="check square icon"
+            icon="clock-icon"
+            alt="clock icon"
         >
           Offices
         </menu-item>
@@ -67,8 +67,8 @@
         <menu-item
             class="menu__sidebar-li"
             :to="{ name: 'CoworkersShowAll'}"
-            icon="check-square"
-            alt="check square icon"
+            icon="anchor-icon"
+            alt="anchor icon"
         >
           Coworking
         </menu-item>
