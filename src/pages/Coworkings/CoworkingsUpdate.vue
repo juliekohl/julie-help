@@ -38,7 +38,7 @@
           :placeholder="coworking.name ? coworking.name : 'Name'"
       />
       <ErrorMessage
-          class="coworkers-update__span"
+          class="coworkings-update__span"
           name="name"
       />
     </Form>

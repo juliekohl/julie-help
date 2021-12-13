@@ -38,7 +38,10 @@
           name="name"
           :placeholder="office.name ? office.name : 'Name'"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="offices-update__span"
+          name="name"
+      />
 
       <label
           class="offices-update__label"
@@ -58,7 +61,10 @@
             :value="i.id"
         >{{i.name}}</option>
       </Field>
-      <ErrorMessage name="officestype_id" />
+      <ErrorMessage
+          class="offices-update__span"
+          name="officestype_id"
+      />
     </Form>
   </div>
 </template>
