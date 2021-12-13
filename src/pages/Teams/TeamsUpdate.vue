@@ -35,6 +35,7 @@
           type="text"
           id="name"
           name="name"
+          :placeholder="team.name ? team.name : 'Name'"
       />
       <ErrorMessage name="name" />
       <label

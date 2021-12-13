@@ -35,6 +35,7 @@
           type="text"
           id="name"
           name="name"
+          :placeholder="coworker.name ? coworker.name : 'Name'"
       />
       <ErrorMessage name="name" />
       <label
