@@ -35,7 +35,10 @@
           id="name"
           name="name"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="teams-create__span"
+          name="name"
+      />
 
       <label
           class="teams-create__label"
@@ -49,7 +52,10 @@
           id="email"
           name="email"
       />
-      <ErrorMessage name="email" />
+      <ErrorMessage
+          class="teams-create__span"
+          name="email"
+      />
 
       <label
           class="teams-create__label"
@@ -63,7 +69,10 @@
           id="password"
           name="password"
       />
-      <ErrorMessage name="password" />
+      <ErrorMessage
+          class="teams-create__span"
+          name="password"
+      />
     </Form>
   </div>
 </template>
