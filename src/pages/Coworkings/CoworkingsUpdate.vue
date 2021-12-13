@@ -35,6 +35,7 @@
           type="text"
           id="name"
           name="name"
+          :placeholder="coworking.name ? coworking.name : 'Name'"
       />
       <ErrorMessage name="name" />
     </Form>
@@ -43,6 +44,7 @@
 
 <script lang="ts">
 import {defineComponent, ref} from "vue";
+import {useRouter} from "vue-router";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
@@ -52,9 +54,11 @@ export default defineComponent({
   name: 'CoworkingsUpdate',
   components: {ButtonUnit, Field, Form, ErrorMessage},
   setup() {
+    const router = useRouter();
+    const id: number = Number(router.currentRoute.value.params.id);
     const coworking: any = ref({id: null, name: ''});
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkings`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkings/${id}`)
         .then(response => {
           coworking.value = response.data
         })
@@ -63,6 +67,7 @@ export default defineComponent({
         });
 
     return {
+      id,
       coworking
     }
   },
@@ -76,12 +81,12 @@ export default defineComponent({
   },
   methods: {
     onSubmit(values: any) {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkings/${this.coworking.id}`, values);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/coworkings/${this.id}`, values);
       location.reload();
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
-        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkings/${this.coworking.id}`);
+        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/coworkings/${this.id}`);
         location.reload();
       }
     },
