@@ -35,6 +35,7 @@
           type="text"
           id="name"
           name="name"
+          :placeholder="plan.name ? plan.name : 'Name'"
       />
       <ErrorMessage name="name" />
       <label
@@ -57,6 +58,7 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import axios from "axios";
+import {useRouter} from "vue-router";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
@@ -70,14 +72,17 @@ export default  defineComponent({
     ErrorMessage
   },
   setup() {
-    const plan: any = ref({id: null, name: '', value: 100});
+    const router = useRouter();
+    const id: number = Number(router.currentRoute.value.params.id);
+    const plan: any = ref({id: null, name: '', value: 0});
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans?plan_id=1`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/${id}`)
         .then(response => {
           plan.value = response.data;
         });
 
     return {
+      id,
       plan,
     }
   },
@@ -92,12 +97,12 @@ export default  defineComponent({
   },
   methods: {
     onSubmit(values: any): void {
-      axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`, values);
+      axios.post(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.id}`, values);
       this.$router.push({ name: 'PlansShowAll' });
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
-        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.plan}`);
+        axios.delete(`${process.env.VUE_APP_BACKEND_URL}/plans/${this.id}`);
         this.$router.push({ name: 'PlansShowAll' });
       }
     },
