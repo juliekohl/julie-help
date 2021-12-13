@@ -17,7 +17,7 @@
       </div>
 
       <Field
-          class="coworkers-create__input"
+          class="offices-create__input"
           name="coworking_id"
           :value="1"
           type="hidden"
@@ -35,7 +35,10 @@
           id="name"
           name="name"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="offices-create__span"
+          name="name"
+      />
 
       <label
           class="offices-create__label"
@@ -44,8 +47,9 @@
         Type
       </label>
       <Field
-        as="select"
-        name="officestype_id"
+          class="offices-create__input"
+          as="select"
+          name="officestype_id"
       >
         <option></option>
         <option
@@ -54,7 +58,10 @@
             :value="i.id"
         >{{i.name}}</option>
       </Field>
-      <ErrorMessage name="officestype_id" />
+      <ErrorMessage
+          class="offices-create__span"
+          name="officestype_id"
+      />
     </Form>
   </div>
 </template>
@@ -106,7 +113,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.plans-create {
+.offices-create {
   @include page-create();
 }
 </style>

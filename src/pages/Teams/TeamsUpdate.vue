@@ -37,7 +37,10 @@
           name="name"
           :placeholder="team.name ? team.name : 'Name'"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="teams-update__span"
+          name="name"
+      />
       <label
           class="teams-update__label"
           for="password"
@@ -50,7 +53,10 @@
           id="password"
           name="password"
       />
-      <ErrorMessage name="password" />
+      <ErrorMessage
+          class="teams-update__span"
+          name="password"
+      />
     </Form>
   </div>
 </template>

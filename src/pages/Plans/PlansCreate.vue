@@ -34,7 +34,9 @@
           id="name"
           name="name"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="plans-create__span"
+          name="name" />
     </Form>
   </div>
 </template>

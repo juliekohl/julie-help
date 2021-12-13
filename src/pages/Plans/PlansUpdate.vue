@@ -37,7 +37,10 @@
           name="name"
           :placeholder="plan.name ? plan.name : 'Name'"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="plans-update__span"
+          name="name"
+      />
       <label
           class="plans-update__label"
           for="value"
@@ -50,7 +53,10 @@
           id="value"
           name="value"
       />
-      <ErrorMessage name="value" />
+      <ErrorMessage
+          class="plans-update__span"
+          name="value"
+      />
     </Form>
   </div>
 </template>

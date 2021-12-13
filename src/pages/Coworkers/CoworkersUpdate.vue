@@ -37,7 +37,10 @@
           name="name"
           :placeholder="coworker.name ? coworker.name : 'Name'"
       />
-      <ErrorMessage name="name" />
+      <ErrorMessage
+          class="coworkers-update__span"
+          name="name"
+      />
       <label
           class="coworkers-update__label"
           for="password"
@@ -50,15 +53,19 @@
           id="password"
           name="password"
       />
-      <ErrorMessage name="password" />
+      <ErrorMessage
+          class="coworkers-update__span"
+          name="password"
+      />
 
       <label
-          class="offices-create__label"
+          class="coworkers-update__label"
           for="plans"
       >
         Plans
       </label>
       <Field
+          class="coworkers-update__input"
           as="select"
           name="plan_id"
       >
@@ -69,7 +76,10 @@
             :value="i.id"
         >{{i.name}} - {{i.value}}</option>
       </Field>
-      <ErrorMessage name="plan_id" />
+      <ErrorMessage
+          class="coworkers-update__span"
+          name="plan_id"
+      />
     </Form>
   </div>
 </template>

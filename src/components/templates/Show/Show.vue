@@ -43,6 +43,7 @@
         <div
           v-for="(v2, k2) in v1"
           :key="k2"
+          class="show__extra-item--item"
         >
           <span v-if="k2 === 'id'">ID: {{ v2 }}</span>
           <span v-else-if="k2 === 'name'">Name: {{ v2 }}</span>
@@ -94,7 +95,7 @@ export default defineComponent( {
     padding: 5rem;
 
     &-heading {
-      align-self: center;
+      align-self: flex-start;
       font-size: 13rem;
       font-weight: 400;
       color: var(--color-black);
@@ -125,7 +126,15 @@ export default defineComponent( {
     &-item {
       align-self: flex-start;
       margin: 5rem;
+
+      &--item {
+        margin: 10rem;
+      }
     }
+  }
+
+  h2 {
+    margin: 20rem;
   }
 }
 </style>
