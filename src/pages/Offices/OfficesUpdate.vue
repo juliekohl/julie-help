@@ -36,6 +36,7 @@
           type="text"
           id="name"
           name="name"
+          :placeholder="office.name ? office.name : 'Name'"
       />
       <ErrorMessage name="name" />
 
