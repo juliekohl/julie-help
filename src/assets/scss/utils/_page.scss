@@ -158,4 +158,10 @@
       margin-bottom: 10rem;
     }
   }
+
+  &__span {
+    margin-bottom: 15rem;
+    align-self: flex-start;
+    color: var(--color-alert-50);
+  }
 }
