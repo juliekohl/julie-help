@@ -28,7 +28,7 @@
 
         <span v-else-if="key === 'planId'">Plan ID: {{ value }}</span>
         <span v-else-if="key === 'planName'">Plan Name: {{ value }}</span>
-        <span v-else-if="key === 'value'">Plan Value: {{ value }}</span>
+        <span v-else-if="key === 'value'">Plan Value: {{ valueFormatted }}</span>
 
         <span v-else>{{key}}: {{value}}</span>
       </div>
@@ -60,8 +60,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {computed, defineComponent} from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
+import numeral from "numeral";
 
 export default defineComponent( {
   name: 'Show',
@@ -72,6 +73,15 @@ export default defineComponent( {
     entity: Object,
     extraTitle: String,
     extra: Array
+  },
+  setup(props) {
+    const valueFormatted = computed(() => {
+      return numeral(props.entity?.value).format('$0,0.00');
+    });
+
+    return {
+      valueFormatted
+    }
   },
 })
 </script>
