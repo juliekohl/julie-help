@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import index from './router/index';
+import router from './router/index';
+import store from './store/index.js';
+
 import 'c3/c3.min.css';
 
 createApp(App)
-    .use(index)
+    .use(router)
+    .use(store)
     .mount('#app')
