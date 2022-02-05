@@ -77,8 +77,8 @@
             v-if="currentUser"
             @click.prevent="logout"
             :to="{ name: 'Login'}"
-            icon="anchor-icon"
-            alt="anchor icon"
+            icon="logout-icon"
+            alt="logout icon"
         >
           Logout
         </menu-item>
