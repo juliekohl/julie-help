@@ -1,155 +1,152 @@
 <template>
   <div class="login">
-    <form class="login__form">
-      <h2 class="login__form-heading">Login</h2>
-      <div class="login__form-box">
-          <div class="login__form-text">
-            <label class="login__form-text-label" for="email">User Email</label>
-            <input class="login__form-text-input" type="email" id="email" placeholder="email" autofocus>
-          </div>
-        <div class="login__form-text">
-          <label class="login__form-text-label" for="password">Password</label>
-          <input class="login__form-text-input" type="password" id="password" placeholder="password">
-        </div>
-        <div class="login__form-text">
-          <button class="login__form-text-button">Sign In</button>
+    <Form
+        @submit="handleLogin"
+        :validation-schema="schema"
+        class="login__form"
+    >
+      <label
+          class="login__form-label"
+          for="email"
+      >
+        Email
+      </label>
+      <Field
+          class="login__form-input"
+          name="email"
+          type="email"
+      />
+      <ErrorMessage
+          class="login__form-error"
+          name="email"
+      />
+      <label
+          class="login__form-label"
+          for="password"
+      >
+        Password
+      </label>
+      <Field
+          class="login__form-input"
+          name="password"
+          type="password"
+      />
+      <ErrorMessage
+          name="password"
+          class="login__form-error"
+      />
+
+      <div class="login__form-group">
+        <button
+            class="login__form-btn  login__form-btn-block"
+            :disabled="loading"
+        >
+          <span
+              v-show="loading"
+              class="login__form-spn-border login__form-spn-border-sm"
+          ></span>
+          <span class="login__form-spn">Login</span>
+        </button>
+        <div
+            v-if="message"
+            class="login__form-alert login__form-alert-danger"
+            role="alert"
+        >
+          {{ message }}
         </div>
       </div>
-        <p class="login__form-paragraph">Forget Password? <a class="login__form-paragraph-anchor" href="#"> Click Here</a></p>
-    </form>
+    </Form>
   </div>
-
-<!--  <div>-->
-<!--    <h2>VeeValidate Form</h2>-->
-<!--    <ValidationObserver v-slot=" { handleSubmit }">-->
-<!--      <form @submit.prevent="handleSubmit(onSubmit)">-->
-<!--        <ValidationProvider name="Email" rules="required|email" v-slot="{ errors }">-->
-<!--          <div class="form-input__box">-->
-<!--            <label class="form__label">User Email</label>-->
-<!--            <input class="form__input" type="email" v-model="formData.email" placeholder="email" autofocus>-->
-<!--            <span>{{ errors[0] }}}</span>-->
-<!--          </div>-->
-<!--        </ValidationProvider>-->
-<!--        <ValidationProvider name="Password" rules="required|max:12|min:6" v-slot="{ errors }">-->
-<!--          <div class="form-input__box">-->
-<!--            <label class="form__label">User Password</label>-->
-<!--            <input class="form__input" type="password" v-model="formData.password" placeholder="email">-->
-<!--            <span>{{ errors[0] }}}</span>-->
-<!--          </div>-->
-<!--        </ValidationProvider>-->
-<!--        <button class="form__button">Sing In</button>-->
-<!--      </form>-->
-<!--    </ValidationObserver>-->
-<!--  </div>-->
 </template>
 
-<script lang="ts">
-// import { ValidationObserver, ValidationProvider } from 'vee-validate';
+<script>
 import {defineComponent} from "vue";
+import { Form, Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
 
 export default defineComponent({
-  name: 'Login',
-  // components: {
-  //   ValidationObserver,
-  //   ValidationProvider
-  // },
-  // data: () => ({
-  //   formData: {
-  //     email: '',
-  //     password: ''
-  //   }
-  // }),
-  // methods: {
-  //   onSubmit() {
-  //     console.log('Foi!', this.formData);
-  //   }
-  // }
+  name: "Login",
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
+  data() {
+    const schema = yup.object().shape({
+      email: yup.string().required("Email is required!"),
+      password: yup.string().required("Password is required!"),
+    });
+
+    return {
+      loading: false,
+      message: "",
+      schema,
+    };
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  created() {
+    if (this.loggedIn) {
+      this.$router.push("/");
+    }
+  },
+  methods: {
+    handleLogin(user) {
+      this.loading = true;
+
+      this.$store.dispatch("auth/login", user).then(
+          () => {
+            this.$router.push("/");
+          },
+          (error) => {
+            this.loading = false;
+            this.message = error?.response?.data?.message
+                ? error.message
+                : error.toString();
+          }
+      );
+    },
+  },
 })
 </script>
 
-<style lang="scss">
+<style scoped>
 .login {
-
-  &__form {
-    position: relative;
-    margin: 0 auto;
-    width: 350rem;
-    padding: 40rem 40rem 60rem;
-    background: black;
-    border-radius: 10rem;
-    text-align: center;
-    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
-
-    &-heading {
-      color: #c7c7c7;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 4rem;
-    }
-    &-box {
-      text-align: left;
-      margin-top: 40rem;
-    }
-    &-text {
-      margin-top: 20rem;
-
-      &-label {
-        display: block;
-        color: #868696;
-        margin-bottom: 5rem;
-        font-size: 18rem;
-      }
-      &-button {
-        padding: 5rem 15rem;
-        width: 100%;
-        height: 60rem;
-        background: #131419;
-        border: none;
-        border-radius: 40rem;
-        font-size: 18rem;
-        color: #03a9f4;
-        outline: none;
-        box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
-        cursor: pointer;
-      }
-    }
-    &-paragraph {
-      margin-top: 30rem;
-      color: #555;
-
-      &-anchor {
-        color: #08833b;
-      }
-    }
-  }
+  margin: 30px;
+  padding: 10px;
 }
-
-.login__form-text-input {
-  padding: 5rem 15rem;
-  width: 100%;
-  height: 50rem;
-  background: #131419;
-  border: none;
-  border-radius: 40rem;
-  font-size: 18rem;
-  color: #03a9f4;
-  outline: none;
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+.login__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
-.login__form-text-input [type='submit'] {
-  margin-top: 20rem;
-  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+.login__form-label {
+  margin: 10px;
+  font-size: 20px;
 }
-.login__form-text-input [type='submit']:active {
-  margin-top: 20rem;
-  color: #006c9c;
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+.login__form-input {}
+.login__form-error {
+  margin: 10px;
+  color: red;
 }
-.login__form-text-input::placeholder {
-  color: #555;
-  font-size: 18rem;
+.login__form-group {}
+.login__form-btn {
+  align-self: center;
+  width: 200px;
+  margin: 15px;
+  font-size: 20px;
 }
-.login__form-text-input-required {
-  color: #ff0047;
+.login__form-btn-block {}
+.login__form-spn-border {}
+.login__form-spn-border-sm {}
+.login__form-spn {}
+.login__form-alert {
+  color: red;
 }
+.login__form-alert-danger {}
 </style>

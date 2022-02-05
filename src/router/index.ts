@@ -18,6 +18,7 @@ import TeamsShow from "@/pages/Teams/TeamsShow.vue";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
 import TeamsUpdate from "@/pages/Teams/TeamsUpdate.vue";
 import CoworkingsUpdate from "@/pages/Coworkings/CoworkingsUpdate.vue";
+import Register from "@/components/templates/Register/Register.vue";
 
 const history = createWebHistory(process.env.BASE_URL);
 
@@ -31,6 +32,10 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: "/register",
+        component: Register,
     },
 
     /**
