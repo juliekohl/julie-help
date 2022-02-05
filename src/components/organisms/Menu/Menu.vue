@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu">
+  <nav class="menu" v-if="currentUser">
     <div class="menu__header">
       <h1 class="menu__header-heading">Julie.help!</h1>
       <div
@@ -72,6 +72,16 @@
         >
           Coworking
         </menu-item>
+        <menu-item
+            class="menu__sidebar-li"
+            v-if="currentUser"
+            @click.prevent="logout"
+            :to="{ name: 'Login'}"
+            icon="anchor-icon"
+            alt="anchor icon"
+        >
+          Logout
+        </menu-item>
       </ul>
     </div>
   </nav>
@@ -79,12 +89,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import {computed, defineComponent} from "vue";
 import MenuItem from "@/components/molecules/MenuItem/MenuItem.vue";
+import {useStore} from "vuex";
+import {useRouter} from "vue-router";
 
 export default defineComponent({
   name: 'Menu',
   components: {MenuItem},
+  setup() {
+    const store = useStore();
+    const route = useRouter();
+
+    const currentUser = computed(() => {
+      return store.state.auth.user;
+    });
+
+    const logout = () => {
+      store.dispatch('auth/logout')
+      route.push('/login')
+    };
+
+    return {
+      currentUser,
+      logout
+    }
+  },
   data: () => ({
     isBurgerActive: false,
     isSidebarActive: false,
