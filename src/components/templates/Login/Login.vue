@@ -1,60 +1,53 @@
 <template>
-  <div class="login">
+  <div class="page-login">
     <Form
+        class="page-login__form"
         @submit="handleLogin"
         :validation-schema="schema"
-        class="login__form"
     >
+      <h1 class="page-login__heading">Welcome to Julie.help!</h1>
+
       <label
-          class="login__form-label"
+          class="page-login__label"
           for="email"
       >
         Email
       </label>
       <Field
-          class="login__form-input"
-          name="email"
+          class="page-login__input"
           type="email"
+          id="email"
+          name="email"
       />
       <ErrorMessage
-          class="login__form-error"
+          class="page-login__span"
           name="email"
       />
       <label
-          class="login__form-label"
+          class="page-login__label"
           for="password"
       >
         Password
       </label>
       <Field
-          class="login__form-input"
-          name="password"
+          class="page-login__input"
           type="password"
+          id="password"
+          name="password"
       />
       <ErrorMessage
+          class="page-login__span"
           name="password"
-          class="login__form-error"
       />
 
-      <div class="login__form-group">
-        <button
-            class="login__form-btn  login__form-btn-block"
-            :disabled="loading"
-        >
-          <span
-              v-show="loading"
-              class="login__form-spn-border login__form-spn-border-sm"
-          ></span>
-          <span class="login__form-spn">Login</span>
-        </button>
-        <div
-            v-if="message"
-            class="login__form-alert login__form-alert-danger"
-            role="alert"
-        >
-          {{ message }}
-        </div>
-      </div>
+      <button-unit
+          class="page-login__button"
+          :disabled="loading"
+          type="submit"
+          color="purple"
+      >
+        Login
+      </button-unit>
     </Form>
   </div>
 </template>
@@ -62,11 +55,13 @@
 <script>
 import {defineComponent} from "vue";
 import { Form, Field, ErrorMessage } from "vee-validate";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue"
 import * as yup from "yup";
 
 export default defineComponent({
   name: "Login",
   components: {
+    ButtonUnit,
     Form,
     Field,
     ErrorMessage,
@@ -113,40 +108,80 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.login {
-  margin: 30px;
-  padding: 10px;
+<style lang="scss">
+.page-login {
+  padding: 5rem;
+  background: var(--color-gray-blue);
+  box-shadow: var(--box-shadow-v2);
+
+  @include media('>=600') {
+    margin: 0 300rem 0 0;
+    height: 100vh;
+    padding: 10rem;
+  }
+
+  &__form {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 10rem;
+
+    @include media('>=600') {
+      margin: 0 auto;
+      padding: 20rem;
+      width: 440rem;
+    }
+  }
+
+  &__heading {
+    margin: 15rem;
+    font-size: 13rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-secondary-40);
+
+    @include media('>=600') {
+      margin: 30rem;
+      font-size: 25rem;
+      font-weight: 500;
+    }
+  }
+
+  &__label {
+    align-self: flex-start;
+    margin-bottom: 5rem;
+    font-size: 10rem;
+
+    @include media('>=600') {
+      margin-bottom: 10rem;
+      font-size: 16rem;
+    }
+  }
+
+  &__input {
+    align-self: flex-start;
+    width: 100%;
+    height: 25rem;
+    margin-bottom: 5rem;
+    background: var(--color-gray-blue);
+    border: 1rem solid var(--color-gray-70);
+    border-radius: 5rem;
+
+    @include media('>=600') {
+      width: 400rem;
+      margin-bottom: 10rem;
+    }
+  }
+
+  &__span {
+    margin-bottom: 15rem;
+    align-self: flex-start;
+    color: var(--color-alert-50);
+  }
+
+  &__button {
+    margin: 10rem;
+  }
 }
-.login__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-.login__form-label {
-  margin: 10px;
-  font-size: 20px;
-}
-.login__form-input {}
-.login__form-error {
-  margin: 10px;
-  color: red;
-}
-.login__form-group {}
-.login__form-btn {
-  align-self: center;
-  width: 200px;
-  margin: 15px;
-  font-size: 20px;
-}
-.login__form-btn-block {}
-.login__form-spn-border {}
-.login__form-spn-border-sm {}
-.login__form-spn {}
-.login__form-alert {
-  color: red;
-}
-.login__form-alert-danger {}
 </style>
