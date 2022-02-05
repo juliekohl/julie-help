@@ -1,77 +1,71 @@
 <template>
-  <div class="register">
+  <div class="page-register">
     <Form
+        class="page-register__form"
         v-if="!successful"
         @submit="handleRegister"
         :validation-schema="schema"
-        class="register__form"
     >
+      <h1 class="page-register__heading">Register</h1>
+
       <label
-          class="register__form-label"
+          class="page-register__label"
           for="name"
       >
         name
       </label>
       <Field
-          class="register__form-input"
-          name="name"
+          class="page-register__input"
           type="text"
+          id="name"
+          name="name"
       />
       <ErrorMessage
-          class="register__form-error"
+          class="page-register__span"
           name="name"
       />
       <label
-          class="register__form-label"
+          class="page-register__label"
           for="email"
       >
         Email
       </label>
       <Field
-          class="register__form-input"
-          name="email"
+          class="page-register__input"
           type="email"
+          id="email"
+          name="email"
       />
       <ErrorMessage
-          class="register__form-error"
+          class="page-register__span"
           name="email"
       />
       <label
-          class="register__form-label"
+          class="page-register__label"
           for="password"
       >
         Password
       </label>
       <Field
-          class="register__form-input"
-          name="password"
+          class="page-register__input"
           type="password"
+          id="password"
+          name="password"
       />
       <ErrorMessage
           name="password"
-          class="register__form-error"
+          class="page-register__span"
       />
 
-      <div class="register__form-group">
-        <button
-            class="register__form-btn  register__form-btn-block"
-            :disabled="loading"
-        >
-          <span
-              v-show="loading"
-              class="register__form-spn-border register__form-spn-border-sm"
-          ></span>
-          Sign Up
-        </button>
-        <div
-            v-if="message"
-            class="register__form-alert"
-            :class="successful ? 'alert-success' : 'alert-danger'"
-            role="alert"
-        >
-          {{ message }}
-        </div>
-      </div>
+      <button-unit
+          class="page-register__button"
+          :disabled="loading"
+          type="submit"
+          color="purple"
+          :to="{ name: 'Login'}"
+      >
+        Sign Up
+      </button-unit>
     </Form>
   </div>
 </template>
@@ -79,11 +73,13 @@
 <script>
 import {defineComponent} from "vue";
 import { Form, Field, ErrorMessage } from "vee-validate";
+import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue"
 import * as yup from "yup";
 
 export default defineComponent({
   name: "Register",
   components: {
+    ButtonUnit,
     Form,
     Field,
     ErrorMessage,
@@ -92,9 +88,8 @@ export default defineComponent({
     const schema = yup.object().shape({
       name: yup
           .string()
-          .required("name is required!")
-          .min(3, "Must be at least 3 characters!")
-          .max(20, "Must be maximum 20 characters!"),
+          .required("Name is required!")
+          .min(8, "Must be at least 8 characters!"),
       email: yup
           .string()
           .required("Email is required!")
@@ -103,8 +98,7 @@ export default defineComponent({
       password: yup
           .string()
           .required("Password is required!")
-          .min(6, "Must be at least 6 characters!")
-          .max(40, "Must be maximum 40 characters!"),
+          .min(6, "Must be at least 6 characters!"),
     });
 
     return {
@@ -121,7 +115,7 @@ export default defineComponent({
   },
   mounted() {
     if (this.loggedIn) {
-      this.$router.push("/profile");
+      this.$router.push("/");
     }
   },
   methods: {
@@ -152,38 +146,80 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.register {
-  margin: 30px;
-  padding: 10px;
-}
-.register__form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-.register__form-label {
-  margin: 10px;
-  font-size: 20px;
-}
-.register__form-input {}
-.register__form-error {
-  margin: 10px;
-  color: red;
-}
-.register__form-group {}
-.register__form-btn {
-  align-self: center;
-  width: 200px;
-  margin: 15px;
-  font-size: 20px;
-}
-.register__form-btn-block {}
-.register__form-spn-border {}
-.register__form-spn-border-sm {}
-.register__form-alert {
-  color: red;
+<style lang="scss">
+.page-register {
+  padding: 5rem;
+  background: var(--color-gray-blue);
+  box-shadow: var(--box-shadow-v2);
+
+  @include media('>=600') {
+    margin: 0 300rem 0 0;
+    height: 100vh;
+    padding: 10rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem;
+
+    @include media('>=600') {
+      margin: 0 auto;
+      padding: 20rem;
+      width: 440rem;
+    }
+  }
+
+  &__heading {
+    margin: 15rem;
+    font-size: 13rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-secondary-40);
+
+    @include media('>=600') {
+      margin: 30rem;
+      font-size: 25rem;
+      font-weight: 500;
+    }
+  }
+
+  &__label {
+    align-self: flex-start;
+    margin-bottom: 5rem;
+    font-size: 10rem;
+
+    @include media('>=600') {
+      margin-bottom: 10rem;
+      font-size: 16rem;
+    }
+  }
+
+  &__input {
+    align-self: flex-start;
+    width: 100%;
+    height: 25rem;
+    margin-bottom: 5rem;
+    background: var(--color-gray-blue);
+    border: 1rem solid var(--color-gray-70);
+    border-radius: 5rem;
+
+    @include media('>=600') {
+      width: 400rem;
+      margin-bottom: 10rem;
+    }
+  }
+
+  &__span {
+    margin-bottom: 15rem;
+    align-self: flex-start;
+    color: var(--color-alert-50);
+  }
+
+  &__button {
+    margin: 10rem;
+  }
 }
 </style>
