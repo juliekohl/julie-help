@@ -62,7 +62,6 @@
           :disabled="loading"
           type="submit"
           color="purple"
-          :to="{ name: 'Login'}"
       >
         Sign Up
       </button-unit>
@@ -89,7 +88,7 @@ export default defineComponent({
       name: yup
           .string()
           .required("Name is required!")
-          .min(8, "Must be at least 8 characters!"),
+          .min(6, "Must be at least 8 characters!"),
       email: yup
           .string()
           .required("Email is required!")
@@ -115,7 +114,7 @@ export default defineComponent({
   },
   mounted() {
     if (this.loggedIn) {
-      this.$router.push("/");
+      this.$router.push("/login");
     }
   },
   methods: {
@@ -129,16 +128,13 @@ export default defineComponent({
             this.message = data.message;
             this.successful = true;
             this.loading = false;
+            this.$router.push("/login");
           },
           (error) => {
-            this.message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-            this.successful = false;
             this.loading = false;
+            this.message = error?.response?.data?.message
+                ? error.message
+                : error.toString();
           }
       );
     },
