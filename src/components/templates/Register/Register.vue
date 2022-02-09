@@ -65,6 +65,13 @@
       >
         Sign Up
       </button-unit>
+      <span
+          v-if="message"
+          :class="successful ? 'alert-success' : 'alert-danger'"
+          class="page-register__span"
+      >
+        {{ message }}
+      </span>
     </Form>
   </div>
 </template>
@@ -115,6 +122,8 @@ export default defineComponent({
   mounted() {
     if (this.loggedIn) {
       this.$router.push("/login");
+    } else {
+      this.$router.push("/register");
     }
   },
   methods: {
