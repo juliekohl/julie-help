@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ResponseData from "@/types/ResponseData";
 
 const API_URL = 'http://localhost:3000/';
 
@@ -9,7 +10,7 @@ class AuthService {
                 email: user.email,
                 password: user.password
             })
-            .then(response => {
+            .then((response: ResponseData) => {
                 if (response.data) {
                     localStorage.setItem('user', JSON.stringify({
                             id: response.data.id,

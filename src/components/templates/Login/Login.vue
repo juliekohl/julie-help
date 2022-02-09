@@ -85,7 +85,9 @@ export default defineComponent({
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/");
+      this.$router.push("/dashboard");
+    } else {
+      this.$router.push("/login");
     }
   },
   methods: {
@@ -94,7 +96,7 @@ export default defineComponent({
 
       this.$store.dispatch("auth/login", user).then(
           () => {
-            this.$router.push("/");
+            this.$router.push("/dashboard");
           },
           (error) => {
             this.loading = false;
