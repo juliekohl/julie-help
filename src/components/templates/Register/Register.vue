@@ -121,9 +121,9 @@ export default defineComponent({
   },
   mounted() {
     if (this.loggedIn) {
-      this.$router.push("/login");
+      this.$router.push({ name: 'Login' });
     } else {
-      this.$router.push("/register");
+      this.$router.push({ name: 'register' });
     }
   },
   methods: {
@@ -137,7 +137,8 @@ export default defineComponent({
             this.message = data.message;
             this.successful = true;
             this.loading = false;
-            this.$router.push("/login");
+            this.$router.push({ name: 'Login' });
+
           },
           (error) => {
             this.loading = false;
