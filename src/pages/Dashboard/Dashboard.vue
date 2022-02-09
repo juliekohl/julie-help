@@ -1,18 +1,25 @@
 <template>
   <div class="dashboard">
-    <h1>Dashboard</h1>
+    <h1>Welcome {{ currentUser.name }}!</h1>
     <div id="chart"></div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted} from "vue";
+import {computed, defineComponent, onMounted} from "vue";
 import c3 from 'c3';
+import {useStore} from "vuex";
 
 export default defineComponent( {
   name: 'Dashboard',
   setup() {
-    const initChart = () => {
+    const store = useStore();
+
+    const currentUser = computed((): void => {
+      return store.state.auth.user;
+    });
+
+    const initChart = ():void => {
       c3.generate({
         data: {
           x: 'x',
@@ -38,6 +45,10 @@ export default defineComponent( {
     onMounted(() => {
       initChart();
     })
+
+    return {
+      currentUser,
+    }
   }
 })
 </script>
