@@ -4,21 +4,22 @@ import ResponseData from "@/types/ResponseData";
 const API_URL = 'http://localhost:3000/';
 
 class AuthService {
-    login(user) {
-        return axios
+    async login(user) {
+        const response: ResponseData = await axios
             .post(API_URL + 'login', {
                 email: user.email,
                 password: user.password
-            })
-            .then((response: ResponseData) => {
-                if (response.data) {
-                    localStorage.setItem('user', JSON.stringify({
-                            id: response.data.id,
-                            name: response.data.name
-                        })
-                    );
-                }
             });
+
+        if (response.data) {
+            localStorage.setItem('user', JSON.stringify({
+                    id: response.data.id,
+                    name: response.data.name
+                })
+            );
+
+            return response.data;
+        }
     }
 
     logout() {

@@ -66,14 +66,6 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="{ name: 'CoworkersShowAll'}"
-            icon="anchor-icon"
-            alt="anchor icon"
-        >
-          Coworking
-        </menu-item>
-        <menu-item
-            class="menu__sidebar-li"
             v-if="currentUser"
             @click.prevent="logout"
             :to="{ name: 'Login'}"
@@ -101,11 +93,11 @@ export default defineComponent({
     const store = useStore();
     const route = useRouter();
 
-    const currentUser = computed(() => {
+    const currentUser: {} = computed((): void => {
       return store.state.auth.user;
     });
 
-    const logout = () => {
+    const logout = (): void => {
       store.dispatch('auth/logout')
       route.push('/login')
     };

@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard" v-if="currentUser">
     <h1>Welcome {{ currentUser.name }}!</h1>
     <div id="chart"></div>
   </div>
@@ -15,7 +15,7 @@ export default defineComponent( {
   setup() {
     const store = useStore();
 
-    const currentUser = computed((): void => {
+    const currentUser: {} = computed((): void => {
       return store.state.auth.user;
     });
 
