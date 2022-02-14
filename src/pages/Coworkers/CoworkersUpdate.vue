@@ -36,9 +36,9 @@
           type="text"
           id="name"
           name="name"
-          :placeholder="coworker.name ? coworker.name : ''"
           :value="coworker.name ? coworker.name : 'Name'"
       />
+      {{coworker.name}}
       <ErrorMessage
           class="coworkers-update__span"
           name="name"
