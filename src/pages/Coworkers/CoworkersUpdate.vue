@@ -1,29 +1,29 @@
 <template>
   <div class="coworkers-update">
+    <div class="coworkers-update__header">
+      <h1 class="coworkers-update__heading">{{coworker.name}}</h1>
+      <div class="coworkers-update__button">
+        <button-unit
+            class="coworkers-update__button-delete"
+            color="red"
+            @click="handleDelete"
+        >
+          Delete
+        </button-unit>
+        <button-unit
+            class="coworkers-update__button-edit"
+            color="purple"
+            type="submit"
+        >
+          Edit
+        </button-unit>
+      </div>
+    </div>
     <Form
         class="coworkers-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
     >
-      <div class="coworkers-update__header">
-        <h1 class="coworkers-update__heading">{{coworker.name}}</h1>
-        <div class="coworkers-update__button">
-          <button-unit
-              class="coworkers-update__button-delete"
-              color="red"
-              @click="handleDelete"
-          >
-            Delete
-          </button-unit>
-          <button-unit
-              class="coworkers-update__button-edit"
-              color="purple"
-              type="submit"
-          >
-            Edit
-          </button-unit>
-        </div>
-      </div>
       <label
           class="coworkers-update__label"
           for="name"
@@ -68,6 +68,7 @@
           class="coworkers-update__input"
           as="select"
           name="plan_id"
+          id="plans"
       >
         <option></option>
         <option
