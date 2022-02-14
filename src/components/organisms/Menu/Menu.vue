@@ -66,6 +66,14 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
+            :to="`/teams/${currentUser.id}`"
+            icon="anchor-icon"
+            alt="anchor icon"
+        >
+          Profile
+        </menu-item>
+        <menu-item
+            class="menu__sidebar-li"
             v-if="currentUser"
             @click.prevent="logout"
             :to="{ name: 'Login'}"
@@ -93,7 +101,7 @@ export default defineComponent({
     const store = useStore();
     const route = useRouter();
 
-    const currentUser: {} = computed((): void => {
+    const currentUser: any = computed((): void => {
       return store.state.auth.user;
     });
 
@@ -101,6 +109,7 @@ export default defineComponent({
       store.dispatch('auth/logout')
       route.push('/login')
     };
+    console.log(1, currentUser.value.id);
 
     return {
       currentUser,
