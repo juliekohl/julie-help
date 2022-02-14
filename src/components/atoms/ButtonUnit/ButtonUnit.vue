@@ -56,6 +56,7 @@ export default defineComponent( {
 .button-unit {
   width: 110rem;
   padding: 10rem;
+  font-family: var(--font-primary);
   font-size: 7rem;
   text-align: center;
   text-transform: uppercase;
