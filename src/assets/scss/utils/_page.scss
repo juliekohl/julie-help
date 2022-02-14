@@ -10,6 +10,40 @@
     padding: 10rem;
   }
 
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20rem;
+    padding: 5rem;
+  }
+
+  &__heading {
+    align-self: center;
+    margin-right: 5rem;
+    font-size: 20rem;
+    font-weight: 400;
+    color: var(--color-black);
+
+    @include media('>=600') {
+      margin-right: 10rem;
+      font-size: 30rem;
+      font-weight: 500;
+    }
+  }
+
+  &__button{
+    margin-left: 5rem;
+    font-size: 13rem;
+
+    @include media('>=600') {
+      margin-right: 10rem;
+      font-size: 17rem;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -22,34 +56,14 @@
     }
   }
 
-  &__header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 5rem;
-  }
-
-  &__heading {
-    align-self: center;
-    font-size: 13rem;
-    font-weight: 400;
-    color: var(--color-black);
-
-    @include media('>=600') {
-      font-size: 25rem;
-      font-weight: 500;
-    }
-  }
-
   &__label {
     align-self: flex-start;
     margin-bottom: 5rem;
-    font-size: 10rem;
+    font-size: 17rem;
 
     @include media('>=600') {
       margin-bottom: 10rem;
-      font-size: 16rem;
+      font-size: 20rem;
     }
   }
 
@@ -90,7 +104,7 @@
   &__header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 25rem;
     padding: 5rem;
@@ -99,12 +113,12 @@
   &__heading {
     align-self: center;
     margin-right: 10rem;
-    font-size: 13rem;
+    font-size: 20rem;
     font-weight: 400;
     color: var(--color-black);
 
     @include media('>=600') {
-      font-size: 25rem;
+      font-size: 30rem;
       font-weight: 500;
     }
   }
@@ -121,10 +135,20 @@
 
   &__button-delete {
     margin: 5rem;
+    font-size: 13rem;
+
+    @include media('>=600') {
+      font-size: 17rem;
+    }
   }
 
   &__button-edit {
     margin: 5rem;
+    font-size: 13rem;
+
+    @include media('>=600') {
+      font-size: 17rem;
+    }
   }
 
   &__form {
@@ -142,11 +166,11 @@
   &__label {
     align-self: flex-start;
     margin-bottom: 5rem;
-    font-size: 10rem;
+    font-size: 17rem;
 
     @include media('>=600') {
       margin-bottom: 10rem;
-      font-size: 16rem;
+      font-size: 20rem;
     }
   }
 

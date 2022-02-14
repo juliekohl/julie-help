@@ -114,7 +114,6 @@ export default defineComponent({
 .page-login {
   padding: 5rem;
   background: var(--color-gray-blue);
-  box-shadow: var(--box-shadow-v2);
 
   @include media('>=600') {
     margin: 0 300rem 0 0;

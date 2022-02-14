@@ -6,7 +6,7 @@
     >
       {{ item.name }}
     </router-link>
-    <span v-if="item.email" class="list-item__subitem">
+    <span v-if="item.email" class="list-item__subitem list-item__subitem-email">
       {{ item.email }}
     </span>
     <span v-if="item.type" class="list-item__subitem">
@@ -62,6 +62,7 @@ export default defineComponent( {
 
   @include media('>=600') {
     flex-direction: row;
+    gap: 30rem;
     margin: 15rem;
     padding: 30rem;
     font-size: 25rem;
@@ -69,10 +70,14 @@ export default defineComponent( {
   }
 
   &__subitem {
+    width: 400rem;
     color: var(--color-black);
 
     &-name {
       color: var(--color-secondary-45);
+    }
+    &-email {
+      align-self: flex-start;
     }
   }
   &__button {
