@@ -122,8 +122,6 @@ export default defineComponent({
   mounted() {
     if (this.loggedIn) {
       this.$router.push({ name: 'Login' });
-    } else {
-      this.$router.push({ name: 'register' });
     }
   },
   methods: {
