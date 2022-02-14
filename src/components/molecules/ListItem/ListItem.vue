@@ -2,6 +2,7 @@
   <li class="list-item">
     <router-link
         :to="{ name: showToName, params: { id: item.id } }"
+        class="list-item__subitem list-item__subitem-name"
     >
       {{ item.name }}
     </router-link>
@@ -49,27 +50,37 @@ export default defineComponent( {
 <style lang="scss">
 .list-item {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   gap: 10rem;
   margin: 10rem;
   padding: 10rem;
-  font-size: 10rem;
-  text-align: left;
-  color: var(--color-secondary-45);
+  font-size: 20rem;
   box-shadow: var(--box-shadow-v2);
   border-radius: 3rem;
 
   @include media('>=600') {
+    flex-direction: row;
     margin: 15rem;
     padding: 30rem;
-    font-size: 15rem;
+    font-size: 25rem;
     border-radius: 8rem;
   }
 
   &__subitem {
     color: var(--color-black);
+
+    &-name {
+      color: var(--color-secondary-45);
+    }
+  }
+  &__button {
+    font-size: 13rem;
+
+    @include media('>=600') {
+      font-size: 18rem;
+    }
   }
 }
 </style>

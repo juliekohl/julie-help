@@ -46,7 +46,6 @@ export default defineComponent( {
 
 <style lang="scss">
 .show-all {
-  padding: 5rem;
   height: 100%;
 
   @include media('>=600') {
@@ -68,13 +67,21 @@ export default defineComponent( {
 
   &__header-heading {
     align-self: center;
-    font-size: 13rem;
+    font-size: 30rem;
     font-weight: 400;
     color: var(--color-black);
 
     @include media('>=600') {
-      font-size: 25rem;
+      font-size: 32rem;
       font-weight: 500;
+    }
+  }
+
+  &__header-button {
+    font-size: 13rem;
+
+    @include media('>=600') {
+      font-size: 18rem;
     }
   }
 
