@@ -252,6 +252,11 @@ export default defineComponent({
     padding: 0 1rem;
     transform: translateX(-0.7%);
     transition: all 0.5s ease-in-out;
+
+    @include media('>=600') {
+      transform: none;
+      transition: none;
+    }
   }
 }
 </style>
