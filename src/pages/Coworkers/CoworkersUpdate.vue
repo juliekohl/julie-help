@@ -4,6 +4,7 @@
         class="coworkers-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
+        :initial-values="coworker"
     >
       <div class="coworkers-update__header">
         <h1 class="coworkers-update__heading">{{coworker.name}}</h1>
@@ -36,9 +37,7 @@
           type="text"
           id="name"
           name="name"
-          :value="coworker.name ? coworker.name : 'Name'"
       />
-      {{coworker.name}}
       <ErrorMessage
           class="coworkers-update__span"
           name="name"
