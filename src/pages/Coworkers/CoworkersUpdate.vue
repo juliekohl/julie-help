@@ -128,8 +128,8 @@ export default defineComponent({
   data() {
     const schema = yup.object({
       name: yup.string().required().label('Name'),
-      password: yup.string().required().min(8).label('Password'),
-      plan_id: yup.string().label('Plan'),
+      password: yup.string().min(8).label('Password'),
+      plan_id: yup.string().required().label('Plan'),
     });
     return {
       schema,
