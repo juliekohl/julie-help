@@ -9,28 +9,15 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
+import {defineComponent} from "vue";
 import index from "./router";
 import Menu from "@/components/organisms/Menu/Menu.vue";
 import FooterUnit from "@/components/atoms/FooterUnit/FooterUnit.vue";
-import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'App',
   components: { FooterUnit, Menu },
   router: index,
-  setup() {
-    const store = useStore();
-
-    const currentUser: {} = computed((): void => {
-      return store.state.auth.user;
-    });
-
-    return {
-      currentUser
-    }
-
-  }
 })
 </script>
 
