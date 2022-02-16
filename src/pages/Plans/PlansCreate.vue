@@ -17,8 +17,8 @@
       </div>
       <Field
           class="plans-create__input"
-          id="coworkingId"
-          name="coworkingId"
+          name="office_id"
+          :value="1"
           type="hidden"
       />
 
@@ -37,6 +37,21 @@
       <ErrorMessage
           class="plans-create__span"
           name="name" />
+      <label
+          class="plans-create__label"
+          for="value"
+      >
+        Value
+      </label>
+      <Field
+          class="plans-create__input"
+          type="number"
+          id="value"
+          name="value"
+      />
+      <ErrorMessage
+          class="plans-create__span"
+          name="value" />
     </Form>
   </div>
 </template>
@@ -59,6 +74,7 @@ export default defineComponent({
   data() {
     const schema = yup.object({
       name: yup.string().required().label('Name'),
+      value: yup.number().required().label('Value'),
     });
     return {
       schema,
