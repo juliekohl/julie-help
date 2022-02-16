@@ -4,6 +4,7 @@
         class="offices-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
+        :initial-values="office"
     >
       <div class="offices-update__header">
         <h1 class="offices-update__heading">{{office.name}}</h1>
@@ -51,6 +52,7 @@
       </label>
       <Field
           class="offices-update__input"
+          id="type"
           as="select"
           name="officestype_id"
       >
