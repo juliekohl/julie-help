@@ -4,6 +4,7 @@
         class="plans-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
+        :initial-values="plan"
     >
       <div class="plans-update__header">
         <h1 class="plans-update__heading">{{plan.name}}</h1>
@@ -35,7 +36,6 @@
           type="text"
           id="name"
           name="name"
-          :placeholder="plan.name ? plan.name : 'Name'"
       />
       <ErrorMessage
           class="plans-update__span"
