@@ -37,7 +37,6 @@
           type="text"
           id="name"
           name="name"
-          :placeholder="office.name ? office.name : 'Name'"
       />
       <ErrorMessage
           class="offices-update__span"
@@ -91,11 +90,17 @@ export default defineComponent({
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/offices/${id}`)
         .then(response => {
           office.value = response.data;
+        })
+        .catch(error => {
+          console.log(error.response);
         });
 
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/officestypes`)
         .then(response => {
           officestypes.value = response.data;
+        })
+        .catch(error => {
+          console.log(error.response);
         });
 
     return {
