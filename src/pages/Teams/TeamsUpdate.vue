@@ -4,6 +4,7 @@
         class="teams-update__form"
         @submit="onSubmit"
         :validation-schema="schema"
+        :initial-values="team"
     >
       <div class="teams-update__header">
         <h1 class="teams-update__heading">{{team.name}}</h1>
@@ -35,7 +36,6 @@
           type="text"
           id="name"
           name="name"
-          :placeholder="team.name ? team.name : 'Name'"
       />
       <ErrorMessage
           class="teams-update__span"
