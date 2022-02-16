@@ -27,7 +27,7 @@ class AuthService {
     }
 
     register(user) {
-        return axios.post(API_URL + 'coworkers', {
+        return axios.post(API_URL + 'teams', {
             coworking_id: 1,
             name: user.name,
             email: user.email,
