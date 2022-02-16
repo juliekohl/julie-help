@@ -66,7 +66,7 @@
         </menu-item>
         <menu-item
             class="menu__sidebar-li"
-            :to="`/teams/${currentUser.id}`"
+            :to="{ path: `/teams/${currentUser.id}` }"
             icon="anchor-icon"
             alt="anchor icon"
         >
@@ -109,7 +109,7 @@ export default defineComponent({
       store.dispatch('auth/logout')
       route.push('/login')
     };
-    console.log(1, currentUser.value.id);
+
 
     return {
       currentUser,
