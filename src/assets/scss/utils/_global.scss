@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 32rem;
     letter-spacing: -0.05em;
     line-height: 1em;
@@ -54,5 +54,12 @@ a {
 }
 
 a:hover {
-    filter: brightness(55%);
+    filter: brightness(85%);
+}
+
+input,
+textarea {
+    font-family: var(--font-primary);
+    font-size: 16rem;
+    padding: 8rem 10rem;
 }

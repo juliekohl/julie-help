@@ -49,42 +49,44 @@ export default defineComponent( {
 
 <style lang="scss">
 .list-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10rem;
-  margin: 10rem;
-  padding: 10rem;
-  font-size: 20rem;
+  margin: 20rem 0;
+  padding: 20rem;
   box-shadow: var(--box-shadow-v2);
   border-radius: 3rem;
 
   @include media('>=600') {
-    flex-direction: row;
-    gap: 30rem;
-    margin: 15rem;
-    padding: 30rem;
-    font-size: 25rem;
-    border-radius: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__subitem {
-    width: 400rem;
+    display: block;
     color: var(--color-black);
 
     &-name {
       color: var(--color-secondary-45);
+
+      @include media('>=600') {
+        width: 30%;
+      }
     }
+
     &-email {
-      align-self: flex-start;
+      margin: 20rem 0;
+
+      @include media('>=600') {
+        flex-grow: 1;
+        margin: initial;
+      }
     }
   }
   &__button {
-    font-size: 13rem;
+    display: block;
+    width: 100%;
 
     @include media('>=600') {
-      font-size: 18rem;
+      width: 100rem;
     }
   }
 }

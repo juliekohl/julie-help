@@ -22,7 +22,6 @@
       ]"
       @click.prevent="toggle"
     >
-      <div class="menu__sidebar-subheading">My Coworking</div>
       <ul class="menu__sidebar-options">
         <menu-item
             class="menu__sidebar-li"
@@ -136,8 +135,9 @@ export default defineComponent({
   background: var(--color-gray-blue);
   box-shadow: var(--box-shadow-v2);
 
-  @include media('>=600') {
+  @include media('>=1024') {
     height: 100%;
+    padding-bottom: 20rem;
   }
 
   &__header {
@@ -146,15 +146,18 @@ export default defineComponent({
     align-items: flex-start;
 
     &-heading {
-      padding: 25rem;
-      font-size: 20rem;
-      line-height: 27rem;
+      padding: 25rem 20rem;
+      line-height: 30rem;
       color:var(--color-secondary-40);
+      font-weight: 600;
 
-      @include media('>=600') {
-        margin: 10rem 0 0 15rem;
-        font-size: 32rem;
+      @include media('>=1024') {
+        margin: 10rem 0 0 10rem;
       }
+    }
+
+    &-burger {
+      margin-right: 5rem;
     }
 
     &-burger-button {
@@ -165,43 +168,30 @@ export default defineComponent({
       width: 80rem;
       height: 80rem;
       cursor: pointer;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.25s ease-in-out;
 
-      @include media('>=600') {
+      @include media('>=1024') {
         display: none;
       }
     }
 
     &-burger-bar {
-      width: 30rem;
-      height: 3rem;
+      width: 50rem;
+      height: 4rem;
       background-color: var(--color-gray-70);
       border-radius: 3rem;
-      box-shadow: var(--box-shadow-v2);
-      transition: all 0.5s ease-in-out;
-
-      @include media('>=600') {
-        width: 50rem;
-        height: 6rem;
-      }
+      transition: all 0.25s ease-in-out;
     }
 
     &-burger-bar::before,
     &-burger-bar::after {
       content: '';
       position: absolute;
-      width: 30rem;
-      height: 3rem;
+      width: 50rem;
+      height: 4rem;
       background-color: var(--color-gray-70);
       border-radius: 3rem;
-      box-shadow: var(--box-shadow-v2);
-      transition: all 0.5s ease-in-out;
-
-      @include media('>=600') {
-        width: 50rem;
-        height: 6rem;
-        border-radius: 5rem;
-      }
+      transition: all 0.25s ease-in-out;
     }
 
     &-burger-bar::before {
@@ -232,23 +222,8 @@ export default defineComponent({
     display: none;
     transform: translateX(-100%);
 
-    @include media('>=600') {
+    @include media('>=1024') {
       display: inline;
-    }
-
-    &-subheading {
-      margin: 0 20rem;
-      font-size: 18rem;
-      text-transform: uppercase;
-      color: var(--color-gray-70);
-
-      @include media('>=600') {
-        margin: 65rem 35rem 0 35rem;
-      }
-    }
-
-    &-options {
-      margin-top: 15rem;
     }
   }
 
@@ -257,12 +232,12 @@ export default defineComponent({
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    margin: 20rem 0;
+    margin: 0 0 20rem;
     padding: 0 1rem;
     transform: translateX(-0.7%);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
 
-    @include media('>=600') {
+    @include media('>=1024') {
       transform: none;
       transition: none;
     }

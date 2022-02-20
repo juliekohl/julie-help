@@ -58,41 +58,24 @@ export default defineComponent( {
 
 <style lang="scss">
 .dashboard {
-  padding: 5rem;
-  background: var(--color-gray-blue);
-  box-shadow: var(--box-shadow-v2);
-
-  @include media('>=600') {
-    height: 100vh;
-    padding: 10rem;
-  }
-
   &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 10rem;
-    padding: 5rem;
 
     &-heading {
       align-self: flex-start;
-      font-size: 13rem;
-      font-weight: 400;
       color: var(--color-black);
-
-      @include media('>=600') {
-        font-size: 30rem;
-        font-weight: 500;
-      }
 
       strong {
         color:var(--color-secondary-40);
       }
     }
   }
+
   &__chart {
-    margin: 10rem;
+    margin: 20rem 0;
   }
 }
 </style>

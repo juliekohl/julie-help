@@ -158,15 +158,6 @@ export default defineComponent({
 
 <style lang="scss">
 .page-register {
-  padding: 5rem;
-  background: var(--color-gray-blue);
-
-  @include media('>=600') {
-    margin: 0 300rem 0 0;
-    height: 100vh;
-    padding: 10rem;
-  }
-
   &__form {
     display: flex;
     flex-direction: column;
@@ -183,34 +174,25 @@ export default defineComponent({
 
   &__heading {
     margin: 15rem;
-    font-size: 13rem;
     font-weight: 400;
     text-align: center;
     color: var(--color-secondary-40);
 
     @include media('>=600') {
       margin: 30rem;
-      font-size: 25rem;
       font-weight: 500;
     }
   }
 
   &__label {
     align-self: flex-start;
-    margin-bottom: 5rem;
-    font-size: 10rem;
-
-    @include media('>=600') {
-      margin-bottom: 10rem;
-      font-size: 16rem;
-    }
+    margin-bottom: 10rem;
   }
 
   &__input {
     align-self: flex-start;
     width: 100%;
-    height: 25rem;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
     background: var(--color-gray-blue);
     border: 1rem solid var(--color-gray-70);
     border-radius: 5rem;
@@ -222,7 +204,7 @@ export default defineComponent({
   }
 
   &__span {
-    margin-bottom: 15rem;
+    margin-bottom: 20rem;
     align-self: flex-start;
     color: var(--color-alert-50);
   }
