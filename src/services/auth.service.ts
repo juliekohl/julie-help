@@ -11,7 +11,7 @@ class AuthService {
                 password: user.password
             });
 
-        if (response.data) {
+        if (response.data.message === 'Success') {
             localStorage.setItem('user', JSON.stringify({
                     id: response.data.id,
                     name: response.data.name
@@ -19,6 +19,8 @@ class AuthService {
             );
 
             return response.data;
+        } else {
+            return Promise.reject();
         }
     }
 

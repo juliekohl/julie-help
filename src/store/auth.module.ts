@@ -17,7 +17,7 @@ export const auth = {
                 return response;
             } catch (err) {
                 commit('loginFailure');
-                return err;
+                return Promise.reject();
             }
         },
 
