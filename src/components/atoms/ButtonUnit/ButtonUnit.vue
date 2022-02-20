@@ -54,17 +54,15 @@ export default defineComponent( {
 
 <style lang="scss">
 .button-unit {
-  width: 110rem;
+  min-width: 150rem;
   padding: 10rem;
-  font-family: var(--font-primary);
-  font-size: 7rem;
   text-align: center;
   text-transform: uppercase;
   border-radius: 3rem;
+  font-family: var(--font-primary);
+  font-size: 14rem;
 
   @include media('>=600') {
-    width: 220rem;
-    font-size: 14rem;
     border-radius: 5rem;
   }
 

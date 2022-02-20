@@ -25,13 +25,8 @@ export default defineComponent({
   justify-content: space-between;
   align-items: flex-end;
   align-content: flex-end;
-  font-size: 7rem;
-  margin: 10rem 5rem;
-  padding: 5rem;
-
-  @include media('>=600') {
-    font-size: 12rem;
-  }
+  font-size: 12rem;
+  padding: 20rem;
 
   &__text-one {
     align-self: center;

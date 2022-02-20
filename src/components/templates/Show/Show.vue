@@ -34,7 +34,7 @@
       </div>
     </section>
     <section class="show__extra">
-      <h2 class="show__header-heading">{{ extraTitle }}</h2>
+      <h2 class="show__extra-heading">{{ extraTitle }}</h2>
       <div
           v-for="(v1, k1) in extra"
           :key="k1"
@@ -43,7 +43,7 @@
         <div
           v-for="(v2, k2) in v1"
           :key="k2"
-          class="show__extra-item--item"
+          class="show__extra-item-item"
         >
           <span v-if="k2 === 'id'">ID: {{ v2 }}</span>
           <span v-else-if="k2 === 'name'">Name: {{ v2 }}</span>
@@ -88,36 +88,16 @@ export default defineComponent( {
 
 <style lang="scss">
 .show {
-  padding: 5rem;
-  background: var(--color-gray-blue);
-  box-shadow: var(--box-shadow-v2);
-
-  @include media('>=600') {
-    height: 100vh;
-    padding: 10rem;
-  }
-
   &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 5rem;
 
     &-heading {
-      align-self: flex-start;
-      font-size: 13rem;
-      font-weight: 400;
-      color: var(--color-black);
-
-      @include media('>=600') {
-        font-size: 25rem;
-        font-weight: 500;
-      }
     }
 
     &-button {
-      align-self: center;
     }
   }
 
@@ -127,20 +107,23 @@ export default defineComponent( {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 10rem;
+    margin: 20rem 0 0;
 
-    @include media('>=600') {
-      margin: 20rem;
+    &-heading {
+      font-size: 20rem;
+      margin: 0 !important;
     }
 
-    &-item {
+    &-item,
+    &-item-item {
       align-self: flex-start;
-      margin: 5rem;
-
-      &--item {
-        margin: 10rem;
-      }
+      margin: 10rem 0;
     }
+  }
+
+  &__extra-item {
+    display: flex;
+    flex-direction: column;
   }
 
   h2 {

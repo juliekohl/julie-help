@@ -1,46 +1,21 @@
 // Create
 
 @mixin page-create() {
-  padding: 5rem;
-  background: var(--color-gray-blue);
-  box-shadow: var(--box-shadow-v2);
-
-  @include media('>=600') {
-    height: 100vh;
-    padding: 10rem;
-  }
-
   &__header {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 20rem;
-    padding: 5rem;
   }
 
   &__heading {
-    align-self: center;
-    margin-right: 5rem;
-    font-size: 20rem;
-    font-weight: 400;
-    color: var(--color-black);
-
-    @include media('>=600') {
-      margin-right: 10rem;
-      font-size: 30rem;
-      font-weight: 500;
-    }
   }
 
   &__button{
-    margin-left: 5rem;
-    font-size: 13rem;
+    width: min-content;
 
     @include media('>=600') {
-      margin-right: 10rem;
-      font-size: 17rem;
+      width: initial;
     }
   }
 
@@ -49,29 +24,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10rem;
-
-    @include media('>=600') {
-      margin: 20rem;
-    }
   }
 
   &__label {
+    display: block;
     align-self: flex-start;
-    margin-bottom: 5rem;
-    font-size: 17rem;
-
-    @include media('>=600') {
-      margin-bottom: 10rem;
-      font-size: 20rem;
-    }
+    margin-bottom: 10rem;
   }
 
   &__input {
     align-self: flex-start;
     width: 100%;
-    height: 25rem;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
     background: var(--color-gray-blue);
     border: 1rem solid var(--color-gray-70);
     border-radius: 5rem;
@@ -83,7 +47,7 @@
   }
 
   &__span {
-    margin-bottom: 15rem;
+    margin-bottom: 20rem;
     align-self: flex-start;
     color: var(--color-alert-50);
   }
@@ -92,64 +56,28 @@
 // Update
 
 @mixin page-update() {
-  padding: 5rem;
-  background: var(--color-gray-blue);
-  box-shadow: var(--box-shadow-v2);
-
-  @include media('>=600') {
-    height: 100vh;
-    padding: 10rem;
-  }
-
   &__header {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 25rem;
-    padding: 5rem;
-    }
-
-  &__heading {
-    align-self: center;
-    margin-right: 10rem;
-    font-size: 20rem;
-    font-weight: 400;
-    color: var(--color-black);
-
-    @include media('>=600') {
-      font-size: 30rem;
-      font-weight: 500;
-    }
+    margin-bottom: 20rem;
   }
 
-  &__button {
-    align-self: center;
-    display: contents;
-    margin-left: 10rem;
+  &__heading {
+  }
+
+  &__button{
+    width: min-content;
 
     @include media('>=600') {
-      display: flex;
+      width: initial;
     }
   }
 
   &__button-delete {
-    margin: 5rem;
-    font-size: 13rem;
-
-    @include media('>=600') {
-      font-size: 17rem;
-    }
   }
 
   &__button-edit {
-    margin: 5rem;
-    font-size: 13rem;
-
-    @include media('>=600') {
-      font-size: 17rem;
-    }
   }
 
   &__form {
@@ -157,29 +85,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10rem;
-
-    @include media('>=600') {
-      margin: 20rem;
-    }
   }
 
   &__label {
     align-self: flex-start;
-    margin-bottom: 5rem;
-    font-size: 17rem;
-
-    @include media('>=600') {
-      margin-bottom: 10rem;
-      font-size: 20rem;
-    }
+    margin-bottom: 10rem;
   }
 
   &__input {
     align-self: flex-start;
     width: 100%;
-    height: 25rem;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
+    padding: 10rem;
     background: var(--color-gray-blue);
     border: 1rem solid var(--color-gray-70);
     border-radius: 5rem;
@@ -191,7 +108,7 @@
   }
 
   &__span {
-    margin-bottom: 15rem;
+    margin-bottom: 20rem;
     align-self: flex-start;
     color: var(--color-alert-50);
   }

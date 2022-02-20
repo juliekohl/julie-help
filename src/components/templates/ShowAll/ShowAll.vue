@@ -46,49 +46,23 @@ export default defineComponent( {
 
 <style lang="scss">
 .show-all {
-  height: 100%;
-
-  @include media('>=600') {
-    margin-top: 0;
-    padding: 10rem;
-  }
-
   &__header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 15rem 15rem 20rem 15rem;
-    padding: 5rem;
-
-    @include media('>=600') {
-      margin: 18rem 20rem 60rem 15rem;
-    }
+    margin: 0 0 20rem;
   }
 
   &__header-heading {
     align-self: center;
-    font-size: 30rem;
-    font-weight: 400;
     color: var(--color-black);
-
-    @include media('>=600') {
-      font-size: 32rem;
-      font-weight: 500;
-    }
   }
 
   &__header-button {
-    font-size: 13rem;
-
-    @include media('>=600') {
-      font-size: 18rem;
-    }
   }
 
   &__options-ul {
-    @include media('>=600') {
-      padding: 0;
-    }
+    padding: 0;
   }
 }
 </style>
