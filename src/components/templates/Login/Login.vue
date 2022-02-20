@@ -40,6 +40,10 @@
           name="password"
       />
 
+      <span class="page-login__span">
+        {{ message }}
+      </span>
+
       <button-unit
           class="page-login__button"
           :disabled="loading"
@@ -98,11 +102,9 @@ export default defineComponent({
           () => {
             this.$router.push({ name: 'Dashboard' });
           },
-          (error) => {
+          () => {
             this.loading = false;
-            this.message = error?.response?.data?.message
-                ? error.message
-                : error.toString();
+            this.message = 'Authentication failed. Try again.';
           }
       );
     },
