@@ -53,6 +53,13 @@
         Login
       </button-unit>
     </Form>
+
+    <router-link
+        class="page-login__link"
+        :to="{ name: 'Register' }"
+    >
+      Create new account
+    </router-link>
   </div>
 </template>
 
@@ -185,6 +192,11 @@ export default defineComponent({
 
   &__button {
     margin: 10rem;
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
   }
 }
 </style>
