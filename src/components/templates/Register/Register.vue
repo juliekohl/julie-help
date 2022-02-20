@@ -8,11 +8,17 @@
     >
       <h1 class="page-register__heading">Register</h1>
 
+      <Field
+          class="page-register__input"
+          name="coworking_id"
+          :value="1"
+          type="hidden"
+      />
       <label
           class="page-register__label"
           for="name"
       >
-        name
+        Name
       </label>
       <Field
           class="page-register__input"
