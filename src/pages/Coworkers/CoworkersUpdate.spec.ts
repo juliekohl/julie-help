@@ -1,5 +1,9 @@
+import axios from 'axios';
 import {mount, RouterLinkStub} from "@vue/test-utils";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
+
+jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 jest.mock('vue-router', () => {
     return {
@@ -22,6 +26,12 @@ const mountGlobal = {
 };
 
 describe('CoworkersOld Update', () => {
+    beforeEach(() => {
+        mockedAxios.get.mockResolvedValue({
+            data: {}
+        });
+    })
+
     it('is an HTML tag div', () => {
         const wrapper = mount(CoworkersUpdate, {
             global: mountGlobal

@@ -1,5 +1,9 @@
+import axios from 'axios';
 import {mount, RouterLinkStub} from "@vue/test-utils";
 import TeamsUpdate from "@/pages/Teams/TeamsUpdate.vue";
+
+jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 jest.mock('vue-router', () => {
     return {
@@ -24,6 +28,12 @@ const options = {
 };
 
 describe('Teams Update', () => {
+    beforeEach(() => {
+        mockedAxios.get.mockResolvedValue({
+            data: {}
+        });
+    })
+
     it('is an HTML tag div', () => {
         const wrapper = mount(TeamsUpdate, options);
 
