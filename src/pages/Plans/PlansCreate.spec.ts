@@ -1,8 +1,18 @@
 import {mount, RouterLinkStub} from "@vue/test-utils";
 import PlansCreate from "@/pages/Plans/PlansCreate.vue";
+import {createStore} from "vuex";
 
 const options = {
     global: {
+        provide: {
+            store: createStore({
+                state: {
+                    auth: {
+                        user: {}
+                    }
+                }
+            })
+        },
         stubs: {
             RouterLink: RouterLinkStub
         }

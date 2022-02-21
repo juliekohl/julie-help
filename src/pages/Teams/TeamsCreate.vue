@@ -19,7 +19,7 @@
       <Field
           class="teams-create__input"
           name="coworking_id"
-          :value="1"
+          :value="currentUser.coworking_id"
           type="hidden"
       />
 
@@ -78,22 +78,31 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {computed, defineComponent} from "vue";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'TeamsCreate',
   components: {ButtonUnit, Field, Form, ErrorMessage},
   data() {
+    const store = useStore();
+
+    const currentUser: {} = computed((): void => {
+      return store.state.auth.user;
+    });
+
     const schema = yup.object({
       name: yup.string().required().label('Name'),
       email: yup.string().required().email().label('Email'),
       password: yup.string().required().min(8).label('Password'),
     });
+
     return {
+      currentUser,
       schema,
     };
   },

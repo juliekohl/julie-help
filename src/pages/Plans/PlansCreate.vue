@@ -18,7 +18,7 @@
       <Field
           class="plans-create__input"
           name="office_id"
-          :value="1"
+          :value="currentUser.coworking_id"
           type="hidden"
       />
 
@@ -57,11 +57,12 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {computed, defineComponent} from "vue";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import axios from "axios";
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'PlansCreate',
@@ -72,11 +73,19 @@ export default defineComponent({
     ErrorMessage
   },
   data() {
+    const store = useStore();
+
+    const currentUser: {} = computed((): void => {
+      return store.state.auth.user;
+    });
+
     const schema = yup.object({
       name: yup.string().required().label('Name'),
       value: yup.number().required().label('Value'),
     });
+
     return {
+      currentUser,
       schema,
     };
   },
