@@ -94,7 +94,7 @@ export default defineComponent({
   data() {
     const schema = yup.object({
       name: yup.string().required().label('Name'),
-      password: yup.string().required().min(8).label('Password'),
+      password: yup.string().min(8).label('Password'),
     });
     return {
       schema,
@@ -103,7 +103,7 @@ export default defineComponent({
   methods: {
     onSubmit(values: any) {
       axios.post(`${process.env.VUE_APP_BACKEND_URL}/teams/${this.id}`, values);
-      this.$router.push({ name: 'TeamsShowAll' });
+      this.$router.push({ name: 'TeamsShowAll' })
     },
     handleDelete(): void {
       if (confirm("Do you want to delete?")) {
