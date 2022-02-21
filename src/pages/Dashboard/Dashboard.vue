@@ -8,31 +8,32 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted} from "vue";
+import {computed, defineComponent, onMounted, ref} from "vue";
 import c3 from 'c3';
 import {useStore} from "vuex";
+import axios from "axios";
 
 export default defineComponent( {
   name: 'Dashboard',
   setup() {
     const store = useStore();
+    const coworkersChart = ref([]);
 
-    const currentUser: {} = computed((): void => {
+    const currentUser: any = computed((): void => {
       return store.state.auth.user;
     });
 
-    const initChart = ():void => {
+    const initChart = (dates, amounts) :void => {
+      dates.unshift('x');
+      amounts.unshift('New Coworkers');
+
       c3.generate({
         data: {
           x: 'x',
-//        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
           columns: [
-            ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-            ['data1', 30, 200, 100, 400, 150, 250],
-            ['data2', 130, 340, 200, 500, 250, 350],
-            ['data3', 230, 480, 300, 600, 350, 450]
-          ]
+            dates,
+            amounts,
+          ],
         },
         axis: {
           x: {
@@ -45,12 +46,14 @@ export default defineComponent( {
       })
     };
 
-    onMounted(() => {
-      initChart();
+    onMounted(async () => {
+      const res: any = await axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers/chart/${currentUser.value.coworking_id}`);
+      initChart(res.data?.dates, res.data?.amounts);
     })
 
     return {
       currentUser,
+      coworkersChart,
     }
   }
 })
