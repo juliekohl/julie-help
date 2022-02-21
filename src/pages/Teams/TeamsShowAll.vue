@@ -11,8 +11,9 @@
 
 <script lang="ts">
 import ShowAll from "@/components/templates/ShowAll/ShowAll.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import axios from "axios";
+import {useStore} from "vuex";
 
 export default {
   name: 'TeamsShowAll',
@@ -21,9 +22,13 @@ export default {
   },
   setup() {
     const all: any = ref([]);
-    // const teamId = localStorage.getItem('teamId');
+    const store = useStore();
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams?team_id=1`)
+    const currentUser: any = computed((): void => {
+      return store.state.auth.user;
+    });
+
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/teams?coworking_id=${currentUser.value.coworking_id}`)
         .then(response => {
           all.value = response.data;
         })
