@@ -1,7 +1,11 @@
 <template>
   <nav class="menu" v-if="currentUser">
     <div class="menu__header">
-      <h1 class="menu__header-heading">Julie.help!</h1>
+      <h1 class="menu__header-heading">
+        <router-link :to="{ name: 'Dashboard' }">
+          Julie.help!
+        </router-link>
+      </h1>
       <div
           :class="[
               'menu__header-burger',
@@ -148,11 +152,14 @@ export default defineComponent({
     &-heading {
       padding: 25rem 20rem;
       line-height: 30rem;
-      color:var(--color-secondary-40);
       font-weight: 600;
 
       @include media('>=1024') {
         margin: 10rem 0 0 10rem;
+      }
+
+      a {
+        color:var(--color-secondary-40);
       }
     }
 
