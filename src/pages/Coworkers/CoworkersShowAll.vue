@@ -10,9 +10,10 @@
 </template>
 
 <script lang="ts">
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import ShowAll from "@/components/templates/ShowAll/ShowAll.vue";
 import axios from "axios";
+import {useStore} from "vuex";
 
 export default {
   name: 'CoworkersShowAll',
@@ -21,9 +22,13 @@ export default {
   },
   setup() {
     const all: any = ref([]);
-    // const coworkerId = localStorage.getItem('coworkerId');
+    const store = useStore();
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworker_id=1`)
+    const currentUser: any = computed((): void => {
+      return store.state.auth.user;
+    });
+
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers?coworking_id=${currentUser.value.coworking_id}`)
         .then(response => {
           all.value = response.data;
         })
