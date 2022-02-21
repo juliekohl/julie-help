@@ -87,12 +87,13 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {computed, defineComponent, ref} from "vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'CoworkersUpdate',
@@ -103,6 +104,12 @@ export default defineComponent({
     const coworker: any = ref({id, name: '', password: '', email: ''});
     const plans: any = ref([]);
 
+    const store = useStore();
+
+    const currentUser: any = computed((): void => {
+      return store.state.auth.user;
+    });
+
     axios.get(`${process.env.VUE_APP_BACKEND_URL}/coworkers/${id}`)
         .then(response => {
           coworker.value = response.data;
@@ -111,7 +118,7 @@ export default defineComponent({
           console.log(error.response);
         });
 
-    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/?plan_id=${id}`)
+    axios.get(`${process.env.VUE_APP_BACKEND_URL}/plans/?coworking_id=${currentUser.value.coworking_id}`)
         .then(response => {
           plans.value = response.data;
         })
