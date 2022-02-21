@@ -138,16 +138,6 @@ const routes = [
         name: 'PlansUpdate',
         component: PlansUpdate
     },
-
-    /**
-     * Coworkings
-     */
-
-    {
-        path: '/coworkings/:id/edit',
-        name: 'CoworkingsUpdate',
-        component: CoworkingsUpdate
-    },
 ]
 
 const index = createRouter({

@@ -14,7 +14,8 @@ class AuthService {
         if (response.data.message === 'Success') {
             localStorage.setItem('user', JSON.stringify({
                     id: response.data.id,
-                    name: response.data.name
+                    name: response.data.name,
+                    coworking_id: response.data.coworking_id
                 })
             );
 

@@ -19,7 +19,7 @@
       <Field
           class="offices-create__input"
           name="coworking_id"
-          :value="1"
+          :value="currentUser.coworking_id"
           type="hidden"
       />
 
@@ -50,6 +50,7 @@
           class="offices-create__input"
           as="select"
           name="officestype_id"
+          id="type"
       >
         <option></option>
         <option
@@ -67,11 +68,12 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {computed, defineComponent, ref} from "vue";
 import {ErrorMessage, Field, Form} from "vee-validate";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
 import * as yup from "yup";
 import axios from "axios";
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'OfficesCreate',
@@ -94,12 +96,19 @@ export default defineComponent({
     }
   },
   data() {
+    const store = useStore();
+
+    const currentUser: {} = computed((): void => {
+      return store.state.auth.user;
+    });
+
     const schema = yup.object({
       name: yup.string().required().label('Name'),
       officestype_id: yup.string().required().label('Type'),
     });
 
     return {
+      currentUser,
       schema,
     };
   },
