@@ -1,12 +1,41 @@
-import {mount} from "@vue/test-utils";
-import Login from "@/components/templates/Login/Login.vue";
+import {mount, RouterLinkStub} from "@vue/test-utils";
+import Login from "./Login";
+
+const options = {
+    global: {
+        stubs: {
+            RouterLink: RouterLinkStub
+        },
+        mocks: {
+            $store: {
+                state: {
+                    auth: {
+                        status: {
+                            loggedIn: true
+                        }
+                    }
+                }
+            },
+            $router: {
+                push: jest.fn(),
+            }
+        }
+    },
+};
 
 describe('Login', () => {
-    it('sanity', () => {
-        const wrapper = mount(Login);
-    });
+    it('redirects to login given incorrect email and password', async () => {
+        const wrapper = mount(Login, options);
 
-    it('redirects to dashboard given correct email and password', () => {})
+        const inputEmail = wrapper.find('[name="email"]');
+        await inputEmail.setValue('wrong-test@test.com');
 
-    it('redirects to login given incorrect email and password', () => {})
+        const inputPassword = wrapper.find('[name="password"]');
+        await inputPassword.setValue('wrong-secret');
+
+        const button = wrapper.find('[type="submit"]');
+        await button.trigger('click');
+
+        expect(window.location.href).toEqual('http://localhost/')
+    })
 })
