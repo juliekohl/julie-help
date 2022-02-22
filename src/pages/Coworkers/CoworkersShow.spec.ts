@@ -1,7 +1,6 @@
 import {flushPromises, mount, RouterLinkStub} from "@vue/test-utils";
 import CoworkersShow from "@/pages/Coworkers/CoworkersShow.vue";
 import axios from "axios";
-import {nextTick} from "vue";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({
