@@ -1,22 +1,22 @@
-import ButtonUnit from "./ButtonUni.vue";
+import ButtonUnit from "./ButtonUnit.vue";
 
 export default {
     title: 'Example/ButtonUnit',
     component: ButtonUnit,
     args: {
-        label: 'Button',
+      label: 'My Button',
     },
     argTypes: {
         to: {
-            type: { name: 'string', required: false, params: {} },
+            type: { type: 'object', required: false, name: 'string', params: {} },
         },
         color: {
-            type: { name: 'string', required: true, default: 'black' },
-            options: ['purple', 'black', 'gray'],
+            type: { type: 'string', required: true, default: null },
+            options: ['purple', 'red', 'gray'],
             control: 'radio'
         },
         type: {
-            type: { name: 'string', required: true, default: 'button' },
+            type: { type: 'string', required: true, default: 'button' },
             options: ['button', 'submit', 'reset'],
             control: 'radio',
         },
@@ -28,5 +28,5 @@ export const Default = (args) => ({
     setup() {
         return { args };
     },
-    template: '<ButtonUnit v-bind="args" />',
+    template: '<button-unit v-bind="args">My Button</button-unit>',
 });
