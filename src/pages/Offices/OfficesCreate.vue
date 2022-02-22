@@ -43,6 +43,7 @@
       <label
           class="offices-create__label"
           for="type"
+          id="type"
       >
         Type
       </label>
