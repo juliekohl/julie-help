@@ -4,7 +4,10 @@ export default {
     title: 'Example/ButtonUnit',
     component: ButtonUnit,
     args: {
-      label: 'My Button',
+        label: 'My Button',
+        to: { name: 'teams' },
+        color: 'purple',
+        type: 'button',
     },
     argTypes: {
         to: {
