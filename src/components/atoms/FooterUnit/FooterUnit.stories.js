@@ -1,5 +1,4 @@
 import FooterUnit from "./FooterUnit.vue";
-import "../../../assets/scss/index.scss";
 
 export default {
   title: 'Example/FooterUnit',
@@ -15,5 +14,5 @@ export const Default = (args) => ({
   setup() {
     return { args };
   },
-  template: '<ButtonUnit v-bind="args" />',
+  template: '<footer-unit v-bind="args" />',
 });
