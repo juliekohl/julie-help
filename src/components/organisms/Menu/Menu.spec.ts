@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import Menu from "@/components/organisms/Menu/Menu.vue";
-import {mountOptions as options} from "../../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({

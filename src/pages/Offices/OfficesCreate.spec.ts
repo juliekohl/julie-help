@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import OfficesCreate from "@/pages/Offices/OfficesCreate.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 describe('New Offices', () => {
     it('is an HTML tag div', () => {

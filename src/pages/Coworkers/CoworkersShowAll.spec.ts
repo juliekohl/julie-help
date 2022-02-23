@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import CoworkersShowAll from "@/pages/Coworkers/CoworkersShowAll.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({

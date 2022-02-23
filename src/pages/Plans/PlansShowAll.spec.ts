@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import PlansShowAll from "@/pages/Plans/PlansShowAll.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({

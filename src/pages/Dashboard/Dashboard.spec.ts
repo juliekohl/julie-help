@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import Dashboard from "./Dashboard";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 jest.mock("c3", () => {
     return {

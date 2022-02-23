@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {mount} from "@vue/test-utils";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;

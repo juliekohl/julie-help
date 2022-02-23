@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import CoworkersCreate from "@/pages/Coworkers/CoworkersCreate.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 describe('New Coworkers', () => {
     it('is an HTML tag div', () => {
