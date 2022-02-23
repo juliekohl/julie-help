@@ -1,29 +1,12 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import PlansShowAll from "@/pages/Plans/PlansShowAll.vue";
-import {createStore} from "vuex";
+import {mountOptions as options} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({
         push: jest.fn(),
     }),
 }));
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
 
 describe('PlansShowAll', () => {
     it('is an HTML tag div', () => {

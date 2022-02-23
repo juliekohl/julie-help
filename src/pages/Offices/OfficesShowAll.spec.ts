@@ -1,30 +1,12 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import OfficesShowAll from "@/pages/Offices/OfficesShowAll.vue";
-import {createStore} from "vuex";
+import {mountOptions as options} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({
         push: jest.fn(),
     }),
 }));
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
-
 
 describe('OfficesShowAll', () => {
     it('is an HTML tag div', () => {
