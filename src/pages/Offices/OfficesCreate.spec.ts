@@ -1,23 +1,6 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import OfficesCreate from "@/pages/Offices/OfficesCreate.vue";
-import {createStore} from "vuex";
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
+import {mountOptions as options} from "../../../tests/helpers";
 
 describe('New Offices', () => {
     it('is an HTML tag div', () => {

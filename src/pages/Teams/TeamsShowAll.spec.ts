@@ -1,29 +1,12 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import TeamsShowAll from "@/pages/Teams/TeamsShowAll.vue";
-import {createStore} from "vuex";
+import {mountOptions as options} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({
         push: jest.fn(),
     }),
 }));
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
 
 describe('TeamsShowAll', () => {
     it('is an HTML tag div', () => {

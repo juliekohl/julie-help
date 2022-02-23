@@ -1,7 +1,7 @@
 import axios from 'axios';
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import CoworkersUpdate from "@/pages/Coworkers/CoworkersUpdate.vue";
-import {createStore} from "vuex";
+import {mountOptions as options} from "../../../tests/helpers";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -19,23 +19,6 @@ jest.mock('vue-router', () => {
         }))
     };
 });
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
 
 describe('CoworkersOld Update', () => {
     beforeEach(() => {
