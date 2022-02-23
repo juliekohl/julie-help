@@ -5,16 +5,12 @@ export default {
     component: ButtonUnit,
     args: {
         label: 'My Button',
-        to: { name: 'teams' },
         color: 'purple',
         type: 'button',
     },
     argTypes: {
-        to: {
-            type: { type: 'object', required: false, name: 'string', params: {} },
-        },
         color: {
-            type: { type: 'string', required: true, default: null },
+            type: { type: 'string', required: true, default: 'purple' },
             options: ['purple', 'red', 'gray'],
             control: 'radio'
         },
