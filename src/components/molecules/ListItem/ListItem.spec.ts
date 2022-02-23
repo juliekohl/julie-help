@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import ListItem from "@/components/molecules/ListItem/ListItem.vue";
-import {mountOptionsGlobal} from "../../../../tests/helpers";
+import {mountOptionsGlobal as global} from "../../../../tests/helpers";
 
 const propsDefault = {
     item: {
@@ -17,7 +17,7 @@ describe('ListItem', () => {
     it('is an HTML tag li ', () => {
         const wrapper = mount(ListItem, {
             props: propsDefault,
-            global: mountOptionsGlobal
+            global
         });
         const li = wrapper.find('li.list-item');
 
@@ -27,7 +27,7 @@ describe('ListItem', () => {
     it('is an HTML tag span subitem', () => {
         const wrapper = mount(ListItem, {
             props: propsDefault,
-            global: mountOptionsGlobal
+            global
         });
         const subItem = wrapper.find('span.list-item__subitem');
 
