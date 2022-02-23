@@ -1,6 +1,6 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import Dashboard from "./Dashboard";
-import {createStore} from "vuex";
+import {mountOptions as options} from "../../../tests/helpers";
 
 jest.mock("c3", () => {
     return {
@@ -15,25 +15,6 @@ jest.mock('vue-router', () => ({
         push: jest.fn(),
     }),
 }));
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {
-                            name: 'New User'
-                        }
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
 
 describe('Dashboard', () => {
     it('shows up currentUser name', () => {

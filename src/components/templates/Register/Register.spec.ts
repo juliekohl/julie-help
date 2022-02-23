@@ -1,27 +1,6 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import Register from "@/components/templates/Register/Register.vue";
-
-const options = {
-    global: {
-        stubs: {
-            RouterLink: RouterLinkStub
-        },
-        mocks: {
-            $store: {
-                state: {
-                    auth: {
-                        status: {
-                            loggedIn: true
-                        }
-                    }
-                }
-            },
-            $router: {
-                push: jest.fn(),
-            }
-        }
-    },
-};
+import {mountOptionsGlobalWithMocks as options} from "../../../../tests/helpers";
 
 describe('Register', () => {
     it('redirects to login if register is successful', async () => {

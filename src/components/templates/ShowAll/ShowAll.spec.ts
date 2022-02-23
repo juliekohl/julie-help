@@ -1,16 +1,11 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import ShowAll from "@/components/templates/ShowAll/ShowAll.vue";
-
-const mountGlobal = {
-    stubs: {
-        RouterLink: RouterLinkStub
-    }
-};
+import {mountOptionsGlobal} from "../../../../tests/helpers";
 
 describe('ShowAll', () => {
     it('shows up title and createButtonText', () => {
         const wrapper = mount(ShowAll, {
-            global: mountGlobal,
+            global: mountOptionsGlobal,
             props: {
                 title: 'This Title',
                 createButtonText: 'Add new Button text'
