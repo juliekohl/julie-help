@@ -1,16 +1,11 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import Show from "@/components/templates/Show/Show.vue";
-
-const mountGlobal = {
-    stubs: {
-        RouterLink: RouterLinkStub
-    }
-};
+import {mountOptionsGlobal} from "../../../../tests/helpers";
 
 describe('Show', () => {
     it('show up title and extraTitle', () => {
         const wrapper = mount(Show, {
-            global: mountGlobal,
+            global: mountOptionsGlobal,
             props: {
                 title: 'This Title',
                 extraTitle: 'This Extra Title',

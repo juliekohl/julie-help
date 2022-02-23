@@ -1,27 +1,6 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import Login from "./Login";
-
-const options = {
-    global: {
-        stubs: {
-            RouterLink: RouterLinkStub
-        },
-        mocks: {
-            $store: {
-                state: {
-                    auth: {
-                        status: {
-                            loggedIn: true
-                        }
-                    }
-                }
-            },
-            $router: {
-                push: jest.fn(),
-            }
-        }
-    },
-};
+import {mountOptionsGlobalWithMocks as options} from "../../../../tests/helpers";
 
 describe('Login', () => {
     it('redirects to login given incorrect email and password', async () => {

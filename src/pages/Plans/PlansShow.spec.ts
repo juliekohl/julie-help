@@ -1,6 +1,7 @@
-import {flushPromises, mount, RouterLinkStub} from "@vue/test-utils";
+import {flushPromises, mount} from "@vue/test-utils";
 import PlansShow from "@/pages/Plans/PlansShow.vue";
 import axios from "axios";
+import {mountOptionsGlobal as global} from "../../../tests/helpers";
 
 jest.mock('vue-router', () => ({
     useRouter: () => ({
@@ -18,14 +19,6 @@ jest.mock('vue-router', () => ({
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-const options = {
-    global: {
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
-
 describe('PlansShow', () => {
     it('converts GET request into an object', async () => {
         const data = {
@@ -38,12 +31,11 @@ describe('PlansShow', () => {
             data
         });
 
-        const wrapper = mount(PlansShow, options);
+        const wrapper = mount(PlansShow, {global});
 
         await flushPromises();
 
         expect(wrapper.vm.plan).toMatchObject(data);
         expect(wrapper.vm.planCoworkers).toMatchObject(data);
-
     })
 })
