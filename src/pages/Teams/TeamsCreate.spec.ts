@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 describe('New Teams', () => {
     it('is an HTML tag div', () => {

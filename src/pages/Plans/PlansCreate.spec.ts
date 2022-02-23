@@ -1,6 +1,6 @@
 import {mount} from "@vue/test-utils";
 import PlansCreate from "@/pages/Plans/PlansCreate.vue";
-import {mountOptions as options} from "../../../tests/helpers";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 describe('New Plans', () => {
     it('is an HTML tag div', () => {

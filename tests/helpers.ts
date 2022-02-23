@@ -7,7 +7,7 @@ export const mountOptionsGlobal = {
     }
 };
 
-export const mountOptions = {
+export const mountOptionsWithProvide = {
     global: {
         stubs: {
             RouterLink: RouterLinkStub
