@@ -1,23 +1,6 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import TeamsCreate from "@/pages/Teams/TeamsCreate.vue";
-import {createStore} from "vuex";
-
-const options = {
-    global: {
-        provide: {
-            store: createStore({
-                state: {
-                    auth: {
-                        user: {}
-                    }
-                }
-            })
-        },
-        stubs: {
-            RouterLink: RouterLinkStub
-        }
-    }
-};
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
 describe('New Teams', () => {
     it('is an HTML tag div', () => {

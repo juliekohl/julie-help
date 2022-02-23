@@ -1,17 +1,16 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import CoworkersShowAll from "@/pages/Coworkers/CoworkersShowAll.vue";
+import {mountOptionsWithProvide as options} from "../../../tests/helpers";
 
-const mountGlobal = {
-    stubs: {
-        RouterLink: RouterLinkStub
-    }
-};
+jest.mock('vue-router', () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+    }),
+}));
 
 describe('CoworkersShowAll', () => {
     it('is an HTML tag div', () => {
-        const wrapper = mount(CoworkersShowAll, {
-            global: mountGlobal
-        });
+        const wrapper = mount(CoworkersShowAll, options);
 
         const coworkers = wrapper.find('div.show-all');
         expect(coworkers.exists()).toBe(true);

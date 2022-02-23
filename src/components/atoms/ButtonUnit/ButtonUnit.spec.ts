@@ -1,17 +1,10 @@
-import {mount, RouterLinkStub} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import ButtonUnit from "@/components/atoms/ButtonUnit/ButtonUnit.vue";
-
-const mountGlobal = {
-    stubs: {
-        RouterLink: RouterLinkStub
-    }
-};
+import {mountOptionsGlobal as global} from "../../../../tests/helpers";
 
 describe('ButtonUnit', () => {
     it('is an HTML tag button given a nullable prop to', () => {
-        const wrapper = mount(ButtonUnit, {
-            global: mountGlobal
-        });
+        const wrapper = mount(ButtonUnit, { global });
         const buttonUnit = wrapper.find('button.button-unit');
 
         expect(buttonUnit.exists()).toBe(true);
@@ -24,7 +17,7 @@ describe('ButtonUnit', () => {
                    name: 'Test'
                },
            },
-           global: mountGlobal
+           global
        });
        const anchor = wrapper.find('a.button-unit');
 
