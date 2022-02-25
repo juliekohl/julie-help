@@ -1,6 +1,6 @@
 ## julie-help-frontend
 
-# Julie.help! - Frontend![image](https://user-images.githubusercontent.com/64810972/155802758-f167b7c7-4a4e-435d-98b2-1f5f0c40876f.png)
+# Julie.help!
 
 
 Hey There!
