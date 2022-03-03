@@ -58,3 +58,10 @@ npm run lint
 https://621664a7961531003ab6b7d3-cupullqnvv.chromatic.com/?path=/story/example-introduction--page 
 
 https://www.chromatic.com/build?appId=621664a7961531003ab6b7d3&number=2
+
+### Links
+
+Back-end repository: https://github.com/juliekohl/julie-help-backend
+
+Video demo: https://www.youtube.com/watch?v=xioKcfLxMdA
+
