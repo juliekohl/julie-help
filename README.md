@@ -1,6 +1,4 @@
-## julie-help-frontend
-
-# Julie.help!
+# Julie.help! - Frontend
 
 Hey there!
 
