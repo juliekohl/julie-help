@@ -53,13 +53,9 @@ npm run build
 npm run lint
 ```
 
-## Storybook
-
-https://621664a7961531003ab6b7d3-cupullqnvv.chromatic.com/?path=/story/example-introduction--page 
-
-https://www.chromatic.com/build?appId=621664a7961531003ab6b7d3&number=2
-
 ### Links
+
+Storybook: https://621664a7961531003ab6b7d3-cupullqnvv.chromatic.com/?path=/story/example-introduction--page 
 
 Back-end repository: https://github.com/juliekohl/julie-help-backend
 
