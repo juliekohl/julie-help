@@ -63,7 +63,7 @@ https://621664a7961531003ab6b7d3-cupullqnvv.chromatic.com/?path=/story/example-i
 https://www.chromatic.com/build?appId=621664a7961531003ab6b7d3&number=2
 
 
-## Author and acknowledgment
+## About me
 
 Since 2020 developing websites and systems using JavaScript. Currently in Brazil.
 
