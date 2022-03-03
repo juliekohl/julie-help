@@ -31,7 +31,7 @@ I hope you enjoy the experience!
 
 JavaScript, Typescript, Vue.JS, SCSS, Axios,  Vuex, Vee-validate, Yup, Vue-router,  Faker.JS, C3.chart, Numeral.JS, Storybook, Chromatic, and Jest.
 
-It's using BEM basics when defining your CSS Design Patterns;
+It's using BEM basics when defining your CSS Design Patterns.
 
 ## Installation
 
