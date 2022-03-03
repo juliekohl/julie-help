@@ -2,8 +2,7 @@
 
 # Julie.help!
 
-
-Hey There!
+Hey there!
 
 Welcome to Julie.help!
 
